@@ -1,0 +1,363 @@
+# Switch Waste Management Solutions - Performance Optimization
+# Apache Configuration for Enhanced Performance & Security
+
+# =====================================================
+# PERFORMANCE OPTIMIZATIONS
+# =====================================================
+
+# Enable compression for better performance
+<IfModule mod_deflate.c>
+    # Compress HTML, CSS, JavaScript, Text, XML and fonts
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE application/x-font
+    AddOutputFilterByType DEFLATE application/x-font-opentype
+    AddOutputFilterByType DEFLATE application/x-font-otf
+    AddOutputFilterByType DEFLATE application/x-font-truetype
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/otf
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE image/x-icon
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+
+    # Remove browser bugs (only needed for really old browsers)
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    Header append Vary User-Agent
+</IfModule>
+
+# =====================================================
+# BROWSER CACHING
+# =====================================================
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Images
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # Video
+    ExpiresByType video/mp4 "access plus 1 year"
+    ExpiresByType video/mpeg "access plus 1 year"
+    
+    # CSS, JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # Fonts
+    ExpiresByType application/x-font-ttf "access plus 1 year"
+    ExpiresByType font/opentype "access plus 1 year"
+    ExpiresByType application/x-font-woff "access plus 1 year"
+    ExpiresByType application/x-font-woff2 "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    
+    # HTML
+    ExpiresByType text/html "access plus 1 hour"
+    
+    # Data
+    ExpiresByType application/json "access plus 0 seconds"
+    ExpiresByType application/xml "access plus 0 seconds"
+    ExpiresByType text/xml "access plus 0 seconds"
+    
+    # Default
+    ExpiresDefault "access plus 1 month"
+</IfModule>
+
+# =====================================================
+# CACHE CONTROL HEADERS
+# =====================================================
+
+<IfModule mod_headers.c>
+    # 1 Year for most static assets
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">
+        Header set Cache-Control "max-age=31536000, public, immutable"
+    </FilesMatch>
+    
+    # 1 Month for HTML
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "max-age=3600, public, must-revalidate"
+    </FilesMatch>
+    
+    # No cache for dynamic content
+    <FilesMatch "\.(php|json|xml)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires 0
+    </FilesMatch>
+</IfModule>
+
+# =====================================================
+# SECURITY HEADERS
+# =====================================================
+
+<IfModule mod_headers.c>
+    # Content Security Policy - Enhanced
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data: blob: https: *.google-analytics.com *.googletagmanager.com; font-src 'self' data: https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+    
+    # X-Frame-Options
+    Header always set X-Frame-Options DENY
+    
+    # X-Content-Type-Options
+    Header always set X-Content-Type-Options nosniff
+    
+    # X-XSS-Protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissions Policy - Enhanced
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), ambient-light-sensor=()"
+    
+    # Cross-Origin Policies
+    Header always set Cross-Origin-Embedder-Policy "require-corp"
+    Header always set Cross-Origin-Opener-Policy "same-origin"
+    Header always set Cross-Origin-Resource-Policy "same-origin"
+    
+    # Strict Transport Security (Enable when HTTPS is available)
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # Expect-CT (Certificate Transparency)
+    # Header always set Expect-CT "max-age=86400, enforce"
+    
+    # Feature Policy (Legacy support)
+    Header always set Feature-Policy "camera 'none'; microphone 'none'; geolocation 'none'"
+    
+    # Remove sensitive headers
+    Header always unset Server
+    Header always unset X-Powered-By
+    Header always unset X-CF-Powered-By
+    Header always unset X-Mod-Pagespeed
+    Header always unset X-Pingback
+</IfModule>
+
+# =====================================================
+# ADVANCED SECURITY CONFIGURATIONS
+# =====================================================
+
+# Prevent access to sensitive files and directories
+<FilesMatch "^(\.htaccess|\.htpasswd|\.env|\.git|composer\.|package\.|yarn\.|gulpfile|webpack|\.sql|\.log|\.bak|config\.php)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block suspicious request methods
+<LimitExcept GET POST HEAD>
+    Order allow,deny
+    Deny from all
+</LimitExcept>
+
+# Block common exploit attempts
+<IfModule mod_rewrite.c>
+    # Block SQL injection attempts
+    RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+    RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+    RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2}) [OR]
+    RewriteCond %{QUERY_STRING} ^.*(\[|\]|\(|\)|<|>|ê|"|;|\?|\*|=$).* [NC,OR]
+    RewriteCond %{QUERY_STRING} ^.*("|'|<|>|\||`).* [NC,OR]
+    RewriteCond %{QUERY_STRING} ^.*(%0|%A|%B|%C|%D|%E|%F|127\.0).* [NC,OR]
+    RewriteCond %{QUERY_STRING} ^.*(globals|encode|localhost|loopback).* [NC,OR]
+    RewriteCond %{QUERY_STRING} ^.*(request|select|insert|union|declare).* [NC]
+    RewriteRule ^(.*)$ - [F,L]
+    
+    # Block common attack patterns in User-Agent
+    RewriteCond %{HTTP_USER_AGENT} ^$ [OR]
+    RewriteCond %{HTTP_USER_AGENT} ^(java|curl|wget) [NC,OR]
+    RewriteCond %{HTTP_USER_AGENT} (libwww-perl|python|nikto|scan|clshttp|archiver|loader|email|harvest|extract|grab|miner) [NC]
+    RewriteRule ^(.*)$ - [F,L]
+    
+    # Block suspicious referrers
+    RewriteCond %{HTTP_REFERER} (semalt|kambasoft|savetubevideo|buttons-for-website|Make-Money|-free-|social-buttons) [NC]
+    RewriteRule ^(.*)$ - [F,L]
+    
+    # Prevent hotlinking
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?switchwaste\.co\.za [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?google\. [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?bing\. [NC]
+    RewriteRule \.(jpg|jpeg|png|gif|svg|webp|ico|pdf|zip|rar|exe|flv|mov|wma|mp3|avi|wmv|mp4)$ - [F]
+    
+    # Block access to sensitive directories
+    RewriteRule ^(logs|tmp|temp|cache|includes|config|backup)(/.*)?$ - [F,L]
+    
+    # Prevent PHP execution in uploads directory
+    RewriteRule ^uploads/.*\.php$ - [F,L]
+</IfModule>
+
+# IP-based security (add specific IPs as needed)
+<RequireAll>
+    Require all granted
+    # Deny malicious IPs (add as discovered)
+    # Require not ip 192.168.1.1
+    # Require not ip 10.0.0.0/8
+</RequireAll>
+
+# =====================================================
+# PERFORMANCE OPTIMIZATIONS
+# =====================================================
+
+# Enable KeepAlive
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
+
+# Remove ETags
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+FileETag None
+
+# =====================================================
+# REDIRECTS AND REWRITES
+# =====================================================
+
+RewriteEngine On
+
+# Force HTTPS (uncomment when SSL is available)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove trailing slashes
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} /(.+)/$
+RewriteRule ^ /%1 [R=301,L]
+
+# Add trailing slash to directories
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^ %{REQUEST_URI}/ [R=301,L]
+
+# Handle missing images gracefully
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule \.(gif|jpe?g|png|webp|svg)$ /images/placeholder.png [L]
+
+# =====================================================
+# MIME TYPES
+# =====================================================
+
+<IfModule mod_mime.c>
+    # Web fonts
+    AddType application/font-woff2 .woff2
+    AddType application/font-woff .woff
+    AddType application/vnd.ms-fontobject .eot
+    AddType font/opentype .otf
+    AddType application/x-font-ttf .ttf
+    
+    # Web app manifest
+    AddType application/manifest+json .webmanifest
+    AddType application/json .json
+    
+    # Web videos
+    AddType video/mp4 .mp4
+    AddType video/webm .webm
+    
+    # SVG
+    AddType image/svg+xml .svg .svgz
+    
+    # JavaScript modules
+    AddType text/javascript .mjs
+    
+    # WebP images
+    AddType image/webp .webp
+</IfModule>
+
+# =====================================================
+# ERROR PAGES
+# =====================================================
+
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+ErrorDocument 503 /503.html
+
+# =====================================================
+# BLOCK UNWANTED ACCESS
+# =====================================================
+
+# Block access to sensitive files
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block access to backup and config files
+<FilesMatch "\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block access to PHP files in uploads directory
+<FilesMatch "\.php$">
+    <IfModule mod_rewrite.c>
+        RewriteEngine On
+        RewriteCond %{REQUEST_URI} ^.*/uploads/.*$
+        RewriteRule . - [F,L]
+    </IfModule>
+</FilesMatch>
+
+# =====================================================
+# PRELOAD CRITICAL RESOURCES
+# =====================================================
+
+<IfModule mod_headers.c>
+    # Preload critical CSS
+    <FilesMatch "index\.html$">
+        Header add Link "</css/styles.css>; rel=preload; as=style"
+        Header add Link "</js/main.js>; rel=preload; as=script"
+        Header add Link "</images/logo.png>; rel=preload; as=image"
+    </FilesMatch>
+</IfModule>
+
+# =====================================================
+# SERVER SIGNATURE
+# =====================================================
+
+ServerSignature Off
+
+# =====================================================
+# DISABLE SERVER INFO
+# =====================================================
+
+<IfModule mod_headers.c>
+    Header always unset Server
+    Header always unset X-Powered-By
+    Header always unset X-CF-Powered-By
+    Header always unset X-Generator
+</IfModule>
+
+# =====================================================
+# RATE LIMITING & DDOS PROTECTION
+# =====================================================
+
+# Basic rate limiting using mod_reqtimeout (if available)
+<IfModule mod_reqtimeout.c>
+    RequestReadTimeout header=20-40,MinRate=500 body=20,MinRate=500
+</IfModule>
+
+# Limit file upload size
+LimitRequestBody 10485760
+
+# Limit request line size
+LimitRequestLine 4094
+
+# Limit number of request fields
+LimitRequestFields 100
+
+# Limit request field size
+LimitRequestFieldSize 4094
