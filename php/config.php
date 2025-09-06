@@ -88,18 +88,45 @@ function validatePhoneNumber($phone) {
     return false;
 }
 
+/**
+ * Formats a South African phone number into a readable format.
+ *
+ * Supports local 10-digit numbers (e.g., 0123456789 -> 012 345 6789)
+ * and international 11-digit numbers with country code (e.g., 27123456789 -> +27 123 456 789)
+ *
+ * @param string|null $phone The phone number to format
+ * @return string The formatted phone number or cleaned input if invalid
+ */
 function formatPhoneNumber($phone) {
-    $phone = preg_replace('/\D/', '', $phone);
-
-    if (strlen($phone) === 10) {
-        return substr($phone, 0, 3) . ' ' . substr($phone, 3, 3) . ' ' . substr($phone, 6);
-    } elseif (strlen($phone) === 10 && $phone[0] === '0') {
-        return substr($phone, 0, 3) . ' ' . substr($phone, 3, 3) . ' ' . substr($phone, 6);
-    } elseif (strlen($phone) === 11 && substr($phone, 0, 2) === '27') {
-        return '+27 ' . substr($phone, 2, 3) . ' ' . substr($phone, 5, 3) . ' ' . substr($phone, 8);
+    // Input validation
+    if ($phone === null) {
+        return '';
+    }
+    if (!is_string($phone)) {
+        error_log("formatPhoneNumber: Invalid input type: " . gettype($phone));
+        return '';
     }
 
-    return $phone;
+    // Clean the phone number
+    $cleaned = preg_replace('/\D/', '', $phone);
+
+    // Handle empty or invalid lengths
+    if (empty($cleaned)) {
+        return '';
+    }
+
+    $length = strlen($cleaned);
+
+    if ($length === 10) {
+        // Format local number: 012 345 6789
+        return substr($cleaned, 0, 3) . ' ' . substr($cleaned, 3, 3) . ' ' . substr($cleaned, 6);
+    } elseif ($length === 11 && substr($cleaned, 0, 2) === '27') {
+        // Format international number: +27 123 456 789
+        return '+27 ' . substr($cleaned, 2, 3) . ' ' . substr($cleaned, 5, 3) . ' ' . substr($cleaned, 8);
+    }
+
+    // Return cleaned number if no formatting applies
+    return $cleaned;
 }
 
 function sendEmail($to, $subject, $message, $isHTML = true) {

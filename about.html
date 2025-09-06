@@ -11,12 +11,13 @@
     <!-- Font Awesome Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
+    <link rel="stylesheet" href="css/styles.css">
     <style>
         /* CSS Variables */
         :root {
-            --primary-color: #0066cc;
-            --secondary-color: #0052a3;
-            --accent-color: #00a3cc;
+            --primary-color: #2c5530;
+            --secondary-color: #4a7c59;
+            --accent-color: #7fb069;
             --white: #ffffff;
             --light-gray: #f8f9fa;
             --medium-gray: #6c757d;
@@ -130,7 +131,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('assets/backgrounds/back.webp') center/cover;
+            background: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
             opacity: 0.1;
             z-index: -1;
         }
@@ -593,7 +594,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('assets/backgrounds/back2.jpg') center/cover;
+            background: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
             opacity: 0.1;
             z-index: -1;
         }
@@ -866,19 +867,19 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">
-                    <img src="assets/logo/switch_Pro_logo.png" alt="Switch Waste Solutions Logo" class="logo-image">
+                <div class="logo">
+                    <i class="fas fa-recycle"></i>
                     <span>Switch Waste Solutions</span>
-                </a>
-                <nav class="nav" id="nav" aria-label="Primary">
-                    <ul id="primary-menu" role="menubar">
+                </div>
+                <nav class="nav" id="nav">
+                    <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="about.html" class="active">About Us</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
-                <button class="mobile-menu" id="mobile-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle menu">
+                <button class="mobile-menu" id="mobile-menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -942,7 +943,7 @@
                         </div>
                     </div>
                     <div class="service-image">
-                        <img src="assets/services/medical-waste.jpg" alt="Environmental Impact and Sustainability" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1581093458791-9f3c3250a540?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Environmental Impact and Sustainability" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -1012,7 +1013,7 @@
                         </div>
                     </div>
                     <div class="service-image">
-                        <img src="assets/services/pharmaceutical-waste.jpg" alt="Professional Waste Management Equipment and Expertise" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Professional Waste Management Equipment and Expertise" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -1021,7 +1022,7 @@
             <div class="about-section scroll-animate">
                 <div class="service-content reverse">
                     <div class="service-image">
-                        <img src="assets/services/waste-collection.jpg" alt="Professional Team of Waste Management Experts" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Professional Team of Waste Management Experts" loading="lazy">
                     </div>
                     <div class="service-text">
                         <h2>Our Professional Team</h2>
@@ -1066,7 +1067,7 @@
                         </div>
                     </div>
                     <div class="service-image">
-                        <img src="assets/services/compliance-training.jpg" alt="Safety Equipment and Professional Training" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Safety Equipment and Professional Training" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -1243,9 +1244,9 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="assets/logo/switch_Pro_logo.png" alt="Switch Waste Solutions Logo" class="footer-logo-image">
-                        <h4>Switch Waste Solutions</h4>
+                    <div class="logo">
+                        <i class="fas fa-recycle"></i>
+                        <span>Switch Waste Solutions</span>
                     </div>
                     <p>Professional waste management services for healthcare and general waste needs in Johannesburg and surrounding areas.</p>
                     <div class="social-links">
@@ -1299,16 +1300,7 @@
         const nav = document.getElementById('nav');
 
         mobileMenu.addEventListener('click', () => {
-            const menuList = nav.querySelector('ul');
-            const isExpanded = mobileMenu.getAttribute('aria-expanded') === 'true';
-            mobileMenu.setAttribute('aria-expanded', (!isExpanded).toString());
-
-            if (menuList) {
-                menuList.classList.toggle('active', !isExpanded);
-            } else {
-                nav.classList.toggle('active', !isExpanded);
-            }
-
+            nav.classList.toggle('active');
             const icon = mobileMenu.querySelector('i');
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
@@ -1363,7 +1355,7 @@
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
             if (scrollTop > 100) {
-                header.style.background = 'rgba(0, 82, 163, 0.95)';
+                header.style.background = 'rgba(44, 85, 48, 0.95)';
                 header.style.backdropFilter = 'blur(10px)';
             } else {
                 header.style.background = 'linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%)';

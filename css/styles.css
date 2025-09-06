@@ -149,7 +149,7 @@ a:focus,
 a:focus-visible {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
-    background-color: rgba(0, 163, 204, 0.1);
+    background-color: rgba(127, 176, 105, 0.1);
     border-radius: 2px;
 }
 
@@ -160,7 +160,7 @@ select:focus {
     outline: 3px solid var(--accent-color);
     outline-offset: 1px;
     border-color: var(--accent-color) !important;
-    box-shadow: 0 0 0 3px rgba(0, 163, 204, 0.2);
+    box-shadow: 0 0 0 3px rgba(127, 176, 105, 0.2);
 }
 
 /* Screen Reader Only Content */
@@ -236,7 +236,7 @@ a:not(.cta-button) {
 
 a:hover:not(.cta-button) {
     text-decoration-thickness: 3px;
-    background-color: rgba(0, 163, 204, 0.1);
+    background-color: rgba(127, 176, 105, 0.1);
 }
 
 /* Accessible Form Labels */
@@ -249,7 +249,7 @@ a:hover:not(.cta-button) {
 
 .form-group label.required::after {
     content: ' *';
-    color: var(--danger-color);
+    color: var(--danger);
     font-weight: bold;
     margin-left: 2px;
 }
@@ -258,17 +258,17 @@ a:hover:not(.cta-button) {
 .form-group.error input,
 .form-group.error textarea,
 .form-group.error select {
-    border-color: var(--danger-color);
+    border-color: var(--danger);
     background-color: rgba(220, 53, 69, 0.05);
     color: #721c24;
 }
 
 .form-group.error label {
-    color: var(--danger-color);
+    color: var(--danger);
 }
 
 .error-message {
-    color: var(--danger-color);
+    color: var(--danger);
     font-size: 0.875rem;
     margin-top: 0.25rem;
     font-weight: 500;
@@ -283,12 +283,12 @@ a:hover:not(.cta-button) {
 .form-group.success input,
 .form-group.success textarea,
 .form-group.success select {
-    border-color: var(--success-color);
+    border-color: var(--success);
     background-color: rgba(40, 167, 69, 0.05);
 }
 
 .form-group.success label {
-    color: var(--success-color);
+    color: var(--success);
 }
 
 /* Accessible Tables (if any added in future) */
@@ -483,7 +483,6 @@ p {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     border-bottom: 3px solid var(--accent-color);
     transition: box-shadow 0.3s;
-    text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
 }
 
 .header-content {
@@ -491,7 +490,6 @@ p {
     justify-content: space-between;
     align-items: center;
     min-height: 70px;
-    text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
 }
 
 .logo {
@@ -502,7 +500,6 @@ p {
     text-decoration: none;
     color: var(--text-light);
     gap: 10px;
-    text-shadow: 0 2px 4px rgba(0, 102, 204, 0.1);
 }
 
 .logo-image {
@@ -513,20 +510,12 @@ p {
     filter: brightness(0) invert(1); /* Makes logo white if it's dark */
     transition: filter 0.3s;
     margin-right: 10px;
-    border-radius: 4px;
 }
 
 .logo i {
     margin-right: 10px;
     font-size: 2rem;
     color: var(--accent-color);
-    text-shadow: 0 2px 4px rgba(0, 163, 204, 0.3);
-}
-
-.nav {
-    display: flex;
-    align-items: center;
-    text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
 }
 
 .nav ul {
@@ -535,12 +524,10 @@ p {
     margin: 0;
     padding: 0;
     gap: 1.5rem;
-    text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
 }
 
 .nav li {
     margin-left: 0;
-    text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
 }
 
 .nav a {
@@ -552,14 +539,12 @@ p {
     padding: 0.5rem 1rem;
     border-radius: 6px;
     outline: none;
-    text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
 }
 
 .nav a:hover,
 .nav a.active {
     color: var(--accent-color);
     background: rgba(255,255,255,0.08);
-    text-shadow: 0 2px 4px rgba(0, 163, 204, 0.3);
 }
 
 .nav a.active::after {
@@ -571,7 +556,6 @@ p {
     height: 2px;
     background-color: var(--accent-color);
     border-radius: 2px;
-    box-shadow: 0 2px 4px rgba(0, 163, 204, 0.3);
 }
 
 /* Mobile Menu */
@@ -579,7 +563,7 @@ p {
     display: none;
     background: var(--accent-color);
     border: none;
-    color: var(--text-light);
+    color: var(--white);
     font-size: 2rem;
     cursor: pointer;
     border-radius: 50%;
@@ -589,12 +573,6 @@ p {
     justify-content: center;
     transition: background 0.3s;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    text-shadow: 0 2px 4px rgba(0, 163, 204, 0.3);
-}
-
-.mobile-menu:hover {
-    background: var(--secondary-color);
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
 }
 
 /* Optimized Button Styles with GPU Acceleration */
@@ -613,18 +591,17 @@ p {
     font-size: var(--font-size-base);
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
-
+    
     /* GPU acceleration for smooth animations */
     transform: translateZ(0);
     backface-visibility: hidden;
     will-change: transform;
     contain: layout style paint;
-    text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
 }
 
 .cta-button.primary {
     background-color: var(--accent-color);
-    color: var(--text-light);
+    color: var(--white);
     border-color: var(--accent-color);
 }
 
@@ -633,38 +610,32 @@ p {
     border-color: var(--secondary-color);
     transform: translateY(-2px) translateZ(0);
     box-shadow: var(--shadow-heavy);
-    text-shadow: 0 2px 4px rgba(0, 163, 204, 0.3);
 }
 
 /* Focus states for accessibility */
 .cta-button:focus-visible {
     outline: 3px solid var(--accent-color);
     outline-offset: 2px;
-    text-shadow: 0 2px 4px rgba(0, 163, 204, 0.3);
 }
 
 .cta-button.secondary {
     background-color: transparent;
     color: var(--accent-color);
     border-color: var(--accent-color);
-    text-shadow: 0 2px 4px rgba(0, 163, 204, 0.3);
 }
 
 .cta-button.secondary:hover {
     background-color: var(--accent-color);
-    color: var(--text-light);
-    text-shadow: 0 2px 4px rgba(0, 163, 204, 0.3);
+    color: var(--white);
 }
 
 .cta-button.large {
     padding: 16px 32px;
     font-size: 1.1rem;
-    text-shadow: 0 2px 4px rgba(0, 163, 204, 0.3);
 }
 
 .cta-button.full-width {
     width: 100%;
-    text-shadow: 0 2px 4px rgba(0, 163, 204, 0.3);
 }
 
 /* Optimized Hero Section with Performance Focus */
@@ -687,7 +658,6 @@ p {
     /* Performance optimizations */
     contain: layout style paint;
     will-change: auto;
-    text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
 }
 
 /* Use fixed attachment only on desktop for performance */
@@ -706,7 +676,6 @@ p {
     box-shadow: 0 4px 32px rgba(0,102,204,0.15);
     padding: 2rem 1.5rem;
     opacity: 0.97;
-    text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
 }
 .hero-badge {
     display: flex;
@@ -724,7 +693,6 @@ p {
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
 }
 .hero-badge-img {
     width: 32px;
@@ -732,43 +700,37 @@ p {
     border-radius: 50%;
     object-fit: cover;
     margin-right: 0.5rem;
-    border: 2px solid var(--accent-color);
 }
 .hero-badge-text {
     display: flex;
     align-items: center;
     gap: 0.3rem;
-    text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
 }
 .hero-content h1 {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: var(--text-light);
+    color: var(--white);
     letter-spacing: 1px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.7rem;
-    text-shadow: 0 2px 4px rgba(0, 102, 204, 0.3);
 }
 .hero-subtitle {
     font-size: 1.3rem;
     color: var(--accent-color);
     margin-bottom: 1rem;
     font-weight: 500;
-    text-shadow: 0 2px 4px rgba(0, 163, 204, 0.3);
 }
 .hero-description {
     font-size: 1.1rem;
     margin-bottom: 2rem;
     color: var(--text-light);
     opacity: 0.95;
-    text-shadow: 0 1px 2px rgba(0, 102, 204, 0.2);
 }
 .hero-buttons {
     margin-bottom: 1.5rem;
-    text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
 }
 .hero-trust-icons {
     display: flex;
@@ -776,7 +738,6 @@ p {
     justify-content: center;
     margin-top: 1.2rem;
     margin-bottom: 0.5rem;
-    text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
 }
 .trust-icon {
     width: 48px;
@@ -785,7 +746,6 @@ p {
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,102,204,0.1);
     background: var(--white);
-    border: 2px solid rgba(0, 163, 204, 0.2);
 }
 @media (max-width: 600px) {
     .hero {
@@ -804,6 +764,46 @@ p {
     }
 }
 
+    .mobile-menu {
+        display: block;
+    }
+
+    .nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100vw;
+        background: var(--primary-color);
+        padding: 1rem 0;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        border-bottom: 3px solid var(--accent-color);
+        border-radius: 0 0 12px 12px;
+        animation: slideDown 0.3s ease;
+    }
+
+    .nav ul.active {
+        display: flex;
+    }
+
+    .nav li {
+        margin: 0;
+        text-align: center;
+    }
+
+    .nav a {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        border-radius: 0;
+        width: 100%;
+        display: block;
+    }
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 .hero-buttons {
     display: flex;
@@ -946,7 +946,7 @@ p {
 }
 
 .read-more:hover {
-    color: var(--accent-color);
+    color: var(--light-green);
 }
 
 /* Trust Badges Section */
@@ -1329,7 +1329,7 @@ p {
 }
 
 .service-cta p {
-    color: var(--accent-color);
+    color: var(--light-green);
     max-width: 600px;
     margin: 0 auto 2rem;
 }
@@ -1768,7 +1768,6 @@ p {
     object-fit: contain;
     filter: brightness(0) invert(1); /* Makes logo white for dark footer */
     margin-bottom: 1rem;
-    border-radius: 4px;
 }
 
 .footer-logo i {
@@ -1854,11 +1853,6 @@ p {
     text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
 }
 
-.footer-bottom p {
-    margin: 0;
-    text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
-}
-
 .footer-legal {
     display: flex;
     gap: 1rem;
@@ -1906,7 +1900,7 @@ p {
 .form-group select:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(0, 163, 204, 0.1);
+    box-shadow: 0 0 0 3px rgba(127, 176, 105, 0.1);
 }
 
 .form-group textarea {
@@ -1916,7 +1910,7 @@ p {
 
 /* Error Message Styling */
 .error-message {
-    color: var(--danger-color);
+    color: var(--danger);
     font-size: 0.875rem;
     margin-top: 0.25rem;
     min-height: 1.2em;
@@ -1938,7 +1932,7 @@ p {
 .form-group.success input,
 .form-group.success textarea,
 .form-group.success select {
-    border-color: var(--success-color);
+    border-color: var(--success);
     box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
 }
 

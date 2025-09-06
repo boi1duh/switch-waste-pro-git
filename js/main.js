@@ -500,11 +500,13 @@ function animateNumber(element, target) {
     }, 30);
 }
 
-// Scroll animations for elements
+// Optimized Intersection Observer for scroll animations
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll(
         '.feature-card, .service-preview-card, .service-section, .cta-content, .commitment-card, .area-card'
     );
+
+    if (!animatedElements.length) return;
 
     const observerOptions = {
         threshold: [0.1, 0.25],
@@ -1023,7 +1025,7 @@ function initPerformanceOptimizations() {
 
 function preloadCriticalResources() {
     const criticalResources = [
-        { href: 'assets/backgrounds/Index.Hero.jpg', as: 'image' },
+        { href: 'assets/hero-banner.jpg', as: 'image' },
         { href: 'css/styles.css', as: 'style' }
     ];
 
