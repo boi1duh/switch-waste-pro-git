@@ -22,6 +22,19 @@ const Home = ({ services, industries }) => {
     rootMargin: '0px 0px -100px 0px'
   });
 
+  // Navigation functions for carousel
+  const goToSlide = useCallback((index) => {
+    setCurrentSlide(index);
+  }, []);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  }, [slides.length]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  }, [slides.length]);
+
   // Swipe gesture handlers for mobile carousel
   const swipeHandlers = useSwipe(nextSlide, prevSlide, {
     minSwipeDistance: 50,
@@ -113,17 +126,6 @@ const Home = ({ services, industries }) => {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  const goToSlide = useCallback((index) => {
-    setCurrentSlide(index);
-  }, []);
-
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  }, [slides.length]);
-
-  const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  }, [slides.length]);
   // Structured data for the organization
   const structuredData = {
     "@context": "https://schema.org",
