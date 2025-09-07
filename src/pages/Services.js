@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
 
 const Services = () => {
-  const services = [
+  const services = useMemo(() => [
     {
       title: "Healthcare Risk Waste",
       description: "Complete regulated medical waste solutions for healthcare facilities including sharps, pathological specimens, and pharmaceutical waste with SANS compliance.",
       icon: "🏥",
-      link: "/healthcare-facilities",
+      link: "/medical-waste",
       alt: "Healthcare risk waste management icon"
     },
     {
@@ -53,10 +53,18 @@ const Services = () => {
       link: "/document-shredding",
       alt: "Document shredding and secure disposal icon"
     }
-  ];
+  ], []);
 
   return (
     <>
+      <SEO
+        title="Professional Waste Management Services | Healthcare & General Waste | Johannesburg"
+        description="Comprehensive waste management services including healthcare risk waste, pharmaceutical disposal, hazardous waste, and general recycling. SANS compliant with environmental responsibility."
+        keywords="waste management services, healthcare waste, pharmaceutical waste, hazardous waste, recycling, Johannesburg, SANS compliant"
+        canonical="/services"
+        ogImage="/assets/logo/switch_Pro_logo.png"
+      />
+
       {/* Page Hero */}
       <section className="relative bg-gradient-to-r from-blue-50 to-white py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
