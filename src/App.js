@@ -40,7 +40,7 @@ const App = () => {
 
   // Add universal background image to body
   useEffect(() => {
-    document.body.style.backgroundImage = `url('/assets/website.background.png')`;
+    document.body.style.backgroundImage = `url('/assets/backgrounds/index.background.png')`;
     document.body.style.backgroundAttachment = 'fixed';
     document.body.style.backgroundSize = 'auto';
     document.body.style.backgroundRepeat = 'no-repeat';
