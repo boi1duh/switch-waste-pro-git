@@ -58,22 +58,48 @@ const Contact = () => {
         }
       });
 
+      // Add timestamp for security
+      formDataToSend.append('timestamp', new Date().toISOString());
+
       const response = await fetch('/php/contact-handler.php', {
         method: 'POST',
         body: formDataToSend,
+        headers: {
+          'Accept': 'application/json',
+        },
       });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`HTTP ${response.status}: ${errorText || response.statusText}`);
+      }
+
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Server returned invalid response format');
+      }
 
       const result = await response.json();
 
       if (result.success) {
-        setSuccessMessage(result.message);
+        setSuccessMessage(result.message || 'Thank you! Your message has been sent successfully.');
         setTimeout(() => setSuccessMessage(''), 5000);
       } else {
-        throw new Error(result.message);
+        throw new Error(result.message || 'Failed to send message. Please try again.');
       }
     } catch (error) {
       console.error('Form submission error:', error);
-      throw new Error('Failed to send message. Please try again.');
+
+      // Provide user-friendly error messages
+      if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+        throw new Error('Network error. Please check your internet connection and try again.');
+      } else if (error.message.includes('HTTP 404')) {
+        throw new Error('Contact form is temporarily unavailable. Please email us directly at info@switchwaste.co.za');
+      } else if (error.message.includes('HTTP 500')) {
+        throw new Error('Server error. Please try again later or contact us by phone.');
+      } else {
+        throw new Error(error.message || 'Failed to send message. Please try again.');
+      }
     }
   };
 
