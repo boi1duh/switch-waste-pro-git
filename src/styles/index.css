@@ -88,10 +88,10 @@
   }
 
   .gradient-primary {
-    background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
   }
 
   .gradient-accent {
-    background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+    background: linear-gradient(135deg, #7fb069 0%, #4a7c59 100%);
   }
 }
