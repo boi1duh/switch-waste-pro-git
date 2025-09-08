@@ -46,16 +46,11 @@
     "audit:fix": "npm audit fix",
     "update-deps": "npm update",
     "postinstall": "npm run prepare",
-    "prepare": "husky install || true",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "netlify dev:exec drizzle-kit migrate",
-    "db:studio": "netlify dev:exec drizzle-kit studio"
+    "prepare": "husky install || true"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.7",
     "autoprefixer": "^10.4.19",
-    "better-sqlite3": "^12.2.0",
-    "drizzle-orm": "^0.44.5",
     "postcss": "^8.4.38",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -69,7 +64,6 @@
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
     "ajv": "^8.17.1",
-    "drizzle-kit": "^0.31.4",
     "eslint": "^8.57.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-import": "^2.29.1",

@@ -17,7 +17,6 @@ const ComplianceConsulting = lazy(() => import("./pages/ComplianceConsulting"));
 const HealthcareFacilities = lazy(() => import("./pages/HealthcareFacilities"));
 const CommercialBusinesses = lazy(() => import("./pages/CommercialBusinesses"));
 const Residential = lazy(() => import("./pages/Residential"));
-const UniversalWaste = lazy(() => import("./pages/UniversalWaste"));
 const ControlledSubstanceWaste = lazy(() => import("./pages/ControlledSubstanceWaste"));
 const IncinerationTreatment = lazy(() => import("./pages/IncinerationTreatment"));
 const PathologicalWaste = lazy(() => import("./pages/PathologicalWaste"));
@@ -177,7 +176,6 @@ const App = () => {
                 <Route path="/healthcare-facilities" element={<HealthcareFacilities />} />
                 <Route path="/commercial-businesses" element={<CommercialBusinesses />} />
                 <Route path="/residential" element={<Residential />} />
-                <Route path="/universal-waste" element={<UniversalWaste />} />
                 <Route path="/controlled-substance-waste" element={<ControlledSubstanceWaste />} />
                 <Route path="/incineration-treatment" element={<IncinerationTreatment />} />
                 <Route path="/pathological-waste" element={<PathologicalWaste />} />
