@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback } from 'react';
 
 const useForm = (initialValues = {}, validate = () => ({})) => {
   const [values, setValues] = useState(initialValues);
@@ -6,9 +6,6 @@ const useForm = (initialValues = {}, validate = () => ({})) => {
   const [touched, setTouched] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitCount, setSubmitCount] = useState(0);
-
-  // Memoize initial values to prevent unnecessary recalculations
-  const memoizedInitialValues = useMemo(() => initialValues, []);
 
   // Handle input changes
   const handleChange = useCallback((e) => {
@@ -20,29 +17,24 @@ const useForm = (initialValues = {}, validate = () => ({})) => {
       [name]: fieldValue
     }));
 
-    // Clear error when user starts typing (only if error exists)
-    setErrors(prev => {
-      if (prev[name]) {
-        const newErrors = { ...prev };
-        delete newErrors[name];
-        return newErrors;
-      }
-      return prev;
-    });
-  }, []);
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
+  }, [errors]);
 
   // Handle input blur (mark as touched)
-  const handleBlur = useCallback((fieldName) => {
-    // Support both direct field name and function that returns field name
-    const name = typeof fieldName === 'function' ? fieldName() : fieldName;
-
+  const handleBlur = useCallback((name) => {
     setTouched(prev => ({
       ...prev,
       [name]: true
     }));
 
     // Validate field on blur
-    const fieldErrors = validate(values);
+    const fieldErrors = validate({ ...values, [name]: values[name] });
     if (fieldErrors[name]) {
       setErrors(prev => ({
         ...prev,
@@ -68,31 +60,31 @@ const useForm = (initialValues = {}, validate = () => ({})) => {
     setErrors(validationErrors);
 
     // Check if form is valid
-    const hasErrors = Object.keys(validationErrors).length === 0;
+    const isValid = Object.keys(validationErrors).length === 0;
 
-    if (hasErrors) {
+    if (isValid) {
       try {
         await onSubmit(values);
         // Reset form on successful submission
-        setValues(memoizedInitialValues);
+        setValues(initialValues);
         setTouched({});
         setErrors({});
       } catch (error) {
         console.error('Form submission error:', error);
-        // Keep form state on error
+        // Handle submission error if needed
       }
     }
 
     setIsSubmitting(false);
-  }, [values, validate, memoizedInitialValues]);
+  }, [values, validate, initialValues]);
 
   // Reset form
   const reset = useCallback(() => {
-    setValues(memoizedInitialValues);
+    setValues(initialValues);
     setErrors({});
     setTouched({});
     setSubmitCount(0);
-  }, [memoizedInitialValues]);
+  }, [initialValues]);
 
   // Set specific field value programmatically
   const setFieldValue = useCallback((name, value) => {
@@ -110,19 +102,11 @@ const useForm = (initialValues = {}, validate = () => ({})) => {
     }));
   }, []);
 
-  // Memoize expensive calculations
-  const formState = useMemo(() => {
-    const hasErrors = Object.keys(errors).length > 0;
-    const hasTouchedFields = Object.keys(touched).length > 0;
-    const isValid = !hasErrors && hasTouchedFields;
+  // Check if form is valid
+  const isValid = Object.keys(errors).length === 0 && Object.keys(touched).length > 0;
 
-    // More efficient dirty check using shallow comparison
-    const isDirty = Object.keys(values).some(key =>
-      values[key] !== memoizedInitialValues[key]
-    );
-
-    return { isValid, isDirty };
-  }, [errors, touched, values, memoizedInitialValues]);
+  // Check if form is dirty (has changes)
+  const isDirty = JSON.stringify(values) !== JSON.stringify(initialValues);
 
   return {
     values,
@@ -130,8 +114,8 @@ const useForm = (initialValues = {}, validate = () => ({})) => {
     touched,
     isSubmitting,
     submitCount,
-    isValid: formState.isValid,
-    isDirty: formState.isDirty,
+    isValid,
+    isDirty,
     handleChange,
     handleBlur,
     handleSubmit,

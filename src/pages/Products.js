@@ -154,7 +154,7 @@ const Products = () => {
       name: "Plastic Recycling Bin - 240L",
       category: "recycling",
       price: 1100,
-      image: "/assets/Products/120L waste bin.jpg",
+      image: "/assets/Products/240l-red-general-waste-recycling-trash-wheelie-bin-whandle_wheels.png",
       description: "Dedicated plastic recycling container with clear labeling and weather-resistant design.",
       specifications: "Capacity: 240L, Material: HDPE, Color: Blue, Weather-resistant, Recycling labeled",
       alt: "Plastic recycling bin with weather-resistant design"
@@ -238,7 +238,7 @@ const Products = () => {
       name: "Medical Waste Incinerator - Portable",
       category: "specialty",
       price: 45000,
-      image: "/assets/Products/medical_waste_incinerator_mobile.png",
+      image: "/assets/Products/Capture-incerator.jpg-1.jpeg",
       description: "Portable medical waste incinerator for on-site treatment of healthcare waste.",
       specifications: "Capacity: 50kg/hour, Fuel: Diesel, Temperature: 800°C, Portable design",
       alt: "Portable medical waste incinerator"
@@ -318,14 +318,14 @@ const Products = () => {
   ];
 
   const categories = [
-    { id: "all", name: "All Products", icon: "🛒" },
-    { id: "bins", name: "Waste Bins", icon: "🗑️" },
-    { id: "safety", name: "Safety Equipment", icon: "🛡️" },
-    { id: "disposal", name: "Disposal Equipment", icon: "⚠️" },
-    { id: "recycling", name: "Recycling Containers", icon: "♻️" },
-    { id: "collection", name: "Collection Equipment", icon: "🚛" },
-    { id: "specialty", name: "Specialty Equipment", icon: "🔧" },
-    { id: "cleaning", name: "Cleaning & Maintenance", icon: "🧹" }
+    { id: "all", name: "All Products", icon: "ALL" },
+    { id: "bins", name: "Waste Bins", icon: "BINS" },
+    { id: "safety", name: "Safety Equipment", icon: "SAFETY" },
+    { id: "disposal", name: "Disposal Equipment", icon: "DISPOSAL" },
+    { id: "recycling", name: "Recycling Containers", icon: "RECYCLE" },
+    { id: "collection", name: "Collection Equipment", icon: "COLLECT" },
+    { id: "specialty", name: "Specialty Equipment", icon: "SPECIAL" },
+    { id: "cleaning", name: "Cleaning & Maintenance", icon: "CLEAN" }
   ];
 
   const filteredProducts = products.filter(product => {

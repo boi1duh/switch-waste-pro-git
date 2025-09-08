@@ -68,7 +68,7 @@ const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, toggleMegaMenu, servic
                       to="/healthcare-facilities"
                       className="block text-gray-700 hover:text-blue-600 py-3 px-4 rounded-lg hover:bg-blue-50 transition-all duration-300 font-medium"
                     >
-                      🏥 Healthcare Providers
+                      Healthcare Providers
                     </Link>
                     <Link
                       to="/commercial-businesses"
@@ -132,7 +132,7 @@ const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, toggleMegaMenu, servic
               <Link to="/services" className="block text-gray-700 hover:text-blue-600 py-2">Services</Link>
               <div className="pl-4 space-y-2">
                 <div className="text-sm font-medium text-gray-500 uppercase tracking-wide">Markets Served</div>
-                <Link to="/healthcare-facilities" className="block text-gray-700 hover:text-blue-600 py-1 text-sm">🏥 Healthcare Providers</Link>
+                <Link to="/healthcare-facilities" className="block text-gray-700 hover:text-blue-600 py-1 text-sm">Healthcare Providers</Link>
                 <Link to="/commercial-businesses" className="block text-gray-700 hover:text-blue-600 py-1 text-sm">🏢 Commercial Businesses</Link>
                 <Link to="/residential" className="block text-gray-700 hover:text-blue-600 py-1 text-sm">🏠 Residential</Link>
               </div>

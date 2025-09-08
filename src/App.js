@@ -17,6 +17,7 @@ const ComplianceConsulting = lazy(() => import("./pages/ComplianceConsulting"));
 const HealthcareFacilities = lazy(() => import("./pages/HealthcareFacilities"));
 const CommercialBusinesses = lazy(() => import("./pages/CommercialBusinesses"));
 const Residential = lazy(() => import("./pages/Residential"));
+const UniversalWaste = lazy(() => import("./pages/UniversalWaste"));
 const ControlledSubstanceWaste = lazy(() => import("./pages/ControlledSubstanceWaste"));
 const IncinerationTreatment = lazy(() => import("./pages/IncinerationTreatment"));
 const PathologicalWaste = lazy(() => import("./pages/PathologicalWaste"));
@@ -37,38 +38,23 @@ const App = () => {
     setActiveMegaMenu(activeMegaMenu === menu ? null : menu);
   };
 
-  // Add universal background image to body
-  useEffect(() => {
-    document.body.style.backgroundImage = `url('/assets/backgrounds/index.background.png')`;
-    document.body.style.backgroundAttachment = 'fixed';
-    document.body.style.backgroundSize = 'auto';
-    document.body.style.backgroundRepeat = 'no-repeat';
-    document.body.style.backgroundPosition = 'center';
-
-    return () => {
-      document.body.style.backgroundImage = '';
-      document.body.style.backgroundAttachment = '';
-      document.body.style.backgroundSize = '';
-      document.body.style.backgroundRepeat = '';
-      document.body.style.backgroundPosition = '';
-    };
-  }, []);
+  // Background styling removed - using default body styling
 
   const services = [
     {
       title: "Healthcare Risk Waste",
       description: "Complete regulated medical waste solutions for healthcare facilities",
-      icon: "🏥",
+      icon: "H",
     },
     {
       title: "Pharmaceutical Waste",
       description: "Safe disposal of expired, unused, and contaminated medications",
-      icon: "💊",
+      icon: "P",
     },
     {
       title: "General Waste & Recycling",
       description: "Comprehensive recycling solutions for paper, glass, plastic & cans",
-      icon: "♻️",
+      icon: "R",
     },
   ];
 
@@ -176,6 +162,7 @@ const App = () => {
                 <Route path="/healthcare-facilities" element={<HealthcareFacilities />} />
                 <Route path="/commercial-businesses" element={<CommercialBusinesses />} />
                 <Route path="/residential" element={<Residential />} />
+                <Route path="/universal-waste" element={<UniversalWaste />} />
                 <Route path="/controlled-substance-waste" element={<ControlledSubstanceWaste />} />
                 <Route path="/incineration-treatment" element={<IncinerationTreatment />} />
                 <Route path="/pathological-waste" element={<PathologicalWaste />} />

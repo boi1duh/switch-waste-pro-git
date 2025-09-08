@@ -3,119 +3,37 @@
   "version": "1.0.0",
   "description": "Switch Waste Management Solutions - Professional waste management services in Johannesburg",
   "main": "src/index.js",
-  "homepage": "https://switchwaste.co.za",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/switch-waste/switch-waste-pro.git"
-  },
-  "author": "Switch Waste Management Solutions",
-  "license": "MIT",
-  "keywords": [
-    "waste-management",
-    "healthcare-waste",
-    "medical-waste",
-    "environmental-services",
-    "johannesburg",
-    "south-africa",
-    "react",
-    "tailwindcss"
-  ],
-  "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=8.0.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:analyze": "npm run build && npx serve -s build -l 3001",
     "test": "react-scripts test",
-    "test:coverage": "npm test -- --coverage --watchAll=false",
-    "test:watch": "npm test -- --watchAll",
-    "eject": "react-scripts eject",
-    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "npm run lint -- --fix",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
-    "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
-    "type-check": "tsc --noEmit",
-    "analyze": "npm run build && npx webpack-bundle-analyzer build/static/js/*.js",
-    "serve": "npm run build && npx serve -s build",
-    "clean": "rm -rf build node_modules/.cache",
-    "predeploy": "npm run lint && npm run test:coverage && npm run build",
-    "deploy": "npm run predeploy && npx gh-pages -d build",
-    "audit": "npm audit",
-    "audit:fix": "npm audit fix",
-    "update-deps": "npm update",
-    "postinstall": "npm run prepare",
-    "prepare": "husky install || true"
+    "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@tailwindcss/forms": "^0.5.7",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "@tailwindcss/forms": "^0.5.3",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.5",
-    "react-router-dom": "^6.23.1",
-    "tailwindcss": "^3.4.4"
+    "react-router-dom": "^6.8.0",
+    "react-scripts": "5.0.1",
+    "tailwindcss": "^3.2.4"
   },
   "devDependencies": {
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^7.8.0",
-    "@typescript-eslint/parser": "^7.8.0",
-    "ajv": "^8.17.1",
-    "eslint": "^8.57.0",
-    "eslint-config-react-app": "^7.0.1",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "gh-pages": "^6.1.1",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
-    "prettier": "^3.2.5",
-    "react-scripts": "^5.0.1",
-    "serve": "^14.2.1",
-    "typescript": "^5.4.5",
-    "webpack-bundle-analyzer": "^4.10.1"
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "src/**/*.{json,css,md}": [
-      "prettier --write"
-    ]
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11"
   },
   "browserslist": {
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all",
-      "not ie 11"
+      "not op_mini all"
     ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version",
-      "last 1 edge version"
+      "last 1 safari version"
     ]
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/index.js",
-      "!src/serviceWorker.js"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 70,
-        "functions": 70,
-        "lines": 70,
-        "statements": 70
-      }
-    }
-  },
-  "proxy": "http://localhost:3001"
+  }
 }
