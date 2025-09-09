@@ -7,28 +7,28 @@ const Services = () => {
     {
       title: "Healthcare Risk Waste",
       description: "Complete regulated medical waste solutions for healthcare facilities including sharps, pathological specimens, and pharmaceutical waste with SANS compliance.",
-      icon: "H",
+      icon: "🏥",
       link: "/healthcare-facilities",
       alt: "Healthcare risk waste management icon"
     },
     {
       title: "Pharmaceutical Waste",
       description: "Safe disposal of expired, unused, and contaminated medications with complete audit trails and DEA registration compliance.",
-      icon: "P",
+      icon: "💊",
       link: "/pharmaceutical-waste",
       alt: "Pharmaceutical waste disposal icon"
     },
     {
       title: "Hazardous Waste",
       description: "Specialized handling and disposal of hazardous materials with safety protocols and environmental protection measures.",
-      icon: "W",
+      icon: "⚠️",
       link: "/hazardous-waste",
       alt: "Hazardous waste management icon"
     },
     {
       title: "General Waste & Recycling",
       description: "Comprehensive recycling solutions for paper, glass, plastic, and general waste with NEMWA compliance and sustainability focus.",
-      icon: "R",
+      icon: "♻️",
       link: "/general-waste",
       alt: "General waste and recycling icon"
     },
@@ -42,7 +42,7 @@ const Services = () => {
     {
       title: "Waste Collection & Transportation",
       description: "Professional waste collection and transportation services with GPS tracking and scheduled delivery routes.",
-      icon: "T",
+      icon: "🚛",
       link: "/waste-collection",
       alt: "Waste collection and transportation icon"
     },
@@ -64,7 +64,7 @@ const Services = () => {
             <span>H</span>
             <span>Professional Services</span>
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-600 mb-6">
             Our Waste Management Services
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
@@ -88,10 +88,12 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 bg-white">
+        {/* Grey overlay for consistency with Home page */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent pointer-events-none"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Comprehensive Waste Management Solutions</h2>
+            <h2 className="text-3xl font-bold text-blue-600 mb-4">Comprehensive Waste Management Solutions</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Professional services tailored to meet your specific waste management needs with regulatory compliance and environmental responsibility.
             </p>
@@ -159,7 +161,7 @@ const Services = () => {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Switch to Professional Waste Management?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-6">Ready to Switch to Professional Waste Management?</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
             Get a free consultation and customized quote for your waste management needs. Our expert team is ready to help you achieve complete compliance and environmental responsibility.
           </p>
