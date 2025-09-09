@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 const About = () => {
   const missionPoints = [
     {
-      icon: "fas fa-leaf",
+      icon: "🌱",
       title: "Environmental Protection",
       description: "Prioritizing eco-friendly solutions that reduce environmental impact"
     },
     {
-      icon: "fas fa-shield-alt",
+      icon: "🛡️",
       title: "Safety First",
       description: "Ensuring the highest safety standards for communities and healthcare workers"
     },
     {
-      icon: "fas fa-handshake",
+      icon: "🤝",
       title: "Partnership Approach",
       description: "Building long-term relationships based on trust and transparency"
     }
@@ -22,22 +22,22 @@ const About = () => {
 
   const expertiseAreas = [
     {
-      icon: "fas fa-hospital",
+      icon: "🏥",
       title: "Healthcare Facilities",
       description: "Hospitals, clinics, medical practices, and laboratories"
     },
     {
-      icon: "fas fa-building",
+      icon: "🏢",
       title: "Corporate Clients",
       description: "Office buildings, retail centers, and industrial facilities"
     },
     {
-      icon: "fas fa-graduation-cap",
+      icon: "🎓",
       title: "Educational Institutions",
       description: "Schools, universities, and research facilities"
     },
     {
-      icon: "fas fa-home",
+      icon: "🏠",
       title: "Residential Services",
       description: "Apartment complexes, gated communities, and housing estates"
     }
@@ -88,7 +88,7 @@ const About = () => {
             <span>🏆</span>
             <span>20+ Years Experience</span>
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-600 mb-6">
             About Switch Waste Management Solutions
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -112,11 +112,13 @@ const About = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 bg-white">
+        {/* Grey overlay for consistency with Home page */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent pointer-events-none"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Mission</h2>
+              <h2 className="text-3xl font-bold text-blue-600 mb-6">Our Mission</h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 At Switch Waste Management Solutions, we are committed to providing exceptional waste management services that ensure a safe environment free from hazardous waste. We specialize in comprehensive solutions for both healthcare sectors and general waste needs while maintaining strict compliance with all regulations to protect our planet.
               </p>
@@ -138,7 +140,7 @@ const About = () => {
             {missionPoints.map((point, index) => (
               <div key={index} className="text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i className={`${point.icon} text-blue-600 text-2xl`}></i>
+                  <span className="text-blue-600 text-2xl">{point.icon}</span>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">{point.title}</h3>
                 <p className="text-gray-600">{point.description}</p>
@@ -152,7 +154,7 @@ const About = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Core Values</h2>
+            <h2 className="text-3xl font-bold text-blue-600 mb-4">Our Core Values</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -184,11 +186,13 @@ const About = () => {
       </section>
 
       {/* Experience Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 bg-white">
+        {/* Grey overlay for consistency with Home page */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent pointer-events-none"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">Industry Expertise & Experience</h2>
+              <h2 className="text-3xl font-bold text-blue-600 mb-6">Industry Expertise & Experience</h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 With over 20 years of experience in the waste management industry, Switch Waste Solutions has developed extensive knowledge of the stringent regulations, legislation, by-laws, and SANS guidelines governing the healthcare risk waste sector.
               </p>
@@ -210,7 +214,7 @@ const About = () => {
             {expertiseAreas.map((area, index) => (
               <div key={index} className="bg-gray-50 p-6 rounded-xl text-center">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i className={`${area.icon} text-blue-600 text-xl`}></i>
+                  <span className="text-blue-600 text-xl">{area.icon}</span>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">{area.title}</h3>
                 <p className="text-gray-600 text-sm">{area.description}</p>
@@ -224,7 +228,7 @@ const About = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Service Areas</h2>
+            <h2 className="text-3xl font-bold text-blue-600 mb-4">Service Areas</h2>
             <p className="text-lg text-gray-600">We provide professional waste management services throughout Johannesburg and surrounding areas</p>
           </div>
 
@@ -243,10 +247,12 @@ const About = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 bg-white">
+        {/* Grey overlay for consistency with Home page */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent pointer-events-none"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold text-blue-600 mb-4">Frequently Asked Questions</h2>
             <p className="text-lg text-gray-600">Common questions about our waste management services</p>
           </div>
 
@@ -264,7 +270,7 @@ const About = () => {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Partner with Switch Waste Solutions</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-6">Partner with Switch Waste Solutions</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
             Experience the difference that professional, reliable, and environmentally responsible waste management can make for your organization.
           </p>
