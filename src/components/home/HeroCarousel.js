@@ -133,6 +133,9 @@ const HeroCarousel = ({ slides }) => {
           alt=""
           onLoad={() => setImageLoaded(true)}
           onError={() => setImageLoaded(true)} // Still show content even if image fails
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
         />
       </picture>
 
