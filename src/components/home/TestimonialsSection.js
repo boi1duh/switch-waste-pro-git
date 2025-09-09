@@ -51,11 +51,11 @@ const TestimonialsSection = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent pointer-events-none"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 id="testimonials-heading" className="text-5xl font-bold text-blue-600 mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 id="testimonials-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 mb-4">
             What Our Clients Say
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4">
             Don't just take our word for it. Here's what our satisfied clients have to say about our waste management services.
           </p>
         </div>
