@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense, lazy } from "react";
+import React, { useState, useEffect, Suspense, lazy, useMemo, useCallback } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
 
@@ -33,36 +33,36 @@ const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState(null);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const toggleMegaMenu = (menu) => {
-    setActiveMegaMenu(activeMegaMenu === menu ? null : menu);
-  };
+  const toggleMenu = useCallback(() => setIsMenuOpen(prev => !prev), []);
+  const toggleMegaMenu = useCallback((menu) => {
+    setActiveMegaMenu(prev => prev === menu ? null : menu);
+  }, []);
 
   // Background styling removed - using default body styling
 
-  const services = [
+  const services = useMemo(() => [
     {
       title: "Healthcare Risk Waste",
       description: "Complete regulated medical waste solutions for healthcare facilities",
-      icon: "H",
+      icon: "🏥",
     },
     {
       title: "Pharmaceutical Waste",
       description: "Safe disposal of expired, unused, and contaminated medications",
-      icon: "P",
+      icon: "💊",
     },
     {
       title: "General Waste & Recycling",
       description: "Comprehensive recycling solutions for paper, glass, plastic & cans",
-      icon: "R",
+      icon: "♻️",
     },
-  ];
+  ], []);
 
-  const industries = [
+  const industries = useMemo(() => [
     { name: "Healthcare Providers", items: ["Hospitals", "Clinics", "Medical Practices", "Laboratories"] },
     { name: "Commercial Businesses", items: ["Office Buildings", "Retail", "Industrial Facilities", "Educational Institutions"] },
     { name: "Residential", items: ["Housing Complexes", "Apartment Buildings", "Suburban Communities"] },
-  ];
+  ], []);
 
   const serviceMenuItems = [
     "Regulated Medical Waste",

@@ -1,20 +1,21 @@
 // Switch Waste Management Solutions - Service Worker
 // Version: 1.0.0 - Performance & Caching Optimization
 
-const CACHE_NAME = 'switch-waste-v1.0.0';
+const CACHE_NAME = 'switch-waste-v2.0.0';
 const CACHE_ASSETS = [
     '/',
-    '/index.html',
-    '/about.html',
-    '/services.html',
-    '/contact.html',
-    '/css/styles.css',
-    '/js/main.js',
-    '/Assets/logo.png',
-    '/Assets/hero-banner.jpg',
+    '/static/js/bundle.js',
+    '/static/js/main.chunk.js',
+    '/static/js/0.chunk.js',
+    '/static/css/main.chunk.css',
     '/manifest.json',
-    // Font Awesome (external)
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
+    '/assets/logo/switch_Pro_logo.png',
+    '/assets/backgrounds/index.herobanner.png',
+    // External resources
+    'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
+    // Icons and images
+    '/favicon.ico',
+    '/logo192.png'
 ];
 
 const RUNTIME_CACHE = 'switch-waste-runtime';
