@@ -72,13 +72,15 @@ const PharmaceuticalWaste = () => {
       </section>
 
       {/* Content Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 bg-white">
+        {/* Grey overlay for consistency with Home page */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent pointer-events-none"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Pharmaceutical Waste Disposal Solutions</h2>
+            <h2 className="text-3xl font-bold text-blue-600 mb-8 text-center">Pharmaceutical Waste Disposal Solutions</h2>
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="bg-gray-50 p-6 rounded-xl">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">Controlled Substances</h3>
+                <h3 className="text-xl font-bold text-blue-600 mb-4">Controlled Substances</h3>
                 <p className="text-gray-600 mb-4">Secure handling and disposal of DEA Schedule II-V controlled substances.</p>
                 <ul className="text-gray-600 space-y-2">
                   <li>• DEA-compliant destruction</li>
@@ -88,7 +90,7 @@ const PharmaceuticalWaste = () => {
                 </ul>
               </div>
               <div className="bg-gray-50 p-6 rounded-xl">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">Expired Medications</h3>
+                <h3 className="text-xl font-bold text-blue-600 mb-4">Expired Medications</h3>
                 <p className="text-gray-600 mb-4">Safe disposal of expired or unused prescription and over-the-counter medications.</p>
                 <ul className="text-gray-600 space-y-2">
                   <li>• Environmental protection</li>
