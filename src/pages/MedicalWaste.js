@@ -72,13 +72,15 @@ const MedicalWaste = () => {
       </section>
 
       {/* Content Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 bg-white">
+        {/* Grey overlay for consistency with Home page */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent pointer-events-none"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Medical Waste Management Solutions</h2>
+            <h2 className="text-3xl font-bold text-blue-600 mb-8 text-center">Medical Waste Management Solutions</h2>
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="bg-gray-50 p-6 rounded-xl">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">Sharps Containers</h3>
+                <h3 className="text-xl font-bold text-blue-600 mb-4">Sharps Containers</h3>
                 <p className="text-gray-600 mb-4">Safe collection and disposal of needles, syringes, and other sharp medical instruments.</p>
                 <ul className="text-gray-600 space-y-2">
                   <li>• FDA-approved containers</li>
@@ -88,7 +90,7 @@ const MedicalWaste = () => {
                 </ul>
               </div>
               <div className="bg-gray-50 p-6 rounded-xl">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">Pathological Waste</h3>
+                <h3 className="text-xl font-bold text-blue-600 mb-4">Pathological Waste</h3>
                 <p className="text-gray-600 mb-4">Proper handling of human tissues, organs, and laboratory specimens.</p>
                 <ul className="text-gray-600 space-y-2">
                   <li>• Dignified treatment</li>
