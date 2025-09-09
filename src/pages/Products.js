@@ -371,14 +371,16 @@ const Products = () => {
     return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
   };
 
-  const handleOrderSubmit = async (formData) => {
+  const handleQuoteSubmit = async (formData) => {
     setIsLoading(true);
 
-    const orderDetails = {
+    const quoteDetails = {
       customer: formData,
       items: cart,
-      total: getTotalPrice(),
-      orderDate: new Date().toISOString()
+      quoteRequestDate: new Date().toISOString(),
+      urgency: formData.urgency,
+      organizationType: formData.organizationType,
+      preferredContact: formData.preferredContact
     };
 
     try {
@@ -386,14 +388,14 @@ const Products = () => {
       await new Promise(resolve => setTimeout(resolve, 2000));
 
       // Here you would integrate with EmailJS or your backend service
-      console.log("Order submitted:", orderDetails);
+      console.log("Quote request submitted:", quoteDetails);
 
       setOrderSuccess(true);
       setCart([]);
       setShowOrderForm(false);
     } catch (error) {
-      console.error("Order submission failed:", error);
-      alert("Failed to submit order. Please try again.");
+      console.error("Quote request submission failed:", error);
+      alert("Failed to submit quote request. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -497,17 +499,12 @@ const Products = () => {
                     <strong>Specifications:</strong> {product.specifications}
                   </div>
 
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl font-bold text-blue-600">
-                      R{product.price.toLocaleString()}
-                    </span>
-                  </div>
 
                   <button
                     onClick={() => addToCart(product)}
                     className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >
-                    Add to Cart
+                    Add to Quote Request
                   </button>
                 </div>
               </div>
@@ -530,15 +527,15 @@ const Products = () => {
               <span className="text-lg font-semibold text-gray-800">
                 Cart ({cart.reduce((total, item) => total + item.quantity, 0)} items)
               </span>
-              <span className="text-xl font-bold text-blue-600">
-                R{getTotalPrice().toLocaleString()}
+              <span className="text-sm text-gray-600">
+                Request a quote for selected items
               </span>
             </div>
             <button
               onClick={() => setShowOrderForm(true)}
               className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors shadow-md"
             >
-              Proceed to Order
+              Request Quote
             </button>
           </div>
         </div>
@@ -549,17 +546,17 @@ const Products = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
-              <h2 className="text-2xl font-bold text-blue-600 mb-6">Complete Your Order</h2>
+              <h2 className="text-2xl font-bold text-blue-600 mb-6">Request a Quote</h2>
 
-              {/* Order Summary */}
+              {/* Quote Request Summary */}
               <div className="mb-6">
-                <h3 className="text-lg font-semibold text-blue-600 mb-4">Order Summary</h3>
+                <h3 className="text-lg font-semibold text-blue-600 mb-4">Selected Products</h3>
                 <div className="space-y-3 max-h-48 overflow-y-auto">
                   {cart.map(item => (
                     <div key={item.id} className="flex items-center justify-between py-2 border-b border-gray-100">
                       <div className="flex-1">
                         <h4 className="font-medium text-gray-800">{item.name}</h4>
-                        <p className="text-sm text-gray-600">R{item.price} x {item.quantity}</p>
+                        <p className="text-sm text-gray-600">Quantity: {item.quantity}</p>
                       </div>
                       <div className="flex items-center gap-2">
                         <button
@@ -586,15 +583,14 @@ const Products = () => {
                   ))}
                 </div>
                 <div className="mt-4 pt-4 border-t border-gray-200">
-                  <div className="flex justify-between items-center text-lg font-bold">
-                    <span>Total:</span>
-                    <span className="text-blue-600">R{getTotalPrice().toLocaleString()}</span>
+                  <div className="text-center text-gray-600">
+                    <p>A detailed quote will be sent to your email within 24 hours</p>
                   </div>
                 </div>
               </div>
 
-              {/* Order Form */}
-              <OrderForm onSubmit={handleOrderSubmit} isLoading={isLoading} />
+              {/* Quote Request Form */}
+              <QuoteRequestForm onSubmit={handleQuoteSubmit} isLoading={isLoading} />
 
               <div className="flex gap-4 mt-6">
                 <button
@@ -613,10 +609,10 @@ const Products = () => {
       {orderSuccess && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl p-8 text-center max-w-md w-full">
-            <div className="text-6xl mb-4">✅</div>
-            <h2 className="text-2xl font-bold text-blue-600 mb-4">Order Submitted Successfully!</h2>
+            <div className="text-6xl mb-4">📧</div>
+            <h2 className="text-2xl font-bold text-blue-600 mb-4">Quote Request Submitted!</h2>
             <p className="text-gray-600 mb-6">
-              Thank you for your order. We'll contact you within 24 hours to confirm delivery details.
+              Thank you for your quote request. We'll send a detailed quotation to your email within 24 hours with pricing and delivery information.
             </p>
             <button
               onClick={() => setOrderSuccess(false)}
@@ -631,15 +627,17 @@ const Products = () => {
   );
 };
 
-// Order Form Component
-const OrderForm = ({ onSubmit, isLoading }) => {
+// Quote Request Form Component
+const QuoteRequestForm = ({ onSubmit, isLoading }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     company: "",
-    address: "",
-    specialInstructions: ""
+    organizationType: "",
+    urgency: "normal",
+    additionalRequirements: "",
+    preferredContact: "email"
   });
 
   const handleChange = (e) => {
@@ -706,12 +704,13 @@ const OrderForm = ({ onSubmit, isLoading }) => {
 
         <div>
           <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
-            Company/Organization
+            Company/Organization *
           </label>
           <input
             type="text"
             id="company"
             name="company"
+            required
             value={formData.company}
             onChange={handleChange}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -719,35 +718,75 @@ const OrderForm = ({ onSubmit, isLoading }) => {
         </div>
       </div>
 
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="organizationType" className="block text-sm font-medium text-gray-700 mb-1">
+            Organization Type
+          </label>
+          <select
+            id="organizationType"
+            name="organizationType"
+            value={formData.organizationType}
+            onChange={handleChange}
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          >
+            <option value="">Select type</option>
+            <option value="healthcare">Healthcare Facility</option>
+            <option value="commercial">Commercial Business</option>
+            <option value="industrial">Industrial</option>
+            <option value="municipal">Municipal/Government</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label htmlFor="urgency" className="block text-sm font-medium text-gray-700 mb-1">
+            Urgency Level
+          </label>
+          <select
+            id="urgency"
+            name="urgency"
+            value={formData.urgency}
+            onChange={handleChange}
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          >
+            <option value="normal">Normal (2-3 weeks)</option>
+            <option value="urgent">Urgent (1 week)</option>
+            <option value="rush">Rush (3-5 days)</option>
+          </select>
+        </div>
+      </div>
+
       <div>
-        <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
-          Delivery Address *
+        <label htmlFor="additionalRequirements" className="block text-sm font-medium text-gray-700 mb-1">
+          Additional Requirements
         </label>
         <textarea
-          id="address"
-          name="address"
-          required
+          id="additionalRequirements"
+          name="additionalRequirements"
           rows={3}
-          value={formData.address}
+          value={formData.additionalRequirements}
           onChange={handleChange}
           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          placeholder="Please provide your full delivery address"
+          placeholder="Please specify any additional requirements, delivery preferences, or special considerations"
         />
       </div>
 
       <div>
-        <label htmlFor="specialInstructions" className="block text-sm font-medium text-gray-700 mb-1">
-          Special Instructions
+        <label htmlFor="preferredContact" className="block text-sm font-medium text-gray-700 mb-1">
+          Preferred Contact Method
         </label>
-        <textarea
-          id="specialInstructions"
-          name="specialInstructions"
-          rows={2}
-          value={formData.specialInstructions}
+        <select
+          id="preferredContact"
+          name="preferredContact"
+          value={formData.preferredContact}
           onChange={handleChange}
           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          placeholder="Any special delivery instructions or requirements"
-        />
+        >
+          <option value="email">Email</option>
+          <option value="phone">Phone</option>
+          <option value="whatsapp">WhatsApp</option>
+        </select>
       </div>
 
       <button
@@ -755,7 +794,7 @@ const OrderForm = ({ onSubmit, isLoading }) => {
         disabled={isLoading}
         className="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {isLoading ? "Submitting Order..." : "Submit Order"}
+        {isLoading ? "Submitting Quote Request..." : "Request Quote"}
       </button>
     </form>
   );
