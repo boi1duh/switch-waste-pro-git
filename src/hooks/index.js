@@ -5,3 +5,4 @@ export { default as useDebounce } from './useDebounce';
 export { default as useSwipe } from './useSwipe';
 export { default as useAnimatedCounter } from './useAnimatedCounter';
 export { default as useForm } from './useForm';
+export { default as useCarousel } from './useCarousel';
