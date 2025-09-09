@@ -5,7 +5,8 @@
 
 /* CSS Custom Properties for better browser support */
 :root {
-  --primary-color: #3b82f6;
+  --primary-color: #2563eb;
+  --secondary-color: #7c3aed;
   --text-color: #1f2937;
   --bg-color: #ffffff;
 }
@@ -15,16 +16,12 @@
   box-sizing: border-box;
 }
 
-/* CSS Grid and Flexbox fallbacks for older browsers */
+/* CSS Grid and Flexbox fallbacks - Simplified to avoid conflicts with Tailwind */
 @supports not (display: grid) {
   .grid {
     display: flex;
     flex-wrap: wrap;
   }
-  .grid-cols-1 { width: 100%; }
-  .grid-cols-2 { width: 50%; }
-  .grid-cols-3 { width: 33.333%; }
-  .grid-cols-4 { width: 25%; }
 }
 
 /* Smooth scrolling fallback */
@@ -52,11 +49,11 @@
   }
 }
 
-/* CSS Variables fallback for older browsers */
+/* CSS Variables fallback for older browsers - Removed !important to prevent conflicts */
 @supports not (--custom: property) {
-  .bg-blue-600 { background-color: #2563eb !important; }
-  .text-blue-600 { color: #2563eb !important; }
-  .border-blue-600 { border-color: #2563eb !important; }
+  .bg-blue-600 { background-color: #2563eb; }
+  .text-blue-600 { color: #2563eb; }
+  .border-blue-600 { border-color: #2563eb; }
 }
 
 /* Focus visible for better accessibility */
@@ -98,12 +95,4 @@
   will-change: opacity;
 }
 
-/* Font loading optimization */
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+/* Font loading optimization - Using Google Fonts for better performance */
