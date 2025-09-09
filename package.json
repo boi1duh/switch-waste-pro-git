@@ -6,8 +6,14 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:analyze": "npm run build -- --stats && npx webpack-bundle-analyzer build/static/js/*.js",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test:coverage": "npm run test -- --coverage --watchAll=false",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "npm run lint -- --fix",
+    "eject": "react-scripts eject",
+    "serve": "serve -s build -l 3000",
+    "analyze": "npm run build:analyze"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.3",
