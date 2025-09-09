@@ -132,7 +132,7 @@ const Contact = () => {
             <span>📞</span>
             <span>Johannesburg, Gauteng</span>
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-600 mb-6">
             <span className="text-blue-600">📞</span> Contact Switch Waste Solutions
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -156,13 +156,15 @@ const Contact = () => {
       </section>
 
       {/* Contact Content */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 bg-gray-50">
+        {/* Grey overlay for consistency with Home page */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent pointer-events-none"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-3xl font-bold text-gray-800 mb-6">Get In Touch</h2>
+                <h2 className="text-3xl font-bold text-blue-600 mb-6">Get In Touch</h2>
                 <p className="text-lg text-gray-600 mb-8">
                   Ready to switch to professional waste management? Contact us today for a free consultation and customized quote for your specific needs.
                 </p>
@@ -189,7 +191,7 @@ const Contact = () => {
                 <div className="bg-white p-6 rounded-xl shadow-sm">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <i className="fas fa-map-marker-alt text-blue-600"></i>
+                      <span className="text-blue-600 text-xl">📍</span>
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800 mb-2">Our Location</h3>
@@ -201,7 +203,7 @@ const Contact = () => {
                 <div className="bg-white p-6 rounded-xl shadow-sm">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <i className="fas fa-phone text-green-600"></i>
+                      <span className="text-green-600 text-xl">📞</span>
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800 mb-2">Phone Numbers</h3>
@@ -216,7 +218,7 @@ const Contact = () => {
                 <div className="bg-white p-6 rounded-xl shadow-sm">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <i className="fas fa-envelope text-purple-600"></i>
+                      <span className="text-purple-600 text-xl">✉️</span>
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800 mb-2">Email Address</h3>
@@ -230,7 +232,7 @@ const Contact = () => {
                 <div className="bg-white p-6 rounded-xl shadow-sm">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <i className="fas fa-clock text-orange-600"></i>
+                      <span className="text-orange-600 text-xl">🕒</span>
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800 mb-2">Business Hours</h3>
@@ -247,7 +249,7 @@ const Contact = () => {
                 <div className="bg-white p-6 rounded-xl shadow-sm">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <i className="fas fa-user text-indigo-600"></i>
+                      <span className="text-indigo-600 text-xl">👤</span>
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800 mb-2">Operations Manager</h3>
@@ -263,7 +265,7 @@ const Contact = () => {
               {/* Emergency Contact */}
               <div className="bg-gradient-to-r from-red-500 to-red-600 text-white p-8 rounded-xl">
                 <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <i className="fas fa-exclamation-triangle"></i>
+                  <span className="text-red-600">⚠️</span>
                   Emergency Services
                 </h3>
                 <p className="mb-6">For urgent waste management situations, spill response, or emergency collections:</p>
@@ -280,14 +282,14 @@ const Contact = () => {
 
             {/* Contact Form */}
             <div className="bg-white p-8 rounded-xl shadow-lg">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Request Your Free Quote</h2>
+              <h2 className="text-2xl font-bold text-blue-600 mb-6">Request Your Free Quote</h2>
               <p className="text-gray-600 mb-8">
                 Fill out the form below and we'll get back to you within 24 hours with a customized solution for your waste management needs.
               </p>
 
               {successMessage && (
                 <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-                  <i className="fas fa-check-circle mr-2"></i>
+                  <span className="mr-2">✅</span>
                   {successMessage}
                 </div>
               )}
@@ -473,12 +475,12 @@ const Contact = () => {
                 >
                   {isSubmitting ? (
                     <>
-                      <i className="fas fa-spinner fa-spin"></i>
+                      <span className="animate-spin mr-2">🔄</span>
                       Sending...
                     </>
                   ) : (
                     <>
-                      <i className="fas fa-paper-plane"></i>
+                      <span className="mr-2">📤</span>
                       Send My Request
                     </>
                   )}
