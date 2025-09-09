@@ -318,14 +318,14 @@ const Products = () => {
   ];
 
   const categories = [
-    { id: "all", name: "All Products", icon: "ALL" },
-    { id: "bins", name: "Waste Bins", icon: "BINS" },
-    { id: "safety", name: "Safety Equipment", icon: "SAFETY" },
-    { id: "disposal", name: "Disposal Equipment", icon: "DISPOSAL" },
-    { id: "recycling", name: "Recycling Containers", icon: "RECYCLE" },
-    { id: "collection", name: "Collection Equipment", icon: "COLLECT" },
-    { id: "specialty", name: "Specialty Equipment", icon: "SPECIAL" },
-    { id: "cleaning", name: "Cleaning & Maintenance", icon: "CLEAN" }
+    { id: "all", name: "All Products", icon: "📦" },
+    { id: "bins", name: "Waste Bins", icon: "🗑️" },
+    { id: "safety", name: "Safety Equipment", icon: "🛡️" },
+    { id: "disposal", name: "Disposal Equipment", icon: "⚠️" },
+    { id: "recycling", name: "Recycling Containers", icon: "♻️" },
+    { id: "collection", name: "Collection Equipment", icon: "🚛" },
+    { id: "specialty", name: "Specialty Equipment", icon: "🔧" },
+    { id: "cleaning", name: "Cleaning & Maintenance", icon: "🧹" }
   ];
 
   const filteredProducts = products.filter(product => {
@@ -402,10 +402,12 @@ const Products = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-white shadow-sm py-8">
-        <div className="container mx-auto px-4">
+      <section className="relative bg-white shadow-sm py-8">
+        {/* Grey overlay for consistency with Home page */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent pointer-events-none"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 mb-4">
               Waste Management Products
             </h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -459,8 +461,10 @@ const Products = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
+      <section className="relative py-12">
+        {/* Grey overlay for consistency with Home page */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent pointer-events-none"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {filteredProducts.map(product => (
               <div
@@ -477,7 +481,7 @@ const Products = () => {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-lg font-bold text-blue-600 mb-2 group-hover:text-blue-700 transition-colors">
                     {product.name}
                   </h3>
 
@@ -541,11 +545,11 @@ const Products = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Complete Your Order</h2>
+              <h2 className="text-2xl font-bold text-blue-600 mb-6">Complete Your Order</h2>
 
               {/* Order Summary */}
               <div className="mb-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">Order Summary</h3>
+                <h3 className="text-lg font-semibold text-blue-600 mb-4">Order Summary</h3>
                 <div className="space-y-3 max-h-48 overflow-y-auto">
                   {cart.map(item => (
                     <div key={item.id} className="flex items-center justify-between py-2 border-b border-gray-100">
@@ -606,7 +610,7 @@ const Products = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl p-8 text-center max-w-md w-full">
             <div className="text-6xl mb-4">✅</div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Order Submitted Successfully!</h2>
+            <h2 className="text-2xl font-bold text-blue-600 mb-4">Order Submitted Successfully!</h2>
             <p className="text-gray-600 mb-6">
               Thank you for your order. We'll contact you within 24 hours to confirm delivery details.
             </p>
