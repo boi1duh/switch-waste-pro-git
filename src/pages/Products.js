@@ -471,12 +471,16 @@ const Products = () => {
                 key={product.id}
                 className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group"
               >
-                <div className="aspect-w-4 aspect-h-3 overflow-hidden">
+                <div className="aspect-w-4 aspect-h-3 sm:aspect-h-2 md:aspect-h-3 overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.alt}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-40 sm:h-44 md:h-48 lg:h-52 object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
+                    decoding="async"
+                    fetchpriority="low"
+                    crossorigin="anonymous"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                   />
                 </div>
 
