@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useCarousel } from "../hooks";
 
 const About = () => {
   const missionPoints = [
@@ -79,6 +80,34 @@ const About = () => {
     }
   ];
 
+  // Carousel slides for About page
+  const aboutSlides = [
+    {
+      title: "20+ Years of Excellence",
+      subtitle: "Trusted Waste Management",
+      description: "Leading environmental solutions with complete regulatory compliance and sustainable practices.",
+      ctaText: "Our Services",
+      ctaLink: "/services"
+    },
+    {
+      title: "SANS Certified Operations",
+      subtitle: "Quality Assurance",
+      description: "All operations meet the highest South African National Standards for waste management excellence.",
+      ctaText: "View Certifications",
+      ctaLink: "/about"
+    },
+    {
+      title: "Environmental Leadership",
+      subtitle: "Sustainable Solutions",
+      description: "Committed to reducing environmental impact through innovative waste management technologies.",
+      ctaText: "Learn More",
+      ctaLink: "/about"
+    }
+  ];
+
+  // Initialize carousel
+  const { currentSlide, goToSlide, nextSlide, prevSlide, isPaused } = useCarousel(aboutSlides);
+
   return (
     <>
       {/* Page Hero */}
@@ -106,6 +135,50 @@ const About = () => {
             <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
               <span>✓</span>
               <span className="text-sm">Trusted Partner</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Carousel */}
+      <section className="relative py-16 bg-gradient-to-r from-blue-600 to-blue-700 overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="relative">
+            {/* Carousel Content */}
+            <div className="text-center text-white max-w-4xl mx-auto">
+              <div className="mb-8">
+                <span className="inline-block px-4 py-2 bg-white/20 text-white text-sm font-semibold rounded-full mb-6 backdrop-blur-sm border border-white/30">
+                  {aboutSlides[currentSlide]?.subtitle}
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-white drop-shadow-2xl">
+                {aboutSlides[currentSlide]?.title}
+              </h2>
+              <p className="text-xl md:text-2xl text-white/90 mb-12 drop-shadow-lg leading-relaxed max-w-3xl mx-auto">
+                {aboutSlides[currentSlide]?.description}
+              </p>
+              <div className="flex justify-center gap-6">
+                <Link
+                  to={aboutSlides[currentSlide]?.ctaLink}
+                  className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 inline-flex items-center justify-center text-lg"
+                >
+                  {aboutSlides[currentSlide]?.ctaText}
+                </Link>
+              </div>
+            </div>
+
+            {/* Carousel Indicators */}
+            <div className="flex justify-center mt-12 space-x-3">
+              {aboutSlides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>

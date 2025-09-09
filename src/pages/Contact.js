@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useForm } from "../hooks";
+import { useForm, useCarousel } from "../hooks";
 import SEO from "../components/SEO";
 
 const Contact = () => {
@@ -114,6 +114,34 @@ const Contact = () => {
     }
   };
 
+  // Carousel slides for Contact page
+  const contactSlides = [
+    {
+      title: "Get Your Free Quote Today",
+      subtitle: "Professional Consultation",
+      description: "Contact our experts for a comprehensive waste management assessment and customized solution.",
+      ctaText: "Call Now",
+      ctaLink: "tel:0100069158"
+    },
+    {
+      title: "Emergency Waste Services",
+      subtitle: "24/7 Support Available",
+      description: "Urgent waste management situations? Our emergency response team is ready to help.",
+      ctaText: "Emergency Contact",
+      ctaLink: "tel:0616004720"
+    },
+    {
+      title: "Site Assessment & Planning",
+      subtitle: "Expert Evaluation",
+      description: "Our team conducts thorough site assessments to design the perfect waste management solution.",
+      ctaText: "Schedule Assessment",
+      ctaLink: "/contact"
+    }
+  ];
+
+  // Initialize carousel
+  const { currentSlide, goToSlide, nextSlide, prevSlide, isPaused } = useCarousel(contactSlides);
+
   return (
     <>
       <SEO
@@ -150,6 +178,50 @@ const Contact = () => {
             <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
               <span>✓</span>
               <span className="text-sm">24/7 Support</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Carousel */}
+      <section className="relative py-16 bg-gradient-to-r from-blue-600 to-blue-700 overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="relative">
+            {/* Carousel Content */}
+            <div className="text-center text-white max-w-4xl mx-auto">
+              <div className="mb-8">
+                <span className="inline-block px-4 py-2 bg-white/20 text-white text-sm font-semibold rounded-full mb-6 backdrop-blur-sm border border-white/30">
+                  {contactSlides[currentSlide]?.subtitle}
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-white drop-shadow-2xl">
+                {contactSlides[currentSlide]?.title}
+              </h2>
+              <p className="text-xl md:text-2xl text-white/90 mb-12 drop-shadow-lg leading-relaxed max-w-3xl mx-auto">
+                {contactSlides[currentSlide]?.description}
+              </p>
+              <div className="flex justify-center gap-6">
+                <Link
+                  to={contactSlides[currentSlide]?.ctaLink}
+                  className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 inline-flex items-center justify-center text-lg"
+                >
+                  {contactSlides[currentSlide]?.ctaText}
+                </Link>
+              </div>
+            </div>
+
+            {/* Carousel Indicators */}
+            <div className="flex justify-center mt-12 space-x-3">
+              {contactSlides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>

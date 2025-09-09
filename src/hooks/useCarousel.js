@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 
-const useCarousel = (slides, autoPlayInterval = 8000) => {
+const useCarousel = (slides, autoPlayInterval = 1000) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const slidesRef = useRef(slides);

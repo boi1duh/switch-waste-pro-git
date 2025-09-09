@@ -113,6 +113,7 @@ const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, toggleMegaMenu, servic
                               servicePath === 'compliance-consulting' ? '/compliance-consulting' :
                               '/services'}
                           className="text-gray-700 hover:text-blue-600 py-3 px-4 rounded-lg hover:bg-blue-50 transition-all duration-300 font-medium"
+                          onClick={handleLinkClick}
                         >
                           {service}
                         </Link>
@@ -136,18 +137,21 @@ const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, toggleMegaMenu, servic
                     <Link
                       to="/healthcare-facilities"
                       className="block text-gray-700 hover:text-blue-600 py-3 px-4 rounded-lg hover:bg-blue-50 transition-all duration-300 font-medium"
+                      onClick={handleLinkClick}
                     >
                       Healthcare Providers
                     </Link>
                     <Link
                       to="/commercial-businesses"
                       className="block text-gray-700 hover:text-blue-600 py-3 px-4 rounded-lg hover:bg-blue-50 transition-all duration-300 font-medium"
+                      onClick={handleLinkClick}
                     >
                       🏢 Commercial Businesses
                     </Link>
                     <Link
                       to="/residential"
                       className="block text-gray-700 hover:text-blue-600 py-3 px-4 rounded-lg hover:bg-blue-50 transition-all duration-300 font-medium"
+                      onClick={handleLinkClick}
                     >
                       🏠 Residential
                     </Link>
@@ -156,16 +160,16 @@ const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, toggleMegaMenu, servic
               )}
             </div>
 
-            <Link to="/products" className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50">
+            <Link to="/products" className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50" onClick={handleLinkClick}>
               Products
             </Link>
-            <Link to="/clients" className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50">
+            <Link to="/clients" className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50" onClick={handleLinkClick}>
               Clients
             </Link>
-            <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50">
+            <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50" onClick={handleLinkClick}>
               About Us
             </Link>
-            <Link to="/contact" className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50">
+            <Link to="/contact" className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50" onClick={handleLinkClick}>
               Contact
             </Link>
           </nav>
