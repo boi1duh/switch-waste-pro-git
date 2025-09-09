@@ -72,10 +72,12 @@ const HazardousWaste = () => {
       </section>
 
       {/* Regulatory Overview */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 bg-white">
+        {/* Grey overlay for consistency with Home page */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent pointer-events-none"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">South African Hazardous Waste Regulations</h2>
+            <h2 className="text-3xl font-bold text-blue-600 mb-8 text-center">South African Hazardous Waste Regulations</h2>
             <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-8">
               <h3 className="text-xl font-bold text-red-800 mb-4">⚠️ Critical Compliance Requirements</h3>
               <p className="text-red-700 mb-4">
@@ -107,10 +109,12 @@ const HazardousWaste = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 bg-gray-50">
+        {/* Grey overlay for consistency with Home page */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent pointer-events-none"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Hazardous Waste Services</h2>
+            <h2 className="text-3xl font-bold text-blue-600 mb-4">Our Hazardous Waste Services</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Specialized handling of hazardous materials with full regulatory compliance and environmental protection
             </p>
@@ -119,7 +123,7 @@ const HazardousWaste = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
               <div className="text-4xl mb-4">🚛</div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">Licensed Transportation</h3>
+              <h3 className="text-xl font-bold text-blue-600 mb-3">Licensed Transportation</h3>
               <p className="text-gray-600 mb-4">DEAT-approved transportation with GPS tracking, emergency response, and spill prevention protocols.</p>
               <ul className="text-gray-600 space-y-1 text-sm">
                 <li>• ADR compliant vehicles</li>
@@ -131,7 +135,7 @@ const HazardousWaste = () => {
 
             <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
               <div className="text-4xl mb-4">🏭</div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">Treatment Facilities</h3>
+              <h3 className="text-xl font-bold text-blue-600 mb-3">Treatment Facilities</h3>
               <p className="text-gray-600 mb-4">State-of-the-art treatment facilities meeting international standards for hazardous waste processing.</p>
               <ul className="text-gray-600 space-y-1 text-sm">
                 <li>• Chemical neutralization</li>
@@ -143,7 +147,7 @@ const HazardousWaste = () => {
 
             <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
               <div className="text-4xl mb-4">📋</div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">Documentation & Compliance</h3>
+              <h3 className="text-xl font-bold text-blue-600 mb-3">Documentation & Compliance</h3>
               <p className="text-gray-600 mb-4">Complete regulatory documentation, manifest tracking, and compliance reporting for all hazardous waste activities.</p>
               <ul className="text-gray-600 space-y-1 text-sm">
                 <li>• Waste manifest system</li>
