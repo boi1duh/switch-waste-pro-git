@@ -177,7 +177,6 @@ const HeroCarousel = ({ slides }) => {
             role="region"
             aria-label="Hero carousel - Automatic slide show"
             aria-live="polite"
-            tabIndex="0"
             aria-describedby="carousel-instructions"
           >
             {/* Enhanced Keyboard navigation hint */}

@@ -45,6 +45,8 @@ StatItem.propTypes = {
   isVisible: PropTypes.bool.isRequired
 };
 
+StatItem.displayName = 'StatItem';
+
 const StatsCounter = ({
   yearsCounter = {},
   complianceCounter = {},
