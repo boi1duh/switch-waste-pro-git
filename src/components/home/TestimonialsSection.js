@@ -52,7 +52,7 @@ const TestimonialsSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 md:mb-16">
-          <h2 id="testimonials-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 mb-4">
+          <h2 id="testimonials-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-600 mb-4">
             What Our Clients Say
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4">
@@ -88,7 +88,7 @@ const TestimonialsSection = () => {
                 <div>
                   <div className="font-semibold text-gray-800">{testimonial.name}</div>
                   <div className="text-sm text-gray-600">{testimonial.role}</div>
-                  <div className="text-sm text-blue-600">{testimonial.company}</div>
+                  <div className="text-sm text-primary-600">{testimonial.company}</div>
                 </div>
               </div>
             </div>
@@ -96,11 +96,11 @@ const TestimonialsSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <div className="inline-flex items-center bg-blue-50 rounded-lg px-6 py-3">
-            <svg className="w-5 h-5 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <div className="inline-flex items-center bg-primary-50 rounded-lg px-6 py-3">
+            <svg className="w-5 h-5 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
-            <span className="text-blue-800 font-medium">Trusted by 50+ businesses across Johannesburg</span>
+            <span className="text-primary-800 font-medium">Trusted by 50+ businesses across Johannesburg</span>
           </div>
         </div>
       </div>

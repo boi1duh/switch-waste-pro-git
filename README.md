@@ -1,349 +1,203 @@
-# Switch Waste Management Solutions - Professional Website
+# Switch Waste Pro - Professional Waste Management Website
 
-A comprehensive, professional website for Switch Waste Management Solutions, specializing in healthcare and general waste management services in Johannesburg, South Africa.
+A modern, responsive React application for Switch Waste Management Solutions, providing comprehensive waste management services in Johannesburg, South Africa.
 
-## 🚀 Features
+![React](https://img.shields.io/badge/React-18.2.0-blue.svg)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.2.4-38B2AC.svg)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Deployed-green.svg)
 
-- **Professional Design**: Modern, responsive design with professional branding
-- **Multi-page Website**: Complete website with Home, Services, About, and Contact pages
-- **Contact Form**: Functional contact form with email notifications
-- **Database Integration**: MySQL database for storing contact inquiries
+## 🌟 Features
+
+- **Modern React Architecture**: Built with React 18 and modern JavaScript
+- **Responsive Design**: Fully responsive with Tailwind CSS
+- **Professional UI**: Clean, modern design with consistent branding
 - **SEO Optimized**: Meta tags, structured data, and semantic HTML
-- **Mobile Responsive**: Fully responsive design for all devices
-- **Interactive Elements**: Mobile menu, FAQ toggles, animations
-- **Security Features**: Input validation, CSRF protection, rate limiting
+- **Performance Focused**: Optimized bundle size and loading times
+- **Accessibility**: WCAG compliant components and navigation
+- **PWA Ready**: Service worker and manifest for offline functionality
+- **GitHub Pages Deployment**: Automated deployment to GitHub Pages
 
 ## 📁 Project Structure
 
-```
-switch-waste-website/
-├── index.html              # Home page
-├── services.html           # Services page
-├── about.html              # About us page
-├── contact.html            # Contact page
-├── css/
-│   └── styles.css          # Main stylesheet
-├── js/
-│   └── main.js             # JavaScript functionality
-├── php/
-│   ├── config.php          # Database and email configuration
-│   └── contact-handler.php # Contact form processing
-├── database/
-│   └── schema.sql          # Database schema
-├── vendor/                 # PHPMailer dependencies
-└── README.md              # This file
+```text
+switch-waste-pro/
+├── public/
+│   ├── index.html          # Main HTML template
+│   ├── manifest.json       # PWA manifest
+│   ├── robots.txt          # Search engine crawling rules
+│   └── sitemap.xml         # Website sitemap
+├── src/
+│   ├── components/         # Reusable React components
+│   │   ├── ui/            # Base UI components
+│   │   └── home/          # Home page specific components
+│   ├── pages/             # Page components
+│   ├── hooks/             # Custom React hooks
+│   ├── constants/         # Application constants
+│   ├── styles/            # Global styles
+│   ├── App.js             # Main application component
+│   └── index.js           # Application entry point
+├── .gitignore             # Git ignore rules
+├── package.json           # Dependencies and scripts
+├── tailwind.config.js     # Tailwind CSS configuration
+└── README.md             # This file
 ```
 
-## 🛠️ Installation & Setup
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- **Web Server**: Apache/Nginx with PHP 7.4+ support
-- **Database**: MySQL 5.7+ or MariaDB 10.0+
-- **PHP Extensions**:
-  - PDO (php-pdo)
-  - MySQLi (php-mysqli)
-  - mbstring (php-mbstring)
-  - json (php-json)
+- Node.js 16.x or higher
+- npm or yarn package manager
+- Git
 
-### 1. Database Setup
+### Installation
 
-1. Create a new MySQL database:
-```sql
-CREATE DATABASE switch_waste_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/switch-waste-pro.git
+   cd switch-waste-pro
+   ```
 
-2. Import the database schema:
-```bash
-mysql -u username -p switch_waste_db < database/schema.sql
-```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-3. Update database credentials in `php/config.php`:
-```php
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'switch_waste_db');
-define('DB_USER', 'your_db_user');
-define('DB_PASS', 'your_db_password');
-```
+3. **Start development server**
+   ```bash
+   npm start
+   ```
 
-### 2. Email Configuration
+4. **Open your browser**
+   Navigate to `http://localhost:3000`
 
-Update email settings in `php/config.php`:
+## 📜 Available Scripts
 
-```php
-// For PHPMailer (recommended)
-define('SMTP_HOST', 'smtp.gmail.com');
-define('SMTP_PORT', 587);
-define('SMTP_USERNAME', 'your-email@gmail.com');
-define('SMTP_PASSWORD', 'your-app-password');
-define('FROM_EMAIL', 'your-email@gmail.com');
-define('FROM_NAME', 'Switch Waste Solutions');
-define('ADMIN_EMAIL', 'admin@switchwaste.co.za');
+- `npm start` - Start development server
+- `npm run build` - Create production build
+- `npm run deploy` - Deploy to GitHub Pages
+- `npm run test` - Run tests
+- `npm run lint` - Run ESLint
+- `npm run lint:fix` - Fix ESLint issues
 
-// For PHP mail() fallback
-define('FROM_EMAIL', 'noreply@yourdomain.com');
-define('FROM_NAME', 'Switch Waste Solutions');
-```
+## 🚀 Deployment
 
-### 3. File Permissions
+### GitHub Pages Deployment
 
-Set proper permissions for log files and uploads:
+The project is configured for automatic deployment to GitHub Pages:
 
-```bash
-# Create logs directory
-mkdir -p logs
-chmod 755 logs
+1. **Build the project**
+   ```bash
+   npm run build
+   ```
 
-# Set permissions for PHP files
-chmod 644 php/*.php
-chmod 644 database/*.sql
-```
+2. **Deploy to GitHub Pages**
+   ```bash
+   npm run deploy
+   ```
 
-### 4. Web Server Configuration
+The deployment will create a `gh-pages` branch and deploy the built files.
 
-#### Apache (.htaccess)
+### Manual Deployment
 
-Create a `.htaccess` file in the root directory:
+You can also deploy manually by:
 
-```apache
-RewriteEngine On
+1. Building the project: `npm run build`
+2. Uploading the `build` folder contents to your web server
+3. Configuring your server to serve the `index.html` file for all routes
 
-# Force HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+## 🛠️ Technologies Used
 
-# Remove .php extension
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.php -f
-RewriteRule ^(.*)$ $1.php
+- **React 18** - Modern JavaScript library for building user interfaces
+- **Tailwind CSS** - Utility-first CSS framework
+- **React Router** - Declarative routing for React
+- **React Helmet Async** - Document head management
+- **PostCSS** - CSS processing tool
+- **Autoprefixer** - CSS vendor prefixing
+- **ESLint** - JavaScript linting
+- **GitHub Pages** - Free web hosting for static sites
 
-# Security headers
-<IfModule mod_headers.c>
-    Header always set X-Content-Type-Options nosniff
-    Header always set X-Frame-Options DENY
-    Header always set X-XSS-Protection "1; mode=block"
-    Header always set Referrer-Policy "strict-origin-when-cross-origin"
-</IfModule>
+## 🎨 Customization
 
-# Prevent access to sensitive files
-<Files "config.php">
-    Order Allow,Deny
-    Deny from all
-</Files>
+### Branding
 
-<Files "*.log">
-    Order Allow,Deny
-    Deny from all
-</Files>
-```
+- Update colors in `tailwind.config.js`
+- Replace logo and images in `public/` directory
+- Modify company information in components
 
-#### Nginx Configuration
+### Content
 
-Add to your server block:
+- Update service descriptions in `src/constants/`
+- Modify contact information
+- Add new pages or sections
 
-```nginx
-location / {
-    try_files $uri $uri/ /index.php?$query_string;
-}
+### Styling
 
-location ~ \.php$ {
-    include fastcgi_params;
-    fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
-    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-}
-
-# Security headers
-add_header X-Frame-Options "SAMEORIGIN" always;
-add_header X-XSS-Protection "1; mode=block" always;
-add_header X-Content-Type-Options "nosniff" always;
-add_header Referrer-Policy "no-referrer-when-downgrade" always;
-
-# Deny access to sensitive files
-location ~ /(config\.php|.*\.log)$ {
-    deny all;
-    return 404;
-}
-```
-
-## 📧 Email Setup
-
-### Option 1: PHPMailer (Recommended)
-
-1. Install PHPMailer via Composer:
-```bash
-composer require phpmailer/phpmailer
-```
-
-2. Configure SMTP settings in `php/config.php`
-
-### Option 2: PHP Mail Function (Fallback)
-
-The system automatically falls back to PHP's built-in `mail()` function if PHPMailer is not available.
-
-## 🔒 Security Features
-
-- **Input Validation**: All user inputs are sanitized and validated
-- **CSRF Protection**: Cross-site request forgery protection
-- **Rate Limiting**: Prevents spam and abuse
-- **SQL Injection Protection**: Prepared statements and input sanitization
-- **XSS Protection**: HTML escaping and content security
-- **Secure Headers**: Security headers for additional protection
+- Customize Tailwind configuration
+- Modify global styles in `src/styles/`
+- Update component-specific styles
 
 ## 📱 Features Overview
 
 ### Frontend Features
-- **Responsive Design**: Works on all devices and screen sizes
-- **Interactive Elements**: Mobile menu, FAQ toggles, smooth scrolling
-- **Professional UI**: Modern design with consistent branding
-- **SEO Optimized**: Meta tags, structured data, semantic HTML
-- **Fast Loading**: Optimized CSS and JavaScript
 
-### Backend Features
-- **Contact Form Processing**: Handles form submissions and email notifications
-- **Database Storage**: Stores contact inquiries in MySQL database
-- **Email Notifications**: Sends confirmation emails to customers and admins
-- **Error Handling**: Comprehensive error handling and logging
-- **Security**: Multiple security layers and validation
+- **Responsive Design**: Optimized for all devices and screen sizes
+- **Interactive Components**: Carousel, forms, animations
+- **Professional UI**: Consistent design system
+- **SEO Optimized**: Meta tags and structured data
+- **Fast Loading**: Code splitting and optimization
+
+### Components
+
+- **Hero Section**: Engaging homepage banner with carousel
+- **Services Grid**: Display of waste management services
+- **Testimonials**: Customer feedback section
+- **Contact Forms**: Lead generation forms
+- **Navigation**: Responsive mobile menu
+- **Footer**: Site-wide footer with links
 
 ## 🧪 Testing
 
-### Manual Testing Checklist
+### Running Tests
 
-1. **Contact Form**:
-   - Submit form with valid data
-   - Test validation errors
-   - Check email notifications
-   - Verify database storage
-
-2. **Responsive Design**:
-   - Test on mobile devices
-   - Test on tablets
-   - Test on desktop
-   - Check navigation menu
-
-3. **Cross-browser Testing**:
-   - Chrome/Chromium
-   - Firefox
-   - Safari
-   - Edge
-
-### Automated Testing
-
-Run PHP tests:
 ```bash
-php -l php/config.php
-php -l php/contact-handler.php
+npm test
 ```
 
-## 🚀 Deployment
+### Linting
 
-### Production Deployment
-
-1. **Environment Setup**:
-   - Set up production database
-   - Configure production email settings
-   - Set up SSL certificate
-
-2. **File Upload**:
-   - Upload all files to web server
-   - Set proper file permissions
-   - Configure web server
-
-3. **Database Migration**:
-   - Import database schema
-   - Update configuration files
-   - Test database connection
-
-4. **Security Checklist**:
-   - Remove debug information
-   - Set secure file permissions
-   - Configure firewall
-   - Set up monitoring
-
-## 📊 Database Schema
-
-The database includes the following tables:
-
-- `contact_inquiries`: Stores contact form submissions
-- `services`: Service catalog
-- `quotes`: Quote requests
-- `blog_posts`: Content management
-- `admin_users`: Administrative users
-- `analytics`: Website analytics
-
-## 🔧 Customization
-
-### Branding
-- Update colors in `css/styles.css` (CSS custom properties)
-- Replace logo and images
-- Update company information in all HTML files
-
-### Content
-- Update service descriptions
-- Modify contact information
-- Add new pages or sections
-
-### Functionality
-- Add new form fields
-- Implement additional features
-- Customize email templates
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **Contact Form Not Working**:
-   - Check PHP error logs
-   - Verify database connection
-   - Check email configuration
-   - Ensure file permissions are correct
-
-2. **Database Connection Failed**:
-   - Verify database credentials
-   - Check database server status
-   - Ensure database exists
-   - Check network connectivity
-
-3. **Emails Not Sending**:
-   - Check SMTP settings
-   - Verify email credentials
-   - Check spam folder
-   - Review mail server logs
-
-4. **404 Errors**:
-   - Check `.htaccess` configuration
-   - Verify file permissions
-   - Ensure correct file paths
-
-### Debug Mode
-
-Enable debug mode by adding to `php/config.php`:
-
-```php
-define('DEBUG_MODE', true);
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+```bash
+npm run lint
+npm run lint:fix  # Auto-fix issues
 ```
 
-## 📞 Support
 
-For technical support or questions:
-- Email: admin@switchwaste.co.za
-- Phone: +27 10 006 9158
-- Address: 48 16th Avenue, Edenvale, Johannesburg 1609
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
 ## 📄 License
 
-This project is proprietary software for Switch Waste Management Solutions.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Support
+
+For support or questions:
+
+- Email: <admin@switchwaste.co.za>
+- Phone: +27 10 006 9158
+- Address: 48 16th Avenue, Edenvale, Johannesburg 1609
 
 ## 🔄 Version History
 
-- **v1.0.0**: Initial release with complete website functionality
-- Professional design and responsive layout
-- Contact form with database integration
-- Email notification system
-- Security features and validation
+### v1.0.0
+
+- Initial release with complete React application
+- Modern responsive design with Tailwind CSS
+- Professional waste management website
+- GitHub Pages deployment ready
+- SEO optimized and accessible
 
 ---
 
-**Built with ❤️ for Switch Waste Management Solutions**
+## Built with ❤️ for Switch Waste Management Solutions

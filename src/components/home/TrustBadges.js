@@ -41,7 +41,7 @@ const TrustBadges = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 mb-4">Certified & Compliant</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-600 mb-4">Certified & Compliant</h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4">
             Our commitment to excellence is backed by industry certifications and regulatory compliance
           </p>

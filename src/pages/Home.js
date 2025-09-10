@@ -119,7 +119,7 @@ const Home = ({ services, industries }) => {
       {/* Skip Link for Accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg transition-all"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-primary-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg transition-all"
       >
         Skip to main content
       </a>
@@ -142,7 +142,7 @@ const Home = ({ services, industries }) => {
       <main id="main-content" role="main">
         {/* Hero Section - Dynamic Carousel */}
         <ErrorBoundary>
-          <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div></div>}>
+          <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary-600"></div></div>}>
             <HeroCarousel slides={HERO_SLIDES} />
           </Suspense>
         </ErrorBoundary>
@@ -150,7 +150,7 @@ const Home = ({ services, industries }) => {
         {/* Services Section */}
         <section ref={servicesRef}>
           <ErrorBoundary>
-            <Suspense fallback={<div className="py-16 bg-white flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600"></div></div>}>
+            <Suspense fallback={<div className="py-16 bg-white flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary-600"></div></div>}>
               <ServicesGrid services={services} servicesVisible={servicesVisible} />
             </Suspense>
           </ErrorBoundary>
@@ -163,7 +163,7 @@ const Home = ({ services, industries }) => {
 
           <div className="relative z-10">
             <ErrorBoundary>
-              <Suspense fallback={<div className="py-16 bg-blue-600 flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div></div>}>
+              <Suspense fallback={<div className="py-16 bg-primary-600 flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div></div>}>
                 <StatsCounter
                   yearsCounter={yearsCounter}
                   complianceCounter={complianceCounter}
@@ -188,7 +188,7 @@ const Home = ({ services, industries }) => {
 
           <div className="container mx-auto px-4 relative z-10">
             <div className={`text-center mb-16 transition-all duration-1000 ${industriesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <h2 id="industries-heading" className="text-5xl font-bold text-blue-600 mb-4">Industries We Serve</h2>
+              <h2 id="industries-heading" className="text-5xl font-bold text-primary-600 mb-4">Industries We Serve</h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 Tailored waste management solutions for diverse sectors across Johannesburg and Gauteng Province.
               </p>
@@ -210,7 +210,7 @@ const Home = ({ services, industries }) => {
                       <li key={i} className="flex items-center text-gray-600" role="listitem">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5 text-blue-600 mr-2"
+                          className="h-5 w-5 text-primary-600 mr-2"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -230,21 +230,21 @@ const Home = ({ services, industries }) => {
 
         {/* Trust Badges Section */}
         <ErrorBoundary>
-          <Suspense fallback={<div className="py-16 bg-gray-50 flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600"></div></div>}>
+          <Suspense fallback={<div className="py-16 bg-gray-50 flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary-600"></div></div>}>
             <TrustBadges />
           </Suspense>
         </ErrorBoundary>
 
         {/* Testimonials Section */}
         <ErrorBoundary>
-          <Suspense fallback={<div className="py-16 bg-white flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600"></div></div>}>
+          <Suspense fallback={<div className="py-16 bg-white flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary-600"></div></div>}>
             <TestimonialsSection />
           </Suspense>
         </ErrorBoundary>
 
         {/* CTA Section */}
         <ErrorBoundary>
-          <Suspense fallback={<div className="py-16 bg-gradient-to-r from-blue-600 to-blue-700 flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div></div>}>
+          <Suspense fallback={<div className="py-16 bg-gradient-to-r from-primary-600 to-primary-700 flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div></div>}>
             <CTASection />
           </Suspense>
         </ErrorBoundary>

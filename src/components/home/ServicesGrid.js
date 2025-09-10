@@ -10,7 +10,7 @@ const ServicesGrid = ({ services, servicesVisible }) => {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 mb-4">Our Comprehensive Services</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-600 mb-4">Our Comprehensive Services</h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
               We provide end-to-end waste management solutions tailored to your specific needs, ensuring compliance and environmental responsibility.
             </p>
@@ -20,7 +20,7 @@ const ServicesGrid = ({ services, servicesVisible }) => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`bg-gray-50 rounded-xl p-6 md:p-8 hover:shadow-xl hover:shadow-blue-100/50 transition-all duration-300 cursor-pointer group ${
+                className={`bg-gray-50 rounded-xl p-6 md:p-8 hover:shadow-xl hover:shadow-primary-100/50 transition-all duration-300 cursor-pointer group ${
                   servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{ transitionDelay: `${index * 200}ms` }}
@@ -31,7 +31,7 @@ const ServicesGrid = ({ services, servicesVisible }) => {
                   e.currentTarget.style.transform = 'translateY(0) scale(1)';
                 }}
               >
-                <div className="text-3xl md:text-4xl mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 text-blue-600">
+                <div className="text-3xl md:text-4xl mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 text-primary-600">
                   {service.icon === "🏥" ? (
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -50,13 +50,13 @@ const ServicesGrid = ({ services, servicesVisible }) => {
                     </svg>
                   )}
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-primary-600 transition-colors duration-300">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
                 <Link
                   to="/services"
-                  className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition-all duration-300 group-hover:translate-x-2"
+                  className="inline-flex items-center text-primary-600 font-medium hover:text-primary-700 transition-all duration-300 group-hover:translate-x-2"
                 >
                   Learn More
                   <svg

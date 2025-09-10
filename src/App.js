@@ -1,6 +1,11 @@
-import React, { useState, useEffect, Suspense, lazy, useMemo, useCallback } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import React, { useState, Suspense, lazy, useMemo, useCallback } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
+
+// Components
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 // Lazy load all page components for code splitting
 const Home = lazy(() => import("./pages/Home"));
@@ -24,10 +29,7 @@ const PathologicalWaste = lazy(() => import("./pages/PathologicalWaste"));
 const DocumentShredding = lazy(() => import("./pages/DocumentShredding"));
 const ComplianceTraining = lazy(() => import("./pages/ComplianceTraining"));
 const Products = lazy(() => import("./pages/Products"));
-
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import ErrorBoundary from "./components/ErrorBoundary";
+const Policies = lazy(() => import("./pages/Policies"));
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -141,6 +143,7 @@ const App = () => {
               toggleMenu={toggleMenu}
               activeMegaMenu={activeMegaMenu}
               toggleMegaMenu={toggleMegaMenu}
+              setActiveMegaMenu={setActiveMegaMenu}
               serviceMenuItems={serviceMenuItems}
               industries={industries}
             />
@@ -168,6 +171,7 @@ const App = () => {
                 <Route path="/pathological-waste" element={<PathologicalWaste />} />
                 <Route path="/document-shredding" element={<DocumentShredding />} />
                 <Route path="/compliance-training" element={<ComplianceTraining />} />
+                <Route path="/policies" element={<Policies />} />
               </Routes>
             </Suspense>
 

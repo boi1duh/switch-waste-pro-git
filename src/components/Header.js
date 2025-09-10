@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, toggleMegaMenu, serviceMenuItems, industries }) => {
+const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, setActiveMegaMenu, serviceMenuItems }) => {
   const headerRef = useRef(null);
   const mobileMenuRef = useRef(null);
 
@@ -15,9 +16,18 @@ const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, toggleMegaMenu, servic
       ) {
         toggleMenu();
       }
+
+      // Close mega menus when clicking outside
+      if (
+        activeMegaMenu &&
+        headerRef.current &&
+        !headerRef.current.contains(event.target)
+      ) {
+        setActiveMegaMenu(null);
+      }
     };
 
-    if (isMenuOpen) {
+    if (isMenuOpen || activeMegaMenu) {
       document.addEventListener('mousedown', handleClickOutside);
       document.addEventListener('touchstart', handleClickOutside);
     }
@@ -26,7 +36,7 @@ const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, toggleMegaMenu, servic
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('touchstart', handleClickOutside);
     };
-  }, [isMenuOpen, toggleMenu]);
+  }, [isMenuOpen, activeMegaMenu, toggleMenu]);
 
   // Close mobile menu on Escape key
   useEffect(() => {
@@ -67,30 +77,53 @@ const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, toggleMegaMenu, servic
     if (isMenuOpen) {
       toggleMenu();
     }
+    // Close any open mega menus
+    if (activeMegaMenu) {
+      setActiveMegaMenu(null);
+    }
+  };
+
+  // Handle mouse enter for mega menu buttons
+  const handleMegaMenuEnter = (menu) => {
+    setActiveMegaMenu(menu);
+  };
+
+  // Handle mouse leave for mega menu containers
+  const handleMegaMenuLeave = () => {
+    setActiveMegaMenu(null);
   };
   return (
     <header
       ref={headerRef}
-      className="bg-white bg-opacity-90 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-white border-opacity-20"
+      className="bg-white shadow-lg sticky top-0 z-50 border-b border-gray-200"
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between py-5">
           {/* Logo */}
-          <a href="/" className="transition-transform hover:scale-105">
-            <img src="/assets/logo/switch_Pro_logo.png" alt="Switch Waste Solutions Logo" className="h-10 sm:h-14 w-auto" />
+          <a href="/" className="transition-all duration-300 hover:scale-110 group">
+            <div className="relative p-2 rounded-lg hover:bg-gray-50 transition-all duration-300">
+              <img
+                src="/assets/logo/switch_Pro_logo.png"
+                alt="Switch Waste Solutions Logo"
+                className="h-12 sm:h-16 w-auto"
+              />
+            </div>
           </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-10">
             <div className="relative group">
               <button
-                onClick={() => toggleMegaMenu("services")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50"
+                onMouseEnter={() => handleMegaMenuEnter("services")}
+                className="text-primary-600 hover:text-primary-700 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-gray-50"
               >
                 Services
               </button>
               {activeMegaMenu === "services" && (
-                <div className="absolute left-0 mt-3 w-96 bg-white bg-opacity-95 backdrop-blur-md shadow-2xl rounded-2xl p-6 z-50 border border-white border-opacity-20">
+                <div
+                  className="absolute left-0 mt-3 w-96 bg-white shadow-2xl rounded-2xl p-6 z-50 border border-gray-200"
+                  onMouseLeave={handleMegaMenuLeave}
+                >
                   <div className="grid grid-cols-2 gap-4">
                     {serviceMenuItems.map((service, index) => {
                       // Create URL-friendly paths for service links
@@ -112,7 +145,7 @@ const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, toggleMegaMenu, servic
                               servicePath === 'waste-treatment-disposal' ? '/services' :
                               servicePath === 'compliance-consulting' ? '/compliance-consulting' :
                               '/services'}
-                          className="text-gray-700 hover:text-blue-600 py-3 px-4 rounded-lg hover:bg-blue-50 transition-all duration-300 font-medium"
+                          className="text-gray-700 hover:text-primary-600 py-3 px-4 rounded-lg hover:bg-gray-50 transition-all duration-300 font-medium"
                           onClick={handleLinkClick}
                         >
                           {service}
@@ -126,50 +159,53 @@ const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, toggleMegaMenu, servic
 
             <div className="relative group">
               <button
-                onClick={() => toggleMegaMenu("markets")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50"
+                onMouseEnter={() => handleMegaMenuEnter("markets")}
+                className="text-primary-600 hover:text-primary-700 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-gray-50"
               >
                 Markets Served
               </button>
               {activeMegaMenu === "markets" && (
-                <div className="absolute left-0 mt-3 w-80 bg-white bg-opacity-95 backdrop-blur-md shadow-2xl rounded-2xl p-6 z-50 border border-white border-opacity-20">
+                <div
+                  className="absolute left-0 mt-3 w-80 bg-white shadow-2xl rounded-2xl p-6 z-50 border border-gray-200"
+                  onMouseLeave={handleMegaMenuLeave}
+                >
                   <div className="space-y-3">
                     <Link
                       to="/healthcare-facilities"
-                      className="block text-gray-700 hover:text-blue-600 py-3 px-4 rounded-lg hover:bg-blue-50 transition-all duration-300 font-medium"
+                      className="block text-gray-700 hover:text-primary-600 py-3 px-4 rounded-lg hover:bg-gray-50 transition-all duration-300 font-medium"
                       onClick={handleLinkClick}
                     >
                       Healthcare Providers
                     </Link>
                     <Link
                       to="/commercial-businesses"
-                      className="block text-gray-700 hover:text-blue-600 py-3 px-4 rounded-lg hover:bg-blue-50 transition-all duration-300 font-medium"
+                      className="block text-gray-700 hover:text-primary-600 py-3 px-4 rounded-lg hover:bg-gray-50 transition-all duration-300 font-medium"
                       onClick={handleLinkClick}
                     >
-                      🏢 Commercial Businesses
+                      Commercial Businesses
                     </Link>
                     <Link
                       to="/residential"
-                      className="block text-gray-700 hover:text-blue-600 py-3 px-4 rounded-lg hover:bg-blue-50 transition-all duration-300 font-medium"
+                      className="block text-gray-700 hover:text-primary-600 py-3 px-4 rounded-lg hover:bg-gray-50 transition-all duration-300 font-medium"
                       onClick={handleLinkClick}
                     >
-                      🏠 Residential
+                      Residential
                     </Link>
                   </div>
                 </div>
               )}
             </div>
 
-            <Link to="/products" className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50" onClick={handleLinkClick}>
+            <Link to="/products" className="text-primary-600 hover:text-primary-700 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-gray-50" onClick={handleLinkClick}>
               Products
             </Link>
-            <Link to="/clients" className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50" onClick={handleLinkClick}>
+            <Link to="/clients" className="text-primary-600 hover:text-primary-700 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-gray-50" onClick={handleLinkClick}>
               Clients
             </Link>
-            <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50" onClick={handleLinkClick}>
+            <Link to="/about" className="text-primary-600 hover:text-primary-700 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-gray-50" onClick={handleLinkClick}>
               About Us
             </Link>
-            <Link to="/contact" className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50" onClick={handleLinkClick}>
+            <Link to="/contact" className="text-primary-600 hover:text-primary-700 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-gray-50" onClick={handleLinkClick}>
               Contact
             </Link>
           </nav>
@@ -190,7 +226,7 @@ const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, toggleMegaMenu, servic
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 focus:outline-none"
+            className="md:hidden p-2 rounded-md text-primary-600 hover:text-primary-700 hover:bg-gray-50 focus:outline-none"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -200,20 +236,20 @@ const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, toggleMegaMenu, servic
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div ref={mobileMenuRef} className="md:hidden py-4 border-t">
+          <div ref={mobileMenuRef} className="md:hidden py-4 border-t border-gray-200 bg-white">
             <div className="space-y-4">
-              <Link to="/services" className="block text-gray-700 hover:text-blue-600 py-2" onClick={handleLinkClick}>Services</Link>
+              <Link to="/services" className="block text-gray-700 hover:text-primary-600 py-2" onClick={handleLinkClick}>Services</Link>
               <div className="pl-4 space-y-2">
                 <div className="text-sm font-medium text-gray-500 uppercase tracking-wide">Markets Served</div>
-                <Link to="/healthcare-facilities" className="block text-gray-700 hover:text-blue-600 py-1 text-sm" onClick={handleLinkClick}>Healthcare Providers</Link>
-                <Link to="/commercial-businesses" className="block text-gray-700 hover:text-blue-600 py-1 text-sm" onClick={handleLinkClick}>🏢 Commercial Businesses</Link>
-                <Link to="/residential" className="block text-gray-700 hover:text-blue-600 py-1 text-sm" onClick={handleLinkClick}>🏠 Residential</Link>
+                <Link to="/healthcare-facilities" className="block text-gray-700 hover:text-primary-600 py-1 text-sm" onClick={handleLinkClick}>Healthcare Providers</Link>
+                <Link to="/commercial-businesses" className="block text-gray-700 hover:text-primary-600 py-1 text-sm" onClick={handleLinkClick}>Commercial Businesses</Link>
+                <Link to="/residential" className="block text-gray-700 hover:text-primary-600 py-1 text-sm" onClick={handleLinkClick}>Residential</Link>
               </div>
-              <Link to="/products" className="block text-gray-700 hover:text-blue-600 py-2" onClick={handleLinkClick}>Products</Link>
-              <Link to="/clients" className="block text-gray-700 hover:text-blue-600 py-2" onClick={handleLinkClick}>Clients</Link>
-              <Link to="/about" className="block text-gray-700 hover:text-blue-600 py-2" onClick={handleLinkClick}>About Us</Link>
-              <Link to="/contact" className="block text-gray-700 hover:text-blue-600 py-2" onClick={handleLinkClick}>Contact</Link>
-              <div className="pt-4 border-t">
+              <Link to="/products" className="block text-gray-700 hover:text-primary-600 py-2" onClick={handleLinkClick}>Products</Link>
+              <Link to="/clients" className="block text-gray-700 hover:text-primary-600 py-2" onClick={handleLinkClick}>Clients</Link>
+              <Link to="/about" className="block text-gray-700 hover:text-primary-600 py-2" onClick={handleLinkClick}>About Us</Link>
+              <Link to="/contact" className="block text-gray-700 hover:text-primary-600 py-2" onClick={handleLinkClick}>Contact</Link>
+              <div className="pt-4 border-t border-gray-200">
                 <a
                   href="https://wa.me/27100069158"
                   target="_blank"
