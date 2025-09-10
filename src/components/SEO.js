@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet-async';
 
 const SEO = ({
@@ -58,6 +59,22 @@ const SEO = ({
       )}
     </Helmet>
   );
+};
+
+SEO.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  keywords: PropTypes.string,
+  canonical: PropTypes.string,
+  ogImage: PropTypes.string,
+  ogType: PropTypes.string,
+  twitterCard: PropTypes.string,
+  structuredData: PropTypes.object
+};
+
+SEO.defaultProps = {
+  ogType: 'website',
+  twitterCard: 'summary_large_image'
 };
 
 export default SEO;

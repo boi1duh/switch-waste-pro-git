@@ -78,19 +78,56 @@ const HazardousWaste = () => {
                 <h3 className="font-bold text-white mb-6 text-2xl drop-shadow-lg">Hazardous Waste Categories</h3>
                 <div className="grid grid-cols-1 gap-4">
                   <div className="flex items-center gap-4 bg-white bg-opacity-10 rounded-lg p-4 backdrop-blur-sm">
-                    <span className="text-red-400 text-2xl">⚠️</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-red-400"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                    </svg>
                     <span className="text-white text-lg font-medium drop-shadow-md">Chemical Waste</span>
                   </div>
                   <div className="flex items-center gap-4 bg-white bg-opacity-10 rounded-lg p-4 backdrop-blur-sm">
-                    <span className="text-red-400 text-2xl">🔋</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-red-400"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.586a1 1 0 01.707.293l.707.707A1 1 0 0012.414 11H13m-3 3h1.586a1 1 0 01.707.293l.707.707A1 1 0 0012.414 14H13" />
+                    </svg>
                     <span className="text-white text-lg font-medium drop-shadow-md">Battery Waste</span>
                   </div>
                   <div className="flex items-center gap-4 bg-white bg-opacity-10 rounded-lg p-4 backdrop-blur-sm">
-                    <span className="text-red-400 text-2xl">🧪</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-red-400"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
                     <span className="text-white text-lg font-medium drop-shadow-md">Laboratory Waste</span>
                   </div>
                   <div className="flex items-center gap-4 bg-white bg-opacity-10 rounded-lg p-4 backdrop-blur-sm">
-                    <span className="text-red-400 text-2xl">🏭</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-red-400"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
                     <span className="text-white text-lg font-medium drop-shadow-md">Industrial Waste</span>
                   </div>
                 </div>
@@ -152,7 +189,19 @@ const HazardousWaste = () => {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-blue-600 mb-8 text-center">South African Hazardous Waste Regulations</h2>
             <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-8">
-              <h3 className="text-xl font-bold text-red-800 mb-4">⚠️ Critical Compliance Requirements</h3>
+              <h3 className="text-xl font-bold text-red-800 mb-4 flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 mr-2 text-red-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                </svg>
+                Critical Compliance Requirements
+              </h3>
               <p className="text-red-700 mb-4">
                 Hazardous waste management in South Africa is strictly regulated under multiple pieces of legislation requiring specialized handling, transportation, and disposal procedures.
               </p>
@@ -195,7 +244,19 @@ const HazardousWaste = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="text-4xl mb-4">🚛</div>
+              <div className="text-4xl mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-10 w-10 mx-auto text-blue-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414A1 1 0 0121 12v4a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4-8a2 2 0 114 0m4-8a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
               <h3 className="text-xl font-bold text-blue-600 mb-3">Licensed Transportation</h3>
               <p className="text-gray-600 mb-4">DEAT-approved transportation with GPS tracking, emergency response, and spill prevention protocols.</p>
               <ul className="text-gray-600 space-y-1 text-sm">
@@ -207,7 +268,18 @@ const HazardousWaste = () => {
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="text-4xl mb-4">🏭</div>
+              <div className="text-4xl mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-10 w-10 mx-auto text-blue-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
               <h3 className="text-xl font-bold text-blue-600 mb-3">Treatment Facilities</h3>
               <p className="text-gray-600 mb-4">State-of-the-art treatment facilities meeting international standards for hazardous waste processing.</p>
               <ul className="text-gray-600 space-y-1 text-sm">
@@ -219,7 +291,18 @@ const HazardousWaste = () => {
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="text-4xl mb-4">📋</div>
+              <div className="text-4xl mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-10 w-10 mx-auto text-blue-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
               <h3 className="text-xl font-bold text-blue-600 mb-3">Documentation & Compliance</h3>
               <p className="text-gray-600 mb-4">Complete regulatory documentation, manifest tracking, and compliance reporting for all hazardous waste activities.</p>
               <ul className="text-gray-600 space-y-1 text-sm">
@@ -245,17 +328,50 @@ const HazardousWaste = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-4xl mb-4">🛡️</div>
+              <div className="text-4xl mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-10 w-10 mx-auto text-red-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
               <h3 className="text-xl font-bold mb-2">Personal Protective Equipment</h3>
               <p className="text-red-100">Specialized PPE for all hazardous waste handling personnel</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl mb-4">🚨</div>
+              <div className="text-4xl mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-10 w-10 mx-auto text-red-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-5 5v-5zM4.868 12.683A17.925 17.925 0 0112 21c7.962 0 12-1.21 12-2.683m-12 2.683l8.868-8.868a3 3 0 00-4.243-4.243l-8.868 8.868zm0 0L3 21m9-18a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
               <h3 className="text-xl font-bold mb-2">Emergency Response</h3>
               <p className="text-red-100">24/7 emergency response team with specialized hazardous spill equipment</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl mb-4">📊</div>
+              <div className="text-4xl mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-10 w-10 mx-auto text-red-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
               <h3 className="text-xl font-bold mb-2">Risk Assessment</h3>
               <p className="text-red-100">Comprehensive risk assessments and management plans for all operations</p>
             </div>

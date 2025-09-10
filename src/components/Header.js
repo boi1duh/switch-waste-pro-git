@@ -1,8 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, setActiveMegaMenu, serviceMenuItems }) => {
+const Header = ({
+  isMenuOpen,
+  toggleMenu,
+  activeMegaMenu,
+  setActiveMegaMenu,
+  serviceMenuItems
+}) => {
   const headerRef = useRef(null);
   const mobileMenuRef = useRef(null);
 
@@ -36,7 +42,7 @@ const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, setActiveMegaMenu, ser
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('touchstart', handleClickOutside);
     };
-  }, [isMenuOpen, activeMegaMenu, toggleMenu]);
+  }, [isMenuOpen, activeMegaMenu, toggleMenu, setActiveMegaMenu]);
 
   // Close mobile menu on Escape key
   useEffect(() => {
@@ -269,6 +275,18 @@ const Header = ({ isMenuOpen, toggleMenu, activeMegaMenu, setActiveMegaMenu, ser
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  isMenuOpen: PropTypes.bool.isRequired,
+  toggleMenu: PropTypes.func.isRequired,
+  activeMegaMenu: PropTypes.string,
+  setActiveMegaMenu: PropTypes.func.isRequired,
+  serviceMenuItems: PropTypes.arrayOf(PropTypes.string).isRequired
+};
+
+Header.defaultProps = {
+  activeMegaMenu: null
 };
 
 export default Header;

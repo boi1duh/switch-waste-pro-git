@@ -49,19 +49,55 @@ const PathologicalWaste = () => {
                 <h3 className="font-bold text-white mb-6 text-2xl drop-shadow-lg">Pathological Materials</h3>
                 <div className="grid grid-cols-1 gap-4">
                   <div className="flex items-center gap-4 bg-white bg-opacity-10 rounded-lg p-4 backdrop-blur-sm">
-                    <span className="text-purple-400 text-2xl">🫀</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-purple-400"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
                     <span className="text-white text-lg font-medium drop-shadow-md">Human Organs & Tissues</span>
                   </div>
                   <div className="flex items-center gap-4 bg-white bg-opacity-10 rounded-lg p-4 backdrop-blur-sm">
-                    <span className="text-purple-400 text-2xl">🩸</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-purple-400"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
                     <span className="text-white text-lg font-medium drop-shadow-md">Blood & Body Fluids</span>
                   </div>
                   <div className="flex items-center gap-4 bg-white bg-opacity-10 rounded-lg p-4 backdrop-blur-sm">
-                    <span className="text-purple-400 text-2xl">🧬</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-purple-400"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
                     <span className="text-white text-lg font-medium drop-shadow-md">Laboratory Specimens</span>
                   </div>
                   <div className="flex items-center gap-4 bg-white bg-opacity-10 rounded-lg p-4 backdrop-blur-sm">
-                    <span className="text-purple-400 text-2xl">🦴</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-purple-400"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
                     <span className="text-white text-lg font-medium drop-shadow-md">Surgical Waste</span>
                   </div>
                 </div>
@@ -77,7 +113,19 @@ const PathologicalWaste = () => {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Pathological Waste Regulations</h2>
             <div className="bg-purple-50 border-l-4 border-purple-500 p-6 mb-8">
-              <h3 className="text-xl font-bold text-purple-800 mb-4">⚕️ Healthcare & Anatomical Waste Compliance</h3>
+              <h3 className="text-xl font-bold text-purple-800 mb-4 flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 mr-2 text-purple-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                Healthcare & Anatomical Waste Compliance
+              </h3>
               <p className="text-purple-700 mb-4">
                 Pathological waste is classified as anatomical waste under South African regulations and requires specialized handling protocols. We ensure complete compliance with HPCSA guidelines and environmental legislation.
               </p>
@@ -119,7 +167,18 @@ const PathologicalWaste = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="text-4xl mb-4">🏥</div>
+              <div className="text-4xl mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-10 w-10 mx-auto text-blue-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">Hospital Tissue Management</h3>
               <p className="text-gray-600 mb-4">Specialized collection and processing of surgical tissues, organs, and anatomical specimens from hospitals and medical facilities.</p>
               <ul className="text-gray-600 space-y-1 text-sm">
@@ -131,7 +190,18 @@ const PathologicalWaste = () => {
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="text-4xl mb-4">🔬</div>
+              <div className="text-4xl mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-10 w-10 mx-auto text-blue-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                </svg>
+              </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">Laboratory Specimen Handling</h3>
               <p className="text-gray-600 mb-4">Professional management of laboratory-generated pathological specimens including cultures, biopsies, and research materials.</p>
               <ul className="text-gray-600 space-y-1 text-sm">
@@ -143,7 +213,18 @@ const PathologicalWaste = () => {
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="text-4xl mb-4">⚰️</div>
+              <div className="text-4xl mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-10 w-10 mx-auto text-blue-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+                </svg>
+              </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">Funeral Service Support</h3>
               <p className="text-gray-600 mb-4">Support for funeral services and crematoriums with proper handling of anatomical remains and related materials.</p>
               <ul className="text-gray-600 space-y-1 text-sm">
@@ -169,17 +250,50 @@ const PathologicalWaste = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-4xl mb-4">🙏</div>
+              <div className="text-4xl mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-10 w-10 mx-auto text-purple-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
               <h3 className="text-xl font-bold mb-2">Respectful Handling</h3>
               <p className="text-purple-100">All anatomical materials are handled with dignity and respect by trained, compassionate professionals</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl mb-4">🔒</div>
+              <div className="text-4xl mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-10 w-10 mx-auto text-purple-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </div>
               <h3 className="text-xl font-bold mb-2">Secure Processing</h3>
               <p className="text-purple-100">Complete privacy and security maintained throughout collection, transportation, and processing</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl mb-4">📋</div>
+              <div className="text-4xl mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-10 w-10 mx-auto text-purple-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
               <h3 className="text-xl font-bold mb-2">Complete Documentation</h3>
               <p className="text-purple-100">Full traceability and documentation provided for all pathological waste processing activities</p>
             </div>

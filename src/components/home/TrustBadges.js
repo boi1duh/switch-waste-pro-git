@@ -62,8 +62,8 @@ const TrustBadges = () => {
                 width="64"
                 height="64"
                 style={{ aspectRatio: '1' }}
-                fetchpriority="low"
-                crossorigin="anonymous"
+                fetchPriority="low"
+                crossOrigin="anonymous"
               />
               <p className="text-xs sm:text-sm font-medium text-gray-700">{badge.label}</p>
             </div>

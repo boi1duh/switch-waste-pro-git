@@ -30,6 +30,9 @@ const DocumentShredding = lazy(() => import("./pages/DocumentShredding"));
 const ComplianceTraining = lazy(() => import("./pages/ComplianceTraining"));
 const Products = lazy(() => import("./pages/Products"));
 const Policies = lazy(() => import("./pages/Policies"));
+const Terms = lazy(() => import("./pages/Terms"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -172,6 +175,10 @@ const App = () => {
                 <Route path="/document-shredding" element={<DocumentShredding />} />
                 <Route path="/compliance-training" element={<ComplianceTraining />} />
                 <Route path="/policies" element={<Policies />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/404" element={<NotFound />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
 

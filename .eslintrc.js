@@ -5,8 +5,10 @@ module.exports = {
     node: true,
   },
   extends: [
-    'react-app',
-    'react-app/jest',
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:jsx-a11y/recommended',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -15,6 +17,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
+  plugins: ['react', 'react-hooks', 'jsx-a11y'],
   rules: {
     // General code quality
     'no-console': 'warn',
@@ -32,6 +35,7 @@ module.exports = {
     'react/no-direct-mutation-state': 'error',
     'react/no-typos': 'error',
     'react/require-render-return': 'error',
+    'react/react-in-jsx-scope': 'off', // Not needed in React 17+
 
     // Accessibility
     'jsx-a11y/alt-text': 'warn',
