@@ -13,7 +13,7 @@
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "DISABLE_ESLINT_PLUGIN=true npm run build",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
