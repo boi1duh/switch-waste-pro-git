@@ -1,70 +1,63 @@
-# 📋 Pull Request Template
+## Pull Request Description
 
-## 🎯 Description
-Brief description of the changes made in this PR.
+### Description
+Please provide a clear and concise description of the changes in this pull request.
 
-### 🔧 Changes Made
-- [ ] **Feature:** Added new functionality
-- [ ] **Fix:** Resolved a bug or issue
-- [ ] **Refactor:** Improved code structure
-- [ ] **Docs:** Updated documentation
-- [ ] **Style:** Code formatting changes
-- [ ] **Test:** Added or updated tests
-- [ ] **Chore:** Maintenance tasks
+### Type of Change
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Documentation update
+- [ ] Code style update (formatting, renaming)
+- [ ] Refactor (no functional changes)
+- [ ] Tests (adding or updating tests)
+- [ ] Maintenance (dependencies, build tools, etc.)
 
-## 📝 Details
+### Changes Made
+List the specific changes you made:
 
-### What was changed?
-Describe the specific changes made and why they were necessary.
+- Change 1: Description of what was changed
+- Change 2: Description of what was changed
+- Change 3: Description of what was changed
 
-### Why was this change needed?
-Explain the problem this change solves or the benefit it provides.
+### Motivation and Context
+Why is this change required? What problem does it solve?
 
-### How was this implemented?
-Brief technical overview of the implementation approach.
+### How Has This Been Tested?
+Please describe the tests that you ran to verify your changes:
 
-## 🧪 Testing
+- [ ] Unit tests pass
+- [ ] Integration tests pass
+- [ ] Manual testing completed
+- [ ] Cross-browser testing completed
 
-### Testing Performed
-- [ ] **Unit Tests:** Added/updated unit tests
-- [ ] **Integration Tests:** Verified integration points
-- [ ] **Manual Testing:** Tested manually in browser
-- [ ] **Cross-browser Testing:** Tested on multiple browsers
-- [ ] **Mobile Testing:** Verified on mobile devices
+### Screenshots (if applicable)
+Add screenshots to help explain your changes, especially for UI changes.
 
-### Test Results
-- [ ] All tests pass
-- [ ] No new linting errors
-- [ ] No console errors
-- [ ] Performance not degraded
+### Checklist
+- [ ] My code follows the project's style guidelines
+- [ ] I have performed a self-review of my own code
+- [ ] I have commented my code, particularly in hard-to-understand areas
+- [ ] I have made corresponding changes to the documentation
+- [ ] My changes generate no new warnings or errors
+- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] New and existing unit tests pass locally with my changes
+- [ ] Any dependent changes have been merged and published
 
-## 📸 Screenshots (if applicable)
-<!-- Add screenshots for UI changes -->
+### Related Issues
+Fixes # (issue number)
+Closes # (issue number)
 
-## 🔗 Related Issues
-Closes #issue-number
-Related to #issue-number
+### Additional Notes
+Add any additional notes or context about this pull request here.
 
-## 🚀 Deployment Notes
-Any special deployment considerations or migration steps required?
+### Testing Instructions
+If this PR requires special testing instructions, please provide them:
 
-## ✅ Checklist
-- [ ] Code follows project conventions
-- [ ] Tests are included and passing
-- [ ] Documentation is updated
-- [ ] No breaking changes introduced
-- [ ] Commit messages are clear and descriptive
-- [ ] PR description is comprehensive
-- [ ] Reviewed by at least one team member
-
-## 👥 Reviewers
-<!-- Tag the appropriate reviewers -->
-@boi1duh
+1. Step 1
+2. Step 2
+3. Step 3
 
 ---
 
-**By submitting this pull request, I confirm that:**
-- [ ] My code follows the project's coding standards
-- [ ] I have tested these changes thoroughly
-- [ ] I have updated documentation as needed
-- [ ] This change is ready for production deployment
+**Thank you for contributing to Switch Waste Pro!**

@@ -1,0 +1,54 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.includeLanguages": {
+    "javascript": "javascript",
+    "javascriptreact": "javascriptreact",
+    "html": "HTML"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/build": true,
+    "**/dist": true,
+    "**/.git": true
+  },
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/build": true,
+    "**/dist": true,
+    "**/.git": true,
+    "**/.DS_Store": true
+  },
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*.js": "${capture}.js.map,${capture}.min.js,${capture}.d.ts",
+    "*.jsx": "${capture}.js",
+    "*.ts": "${capture}.js,${capture}.d.ts.map",
+    "*.tsx": "${capture}.ts",
+    "package.json": "package-lock.json,yarn.lock",
+    ".env": ".env.*",
+    "tailwind.config.js": "tailwind.config.*"
+  }
+}

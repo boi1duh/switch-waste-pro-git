@@ -1,15 +1,15 @@
 ---
-name: ✨ Feature Request
-about: Suggest a new feature or enhancement
+name: Feature Request
+description: Suggest a new feature or enhancement
 title: "[FEATURE] "
-labels: enhancement
-assignees: boi1duh
+labels: ["enhancement", "feature-request"]
+assignees: []
 ---
 
-## ✨ Feature Request
+## Feature Request
 
 ### Problem Statement
-What problem are you trying to solve? What pain point does this address?
+What problem are you trying to solve? What is the current limitation?
 
 ### Proposed Solution
 Describe the solution you'd like to see implemented.
@@ -18,31 +18,25 @@ Describe the solution you'd like to see implemented.
 Describe any alternative solutions or features you've considered.
 
 ### Use Case
-How would this feature be used? Provide a specific example.
+How would this feature benefit users? Provide a specific use case.
 
-### Benefits
-What are the benefits of implementing this feature?
-
-### Implementation Details
-If you have technical suggestions:
-- **Technical approach:** How should this be implemented?
-- **API changes:** Any required API modifications?
-- **UI/UX considerations:** Interface design requirements?
-- **Dependencies:** New dependencies required?
-
-### Priority Level
-- [ ] **Low** - Nice to have
-- [ ] **Medium** - Would improve user experience
-- [ ] **High** - Important for business functionality
-- [ ] **Critical** - Essential for core functionality
+### Implementation Ideas
+If you have any technical suggestions or implementation ideas, please share them.
 
 ### Additional Context
-Add any other context, screenshots, or examples about the feature request here.
+Add any other context, screenshots, or examples about the feature request.
 
----
+### Priority
+- [ ] Nice to have
+- [ ] Would be helpful
+- [ ] Important for business
+- [ ] Critical/Blocking
 
-**Checklist:**
+### Related Issues
+Link any related issues or discussions.
+
+### Checklist
 - [ ] I have searched for similar feature requests
-- [ ] I have provided a clear problem statement
-- [ ] I have described the proposed solution
-- [ ] I have included implementation details if applicable
+- [ ] This feature would benefit other users
+- [ ] I have considered the implementation complexity
+- [ ] I have read the [Contributing Guidelines](CONTRIBUTING.md)
