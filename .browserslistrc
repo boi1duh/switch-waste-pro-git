@@ -1,0 +1,22 @@
+# Browsers that we support
+
+> 0.5%
+last 2 versions
+not dead
+
+# React also supports IE 11, but we don't
+not ie 11
+not op_mini all
+
+# Progressive enhancement for modern features
+Chrome >= 58
+Firefox >= 54
+Safari >= 12
+Edge >= 79
+iOS >= 12
+Android >= 8
+
+# Uncomment for development
+# last 1 chrome version
+# last 1 firefox version
+# last 1 safari version

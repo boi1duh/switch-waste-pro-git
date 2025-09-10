@@ -1,0 +1,28 @@
+{
+  "short_name": "Switch Waste",
+  "name": "Switch Waste Management Solutions",
+  "description": "Professional waste management services for healthcare and general waste in Johannesburg",
+  "start_url": "/switch-waste-Pro/",
+  "display": "standalone",
+  "theme_color": "#2563eb",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "scope": "/switch-waste-Pro/",
+  "icons": [
+    {
+      "src": "/switch-waste-Pro/logo192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/switch-waste-Pro/logo192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "en-ZA",
+  "dir": "ltr"
+}

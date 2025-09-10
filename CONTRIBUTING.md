@@ -1,53 +1,47 @@
-# Contributing to Switch Waste Pro
+# 🤝 Contributing to Switch Waste Management Solutions
 
-Thank you for your interest in contributing to Switch Waste Pro! We welcome contributions from the community and are grateful for your help in making this project better.
+Thank you for your interest in contributing to Switch Waste Management Solutions! We welcome contributions from the community and are grateful for your help in making our project better.
 
 ## 📋 Table of Contents
 
 - [Code of Conduct](#code-of-conduct)
 - [Getting Started](#getting-started)
 - [How to Contribute](#how-to-contribute)
-- [Development Workflow](#development-workflow)
-- [Coding Standards](#coding-standards)
-- [Testing](#testing)
+- [Development Setup](#development-setup)
 - [Submitting Changes](#submitting-changes)
 - [Reporting Issues](#reporting-issues)
+- [Style Guidelines](#style-guidelines)
 
-## 🤝 Code of Conduct {#code-of-conduct}
+## 📜 Code of Conduct
 
-This project follows our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you agree to uphold this code.
+This project adheres to a code of conduct that all contributors are expected to follow. Please read [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before contributing.
 
-## 🚀 Getting Started {#getting-started}
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 16.x or higher
-- npm or yarn
-- Git
+- **Node.js** 18.x or higher
+- **npm** or **yarn** package manager
+- **Git** for version control
+- **VS Code** (recommended) with our workspace settings
 
-### Setup
+### Quick Setup
 
-1. **Fork the repository** on GitHub
-2. **Clone your fork** locally:
+```bash
+# Fork and clone the repository
+git clone https://github.com/your-username/switch-waste-pro.git
+cd switch-waste-pro
 
-   ```bash
-   git clone https://github.com/your-username/switch-waste-pro.git
-   cd switch-waste-pro
-   ```
+# Install dependencies
+npm install
 
-3. **Install dependencies**:
+# Start development server
+npm start
 
-   ```bash
-   npm install
-   ```
+# Open http://localhost:3000 in your browser
+```
 
-4. **Start development server**:
-
-   ```bash
-   npm start
-   ```
-
-## 💡 How to Contribute {#how-to-contribute}
+## 💡 How to Contribute
 
 ### Types of Contributions
 
@@ -55,114 +49,177 @@ This project follows our [Code of Conduct](CODE_OF_CONDUCT.md). By participating
 - ✨ **Features** - Add new functionality
 - 📚 **Documentation** - Improve documentation
 - 🎨 **UI/UX** - Improve user interface and experience
-- 🧪 **Tests** - Add or improve tests
+- 🧪 **Testing** - Add or improve tests
 - 🔧 **Maintenance** - Code refactoring, performance improvements
 
-### Finding Issues to Work On
+### Contribution Process
 
-1. Check the [Issues](https://github.com/your-username/switch-waste-pro/issues) page
-2. Look for issues labeled `good first issue` or `help wanted`
-3. Comment on the issue to indicate you're working on it
+1. **Find an issue** or **create a new one**
+2. **Fork the repository**
+3. **Create a feature branch**
+4. **Make your changes**
+5. **Test your changes**
+6. **Submit a pull request**
 
-## 🔄 Development Workflow {#development-workflow}
+## 🛠️ Development Setup
 
-### 1. Create a Branch
+### Environment Setup
 
-Create a descriptive branch for your work:
+1. **Install Node Version Manager (nvm)**
+   ```bash
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+   ```
+
+2. **Use the correct Node.js version**
+   ```bash
+   nvm use
+   # or
+   nvm install 18
+   nvm use 18
+   ```
+
+3. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+### Development Scripts
 
 ```bash
-git checkout -b feature/your-feature-name
-# or
-git checkout -b fix/issue-number-description
-```
+# Start development server
+npm start
 
-### 2. Make Changes
-
-- Write clear, focused commits
-- Test your changes thoroughly
-- Follow the coding standards below
-
-### 3. Test Your Changes
-
-```bash
 # Run tests
 npm test
 
 # Run linting
 npm run lint
 
+# Fix linting issues
+npm run lint:fix
+
 # Build for production
 npm run build
+
+# Analyze bundle size
+npm run build:analyze
 ```
 
-### 4. Commit Your Changes
+## 📝 Submitting Changes
+
+### Commit Guidelines
+
+We follow conventional commit format:
 
 ```bash
-# Stage your changes
-git add .
+# Feature commits
+feat: add new waste collection feature
 
-# Commit with a descriptive message
-git commit -m "feat: add new feature description"
-```
+# Bug fixes
+fix: resolve mobile navigation issue
 
-### 5. Push and Create Pull Request
-
-```bash
-# Push your branch
-git push origin feature/your-feature-name
-
-# Create a Pull Request on GitHub
-```
-
-## 📝 Coding Standards {#coding-standards}
-
-### JavaScript/React
-
-- Use ES6+ features
-- Use functional components with hooks
-- Follow React best practices
-- Use meaningful variable and function names
-- Add comments for complex logic
-
-### CSS/Tailwind
-
-- Use Tailwind utility classes
-- Follow mobile-first responsive design
-- Maintain consistent spacing and colors
-- Use CSS custom properties for theme values
-
-### Git Commits
-
-Follow conventional commit format:
-
-```text
-type(scope): description
-
-[optional body]
-
-[optional footer]
-```
-
-Types:
-
-- `feat`: New feature
-- `fix`: Bug fix
-
-- `docs`: Documentation
-- `style`: Code style changes
-- `refactor`: Code refactoring
-- `test`: Adding tests
-- `chore`: Maintenance
-
-Examples:
-
-```text
-feat: add contact form validation
-fix: resolve mobile menu toggle issue
+# Documentation
 docs: update installation instructions
+
+# Style changes
+style: format code with prettier
+
+# Refactoring
+refactor: simplify component structure
+
+# Performance improvements
+perf: optimize image loading
+
+# Testing
+test: add unit tests for form validation
 ```
 
-## 🧪 Testing {#testing}
+### Pull Request Process
+
+1. **Create a descriptive PR title**
+2. **Provide a clear description** of what was changed and why
+3. **Reference related issues** using `#issue-number`
+4. **Include screenshots** for UI changes
+5. **Ensure CI checks pass**
+
+### PR Template
+
+Please use our PR template which includes:
+- [ ] Description of changes
+- [ ] Related issues
+- [ ] Testing instructions
+- [ ] Screenshots (if applicable)
+- [ ] Checklist completion
+
+## 🐛 Reporting Issues
+
+### Bug Reports
+
+When reporting bugs, please include:
+
+- **Clear title** describing the issue
+- **Steps to reproduce** the problem
+- **Expected behavior** vs. actual behavior
+- **Browser and OS** information
+- **Screenshots** if applicable
+- **Console errors** or logs
+
+### Feature Requests
+
+For new features, please provide:
+
+- **Clear description** of the proposed feature
+- **Use case** and benefits
+- **Mockups or examples** if applicable
+- **Implementation suggestions** (optional)
+
+## 🎨 Style Guidelines
+
+### Code Style
+
+- **ESLint** and **Prettier** are configured
+- Follow **React best practices**
+- Use **functional components** with hooks
+- Implement **proper error boundaries**
+- Write **meaningful component and variable names**
+
+### File Structure
+
+```
+src/
+├── components/     # Reusable components
+│   ├── ui/        # Base UI components
+│   └── home/      # Page-specific components
+├── pages/         # Route components
+├── hooks/         # Custom React hooks
+├── constants/     # Application constants
+├── styles/        # Global styles
+└── utils/         # Utility functions
+```
+
+### Component Guidelines
+
+- Use **functional components** with hooks
+- Implement **PropTypes** for type checking
+- Add **ARIA labels** for accessibility
+- Use **semantic HTML** elements
+- Follow **Tailwind CSS** utility classes
+
+### Naming Conventions
+
+- **Components**: PascalCase (e.g., `UserProfile.js`)
+- **Files**: kebab-case (e.g., `user-profile.js`)
+- **Functions**: camelCase (e.g., `handleSubmit`)
+- **Constants**: SCREAMING_SNAKE_CASE (e.g., `API_BASE_URL`)
+
+## 🧪 Testing
+
+### Testing Guidelines
+
+- Write tests for **new features**
+- Maintain **test coverage** above 80%
+- Use **descriptive test names**
+- Test **user interactions** and **edge cases**
 
 ### Running Tests
 
@@ -170,77 +227,32 @@ docs: update installation instructions
 # Run all tests
 npm test
 
+# Run tests with coverage
+npm run test:coverage
+
 # Run tests in watch mode
 npm test -- --watch
-
-# Run tests with coverage
-npm test -- --coverage
 ```
-
-### Writing Tests
-
-- Write tests for new features
-- Ensure all tests pass before submitting
-- Aim for good test coverage
-- Use descriptive test names
-
-## 📤 Submitting Changes {#submitting-changes}
-
-### Pull Request Process
-
-1. **Ensure your branch is up to date**:
-
-   ```bash
-   git fetch origin
-   git rebase origin/main
-   ```
-
-2. **Create a Pull Request**:
-   - Use a descriptive title
-   - Fill out the pull request template
-   - Reference any related issues
-   - Add screenshots for UI changes
-
-3. **Pull Request Requirements**:
-   - ✅ All tests pass
-   - ✅ Code follows style guidelines
-   - ✅ No linting errors
-   - ✅ Documentation updated if needed
-   - ✅ Commit messages follow conventions
-
-### Pull Request Template
-
-Please use our [Pull Request Template](.github/PULL_REQUEST_TEMPLATE.md) when creating PRs.
-## 🐛 Reporting Issues {#reporting-issues}
-
-
-### Bug Reports
-
-When reporting bugs, please include:
-
-- **Description**: Clear description of the issue
-- **Steps to reproduce**: Step-by-step instructions
-- **Expected behavior**: What should happen
-- **Actual behavior**: What actually happens
-- **Environment**: Browser, OS, Node version
-- **Screenshots**: If applicable
-
-### Feature Requests
-
-For feature requests, please include:
-
-- **Description**: What feature you'd like to see
-- **Use case**: Why this feature would be useful
-- **Implementation ideas**: If you have any suggestions
 
 ## 📞 Getting Help
 
-- 📧 **Email**: [admin@switchwaste.co.za](mailto:admin@switchwaste.co.za)
-- 💬 **Issues**: [GitHub Issues](https://github.com/your-username/switch-waste-pro/issues)
-- 📖 **Documentation**: Check our [README](README.md) first
+If you need help or have questions:
 
-## 🎉 Recognition
+- 📧 **Email:** info@switchwaste.co.za
+- 📱 **Phone:** +27 10 006 9158
+- 🏢 **Address:** 48 16th Avenue, Edenvale, Johannesburg 1609
 
-Contributors will be recognized in our README and may be featured in our website's contributor section.
+## 🙏 Recognition
 
-Thank you for contributing to Switch Waste Pro! 🚀
+Contributors will be recognized in:
+- **README.md** contributors section
+- **GitHub repository** contributors list
+- **Release notes** for significant contributions
+
+## 📄 License
+
+By contributing to this project, you agree that your contributions will be licensed under the same license as the project (MIT License).
+
+---
+
+Thank you for contributing to Switch Waste Management Solutions! 🚀
