@@ -35,6 +35,11 @@ const Privacy = lazy(() => import("./pages/Privacy"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => {
+  // Handle GitHub Pages routing
+  if (window.location.pathname !== '/' && window.location.pathname !== '/switch-waste-Pro') {
+    window.history.replaceState(null, '', '/switch-waste-Pro' + window.location.pathname);
+  }
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState(null);
 
