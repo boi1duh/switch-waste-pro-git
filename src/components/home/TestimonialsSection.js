@@ -73,7 +73,7 @@ const TestimonialsSection = () => {
               </div>
 
               <blockquote className="text-gray-700 mb-6 leading-relaxed italic">
-                "{testimonial.content}"
+                &#34;{testimonial.content}&#34;
               </blockquote>
 
               <div className="flex items-center">

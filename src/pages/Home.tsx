@@ -1,6 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
-import { useIntersectionObserver, useAnimatedCounter } from "../hooks";
+import type { ServicesProps } from "../types";
+import { useIntersectionObserver } from "../hooks";
 import SEO from "../components/SEO";
 import ErrorBoundary from "../components/ErrorBoundary";
 import { HERO_SLIDES } from "../constants/HomeData";
@@ -13,7 +14,7 @@ const TrustBadges = lazy(() => import("../components/home/TrustBadges"));
 const TestimonialsSection = lazy(() => import("../components/home/TestimonialsSection"));
 const CTASection = lazy(() => import("../components/home/CTASection"));
 
-const Home = ({ services, industries }) => {
+const Home: React.FC<ServicesProps> = ({ services, industries }) => {
   // Intersection Observer hooks for scroll-triggered animations
   const { ref: servicesRef, isIntersecting: servicesVisible } = useIntersectionObserver({
     threshold: 0.1,
@@ -45,7 +46,6 @@ const Home = ({ services, industries }) => {
       setTimeout(() => clientsCounter.startAnimation(), 600);
     }
   }, [statsVisible, yearsCounter, complianceCounter, supportCounter, clientsCounter]);
-
 
   // Structured data for the organization
   const structuredData = {
@@ -195,7 +195,7 @@ const Home = ({ services, industries }) => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8" role="list">
-              {industries.map((industry, index) => (
+              {industries.map((industry: Industry, index: number) => (
                 <div
                   key={index}
                   className={`bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-1000 ${
@@ -206,7 +206,7 @@ const Home = ({ services, industries }) => {
                 >
                   <h3 className="text-xl font-bold text-gray-800 mb-4">{industry.name}</h3>
                   <ul className="space-y-2" role="list">
-                    {industry.items.map((item, i) => (
+                    {industry.items.map((item: string, i: number) => (
                       <li key={i} className="flex items-center text-gray-600" role="listitem">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
