@@ -10,6 +10,7 @@
     "noEmit": true,
     "allowJs": true,
     "checkJs": true,
+    "allowImportingTsExtensions": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]

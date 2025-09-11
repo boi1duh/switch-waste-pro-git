@@ -1,4 +1,5 @@
 module.exports = {
+  parser: '@typescript-eslint/parser',
   env: {
     browser: true,
     es2021: true,
@@ -9,6 +10,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -17,11 +19,11 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', 'jsx-a11y'],
+  plugins: ['react', 'react-hooks', 'jsx-a11y', '@typescript-eslint'],
   rules: {
     // General code quality
     'no-console': 'warn',
-    'no-unused-vars': 'warn',
+    '@typescript-eslint/no-unused-vars': 'warn',
     'prefer-const': 'error',
     'no-var': 'error',
 
