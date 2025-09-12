@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm, useCarousel } from "../hooks";
 import SEO from "../components/SEO";
-import type { ContactFormData } from "../types";
+import type { ContactFormData, FormErrors } from "../types";
 
 const Contact = () => {
   const [successMessage, setSuccessMessage] = useState('');
@@ -23,14 +23,14 @@ const Contact = () => {
 
   // Initialize form with useForm hook (typed for form values)
   const {
-    values,
-    errors,
-    touched,
+    values: values as ContactFormData,
+    errors: errors as FormErrors<ContactFormData>,
+    touched: touched as Partial<Record<keyof ContactFormData, boolean>>,
     isSubmitting,
     handleChange,
     handleBlur,
     handleSubmit,
-  } = useForm<ContactFormData>(
+  } = useForm(
     {
       name: '',
       email: '',
@@ -79,6 +79,11 @@ const Contact = () => {
     }
   };
 
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await handleSubmit(onSubmit);
+  };
+
   // Structured data for contact page
   const contactStructuredData = {
     "@context": "https://schema.org",
@@ -89,6 +94,7 @@ const Contact = () => {
     "mainEntity": {
       "@type": "Organization",
       "name": "Switch Waste Management Solutions",
+      "logo": "/assets/logo/switch_Pro_logo.png",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "48 16th Avenue",
@@ -368,7 +374,7 @@ const Contact = () => {
                 </div>
               )}
 
-              <form onSubmit={(e) => handleSubmit(onSubmit)(e)} className="space-y-6">
+              <form onSubmit={handleFormSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-gray-700 font-medium mb-2">Full Name *</label>
@@ -500,7 +506,7 @@ const Contact = () => {
                     value={values.message}
                     onChange={handleChange}
                     onBlur={() => handleBlur('message')}
-                    rows="5"
+                    rows={5}
                     className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                       errors.message && touched.message ? 'border-red-500' : 'border-gray-300'
                     }`}

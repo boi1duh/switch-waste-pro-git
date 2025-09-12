@@ -1,7 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
-import type { ServicesProps } from "../types";
-import { useIntersectionObserver } from "../hooks";
+import type { ServicesProps, Industry } from "../types";
+import { useIntersectionObserver, useAnimatedCounter } from "../hooks";
 import SEO from "../components/SEO";
 import ErrorBoundary from "../components/ErrorBoundary";
 import { HERO_SLIDES } from "../constants/HomeData";
@@ -14,7 +14,7 @@ const TrustBadges = lazy(() => import("../components/home/TrustBadges"));
 const TestimonialsSection = lazy(() => import("../components/home/TestimonialsSection"));
 const CTASection = lazy(() => import("../components/home/CTASection"));
 
-const Home: React.FC<ServicesProps> = ({ services, industries }) => {
+const Home: React.FC<ServicesProps> = ({ services, industries }: ServicesProps) => {
   // Intersection Observer hooks for scroll-triggered animations
   const { ref: servicesRef, isIntersecting: servicesVisible } = useIntersectionObserver({
     threshold: 0.1,
@@ -69,6 +69,7 @@ const Home: React.FC<ServicesProps> = ({ services, industries }) => {
       "contactType": "customer service",
       "availableLanguage": "English"
     },
+    "email": "info@switchwaste.co.za",
     "sameAs": [
       "https://www.facebook.com/switchwaste",
       "https://www.linkedin.com/company/switch-waste"
@@ -195,7 +196,7 @@ const Home: React.FC<ServicesProps> = ({ services, industries }) => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8" role="list">
-              {industries.map((industry: Industry, index: number) => (
+              {(industries as Industry[]).map((industry, index: number) => (
                 <div
                   key={index}
                   className={`bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-1000 ${
@@ -245,7 +246,7 @@ const Home: React.FC<ServicesProps> = ({ services, industries }) => {
         {/* CTA Section */}
         <ErrorBoundary>
           <Suspense fallback={<div className="py-16 bg-gradient-to-r from-primary-600 to-primary-700 flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div></div>}>
-            <CTASection />
+            <CTASection services={services} industries={industries} />
           </Suspense>
         </ErrorBoundary>
       </main>
