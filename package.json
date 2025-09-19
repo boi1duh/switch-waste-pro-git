@@ -1,6 +1,7 @@
 {
   "name": "switch-waste-pro",
   "version": "1.0.0",
+  "homepage": "https://boi1duh.github.io/switch-waste-pro-git",
   "description": "Switch Waste Management Solutions - Professional waste management services in Johannesburg",
   "main": "src/index.js",
   "scripts": {
