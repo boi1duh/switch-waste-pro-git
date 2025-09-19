@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "../../components/ui/Button";
-import { Card } from "../../components/ui/Card";
+import { Button, Card } from "../../components/ui";
+import logger from "../../utils/logger";
 import Modal from "../../components/ui/Modal"; // Assuming Modal component exists
 
 const Products = () => {
@@ -21,7 +21,7 @@ const Products = () => {
         setCart(JSON.parse(savedCart));
       }
     } catch (error) {
-      console.error("Failed to load cart from localStorage:", error);
+      logger.error("Failed to load cart from localStorage:", error);
       setCart([]);
     }
   }, []);
