@@ -194,7 +194,7 @@ const About = () => {
             </div>
             <div>
               <img
-                src="/assets/environmental-impact.jpg"
+                src={`${process.env.PUBLIC_URL}/assets/environmental-impact.jpg`}
                 alt="Environmental sustainability and waste management impact"
                 className="w-full h-80 object-cover rounded-xl shadow-lg"
                 loading="lazy"
@@ -268,7 +268,7 @@ const About = () => {
             </div>
             <div>
               <img
-                src="/assets/team-experts.jpg"
+                src={`${process.env.PUBLIC_URL}/assets/team-experts.jpg`}
                 alt="Professional waste management team and certified experts"
                 className="w-full h-80 object-cover rounded-xl shadow-lg"
                 loading="lazy"

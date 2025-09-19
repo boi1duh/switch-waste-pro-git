@@ -9,7 +9,7 @@ const Footer = () => {
           <div>
             <Link to="/" className="flex items-center mb-4">
               <img
-                src="/assets/logo/switch_Pro_logo.png"
+                src={`${process.env.PUBLIC_URL}/assets/logo/switch_Pro_logo.png`}
                 alt="Switch Waste Solutions Logo"
                 className="h-10 w-auto mr-3 brightness-0 invert"
               />

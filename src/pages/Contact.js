@@ -84,7 +84,7 @@ const Contact = () => {
     "@type": "ContactPage",
     "name": "Contact Switch Waste Management Solutions",
     "description": "Get in touch with Switch Waste Solutions for professional waste management services in Johannesburg. Free quotes and emergency services available.",
-    "url": "https://www.switchwaste.co.za/contact",
+    "url": "https://boi1duh.github.io/switch-waste-pro-git/contact",
     "mainEntity": {
       "@type": "Organization",
       "name": "Switch Waste Management Solutions",
@@ -150,7 +150,7 @@ const Contact = () => {
         description="Contact Switch Waste Solutions for professional waste management in Johannesburg. Free quotes, emergency pickups available 24/7. Call +27 10 006 9158 or email info@switchwaste.co.za."
         keywords="contact switch waste, waste management quote, emergency waste services, Johannesburg contact, medical waste disposal contact, Gauteng waste services"
         canonical="/contact"
-        ogImage="/assets/logo/switch_Pro_logo.png"
+        ogImage={`${process.env.PUBLIC_URL}/assets/logo/switch_Pro_logo.png`}
         structuredData={contactStructuredData}
       />
 
@@ -246,13 +246,13 @@ const Contact = () => {
               {/* Facility Images */}
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <img
-                  src="/assets/contact-location.jpg"
+                  src={`${process.env.PUBLIC_URL}/assets/contact-location.jpg`}
                   alt="Switch Waste Solutions Johannesburg office location"
                   className="w-full h-48 object-cover rounded-lg shadow-md"
                   loading="lazy"
                 />
                 <img
-                  src="/assets/safety-equipment.jpg"
+                  src={`${process.env.PUBLIC_URL}/assets/safety-equipment.jpg`}
                   alt="Professional safety equipment and waste management facilities"
                   className="w-full h-48 object-cover rounded-lg shadow-md"
                   loading="lazy"

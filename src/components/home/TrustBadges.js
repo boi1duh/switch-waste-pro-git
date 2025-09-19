@@ -3,32 +3,32 @@ import React, { memo } from "react";
 const TrustBadges = () => {
   const badges = [
     {
-      src: "/assets/trust-badges/ISO_trust.png",
+      src: `${process.env.PUBLIC_URL}/assets/trust-badges/ISO_trust.png`,
       alt: "ISO Certification",
       label: "ISO Certified"
     },
     {
-      src: "/assets/trust-badges/iso_14001_trust.png",
+      src: `${process.env.PUBLIC_URL}/assets/trust-badges/iso_14001_trust.png`,
       alt: "ISO 14001 Environmental Management",
       label: "ISO 14001"
     },
     {
-      src: "/assets/trust-badges/hpcsa_logo_trust.png",
+      src: `${process.env.PUBLIC_URL}/assets/trust-badges/hpcsa_logo_trust.png`,
       alt: "HPCSA Certified",
       label: "HPCSA Certified"
     },
     {
-      src: "/assets/trust-badges/dea_logo_trust.png",
+      src: `${process.env.PUBLIC_URL}/assets/trust-badges/dea_logo_trust.png`,
       alt: "Department of Environmental Affairs",
       label: "DEA Approved"
     },
     {
-      src: "/assets/trust-badges/beee.logo.trust.png",
+      src: `${process.env.PUBLIC_URL}/assets/trust-badges/beee.logo.trust.png`,
       alt: "BEE Certified",
       label: "BEE Certified"
     },
     {
-      src: "/assets/trust-badges/trust1.png",
+      src: `${process.env.PUBLIC_URL}/assets/trust-badges/trust1.png`,
       alt: "Professional Certification",
       label: "Professional"
     }

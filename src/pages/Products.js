@@ -28,7 +28,7 @@ const Products = () => {
       name: "240L Wheelie Bin - General Waste",
       category: "bins",
       price: 1250,
-      image: "/assets/Products/240l-red-general-waste-recycling-trash-wheelie-bin-whandle_wheels.png",
+      image: `${process.env.PUBLIC_URL}/assets/Products/240l-red-general-waste-recycling-trash-wheelie-bin-whandle_wheels.png`,
       description: "Durable 240L wheelie bin for general waste collection. Made from high-density polyethylene with reinforced wheels.",
       specifications: "Capacity: 240L, Material: HDPE, Color: Green, Wheels: 200mm",
       alt: "240L wheelie bin for general waste collection"
@@ -38,7 +38,7 @@ const Products = () => {
       name: "120L Recycling Bin - Multi-Compartment",
       category: "bins",
       price: 850,
-      image: "/assets/Products/120L_recycling_bin.png",
+      image: `${process.env.PUBLIC_URL}/assets/Products/120L_recycling_bin.png`,
       description: "Multi-compartment recycling bin for paper, plastic, and glass separation. Ideal for offices and residential complexes.",
       specifications: "Capacity: 120L, Compartments: 3, Material: Plastic, Color: Blue/Green/White",
       alt: "Multi-compartment recycling bin for waste separation"
@@ -48,7 +48,7 @@ const Products = () => {
       name: "Medical Waste Container - 20L",
       category: "bins",
       price: 450,
-      image: "/assets/Products/20L_sharps_medical_waste container.jpg",
+      image: `${process.env.PUBLIC_URL}/assets/Products/20L_sharps_medical_waste container.jpg`,
       description: "Sharps and medical waste container with biohazard labeling. SANS compliant for healthcare facilities.",
       specifications: "Capacity: 20L, Material: Puncture-resistant plastic, Color: Red, SANS Approved",
       alt: "Medical waste container for healthcare facilities"
@@ -58,7 +58,7 @@ const Products = () => {
       name: "Industrial Waste Skip - 6m³",
       category: "bins",
       price: 8500,
-      image: "/assets/Products/6m_large_industrial_waste_skip.png",
+      image: `${process.env.PUBLIC_URL}/assets/Products/6m_large_industrial_waste_skip.png`,
       description: "Large industrial waste skip for construction and commercial waste. Heavy-duty construction with lifting points.",
       specifications: "Capacity: 6m³, Material: Steel, Color: Orange, Weight: 450kg",
       alt: "Industrial waste skip for construction sites"
@@ -112,7 +112,7 @@ const Products = () => {
       name: "Sharps Disposal Container - 5L",
       category: "disposal",
       price: 85,
-      image: "/assets/Products/5l_sharps_container.jpg",
+      image: `${process.env.PUBLIC_URL}/assets/Products/5l_sharps_container.jpg`,
       description: "Puncture-resistant sharps container for safe disposal of needles and medical sharps.",
       specifications: "Capacity: 5L, Material: Plastic, Color: Yellow, Locking lid, Biohazard labeled",
       alt: "Sharps disposal container for medical waste"
@@ -122,7 +122,7 @@ const Products = () => {
       name: "Pharmaceutical Waste Container - 10L",
       category: "disposal",
       price: 120,
-      image: "/assets/Products/pharmacuitcal_waste_container.png",
+      image: `${process.env.PUBLIC_URL}/assets/Products/pharmacuitcal_waste_container.png`,
       description: "Secure pharmaceutical waste container with child-resistant and tamper-evident features.",
       specifications: "Capacity: 10L, Material: HDPE, Color: White, Child-resistant, Tamper-evident",
       alt: "Pharmaceutical waste container with security features"
@@ -132,7 +132,7 @@ const Products = () => {
       name: "Hazardous Waste Drum - 200L",
       category: "disposal",
       price: 650,
-      image: "/assets/Products/200l_waste_drums.png",
+      image: `${process.env.PUBLIC_URL}/assets/Products/200l_waste_drums.png`,
       description: "UN certified hazardous waste drum for chemical and toxic waste storage and transport.",
       specifications: "Capacity: 200L, Material: Steel, UN Certified, Color: Yellow, Bung openings: 2\"",
       alt: "Hazardous waste drum for chemical storage"
@@ -142,7 +142,7 @@ const Products = () => {
       name: "Document Shredding Bags - Pack of 50",
       category: "disposal",
       price: 180,
-      image: "/assets/Products/Confidential-Document-Bag-Shopify.png",
+      image: `${process.env.PUBLIC_URL}/assets/Products/Confidential-Document-Bag-Shopify.png`,
       description: "Security document shredding bags for confidential waste. Cross-cut shredding capability.",
       specifications: "Capacity: 50 bags, Security Level: P-4, Material: Plastic, Size: A4 compatible",
       alt: "Document shredding bags for confidential waste"
@@ -154,7 +154,7 @@ const Products = () => {
       name: "Plastic Recycling Bin - 240L",
       category: "recycling",
       price: 1100,
-      image: "/assets/Products/240l-red-general-waste-recycling-trash-wheelie-bin-whandle_wheels.png",
+      image: `${process.env.PUBLIC_URL}/assets/Products/240l-red-general-waste-recycling-trash-wheelie-bin-whandle_wheels.png`,
       description: "Dedicated plastic recycling container with clear labeling and weather-resistant design.",
       specifications: "Capacity: 240L, Material: HDPE, Color: Blue, Weather-resistant, Recycling labeled",
       alt: "Plastic recycling bin with weather-resistant design"
@@ -164,7 +164,7 @@ const Products = () => {
       name: "Glass Recycling Container - 120L",
       category: "recycling",
       price: 750,
-      image: "/assets/Products/120L_glass_waste_container.png",
+      image: `${process.env.PUBLIC_URL}/assets/Products/120L_glass_waste_container.png`,
       description: "Specialized glass recycling container with reinforced base to prevent breakage.",
       specifications: "Capacity: 120L, Material: Plastic, Color: Green, Reinforced base, Glass labeled",
       alt: "Glass recycling container with reinforced base"
@@ -174,7 +174,7 @@ const Products = () => {
       name: "Paper Recycling Station - 360L",
       category: "recycling",
       price: 1450,
-      image: "/assets/Products/360L_reacycling_station.jpg",
+      image: `${process.env.PUBLIC_URL}/assets/Products/360L_reacycling_station.jpg`,
       description: "Multi-compartment paper recycling station for different paper types and confidential documents.",
       specifications: "Capacity: 360L, Compartments: 2, Material: Plastic, Color: White, Lockable",
       alt: "Paper recycling station with multiple compartments"
@@ -184,7 +184,7 @@ const Products = () => {
       name: "Organic Waste Bin - 80L",
       category: "recycling",
       price: 420,
-      image: "/assets/Products/80L_organic_waste_bin.png",
+      image: `${process.env.PUBLIC_URL}/assets/Products/80L_organic_waste_bin.png`,
       description: "Compostable organic waste container with carbon filter to control odors.",
       specifications: "Capacity: 80L, Material: Plastic, Color: Brown, Carbon filter, Compost labeled",
       alt: "Organic waste bin with odor control"

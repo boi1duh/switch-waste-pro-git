@@ -5,7 +5,7 @@ const Clients = () => {
   const clients = [
     {
       name: "Advanced Renal Care",
-      logo: "/assets/partners/avanced.renal.care_client.jpg",
+      logo: `${process.env.PUBLIC_URL}/assets/partners/avanced.renal.care_client.jpg`,
       description: "Leading provider of dialysis services and renal care in South Africa, specializing in kidney disease treatment and management.",
       website: "https://advancedrenalcare.co.za",
       services: "Medical waste management for dialysis centers",
@@ -13,7 +13,7 @@ const Clients = () => {
     },
     {
       name: "Hersol Laboratories",
-      logo: "/assets/partners/hersol.laboritories-logo-client.png",
+      logo: `${process.env.PUBLIC_URL}/assets/partners/hersol.laboritories-logo-client.png`,
       description: "Premier medical laboratory services offering comprehensive diagnostic testing and pathology services across South Africa.",
       website: "https://hersol.co.za",
       services: "Pathological waste and laboratory waste management",
@@ -21,7 +21,7 @@ const Clients = () => {
     },
     {
       name: "Pinnacle Hygiene Company",
-      logo: "/assets/partners/pinnacle.hygiene.company.logo.client.jpg",
+      logo: `${process.env.PUBLIC_URL}/assets/partners/pinnacle.hygiene.company.logo.client.jpg`,
       description: "Professional cleaning and hygiene services provider, specializing in healthcare facility sanitation and infection control.",
       website: "https://pinnaclehygiene.co.za",
       services: "Integrated waste and hygiene management solutions",
@@ -29,7 +29,7 @@ const Clients = () => {
     },
     {
       name: "Unjani Clinic",
-      logo: "/assets/partners/unjani.clinic.logo_client.png",
+      logo: `${process.env.PUBLIC_URL}/assets/partners/unjani.clinic.logo_client.png`,
       description: "Community healthcare provider offering comprehensive medical services with a focus on accessible healthcare delivery.",
       website: "https://unjani.co.za",
       services: "Medical waste collection and disposal services",
@@ -43,7 +43,7 @@ const Clients = () => {
       <section
         className="relative min-h-screen flex items-center overflow-hidden"
         style={{
-          backgroundImage: `url('/assets/backgrounds/Index.Hero.jpg')`,
+          backgroundImage: `url('${process.env.PUBLIC_URL}/assets/backgrounds/Index.Hero.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

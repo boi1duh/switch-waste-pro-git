@@ -107,7 +107,7 @@ const HeroCarousel = ({ slides }) => {
     <section
       className={`relative min-h-screen flex items-center overflow-hidden transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
       style={{
-        backgroundImage: `url('/assets/backgrounds/index.herobanner.png')`,
+        backgroundImage: `url('${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -123,14 +123,14 @@ const HeroCarousel = ({ slides }) => {
       <picture className="hidden">
         <source
           media="(min-width: 1024px)"
-          srcSet="/assets/backgrounds/index.herobanner-large.png 1x, /assets/backgrounds/index.herobanner-large@2x.png 2x"
+          srcSet={`${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner-large.png 1x, ${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner-large@2x.png 2x`
         />
         <source
           media="(min-width: 768px)"
-          srcSet="/assets/backgrounds/index.herobanner-medium.png 1x, /assets/backgrounds/index.herobanner-medium@2x.png 2x"
+          srcSet={`${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner-medium.png 1x, ${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner-medium@2x.png 2x`
         />
         <img
-          src="/assets/backgrounds/index.herobanner.png"
+          src={`${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner.png`}
           alt=""
           onLoad={() => setImageLoaded(true)}
           onError={() => setImageLoaded(true)} // Still show content even if image fails

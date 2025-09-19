@@ -109,7 +109,7 @@ const Header = ({
           <a href="/" className="transition-all duration-300 hover:scale-110 group">
             <div className="relative p-2 rounded-lg hover:bg-gray-50 transition-all duration-300">
               <img
-                src="/assets/logo/switch_Pro_logo.png"
+                src={`${process.env.PUBLIC_URL}/assets/logo/switch_Pro_logo.png`}
                 alt="Switch Waste Solutions Logo"
                 className="h-12 sm:h-16 w-auto"
               />

@@ -9,7 +9,7 @@ const TestimonialsSection = () => {
       company: "Advanced Renal Care",
       content: "Switch Waste has been an invaluable partner for our dialysis centers across Johannesburg. Their reliable service and strict compliance with medical waste regulations give us complete peace of mind in managing our specialized healthcare waste.",
       rating: 5,
-      avatar: "/assets/partners/avanced.renal.care_client.jpg"
+      avatar: `${process.env.PUBLIC_URL}/assets/partners/avanced.renal.care_client.jpg`
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ const TestimonialsSection = () => {
       company: "Hersol Laboratories",
       content: "Their professional approach to laboratory waste management and commitment to safety protocols aligns perfectly with our quality standards. Switch Waste ensures our pathology waste is handled with the highest level of care and compliance.",
       rating: 5,
-      avatar: "/assets/partners/hersol.laboritories-logo-client.png"
+      avatar: `${process.env.PUBLIC_URL}/assets/partners/hersol.laboritories-logo-client.png`
     },
     {
       id: 3,
@@ -27,7 +27,7 @@ const TestimonialsSection = () => {
       company: "Pinnacle Hygiene Company",
       content: "Switch Waste's integrated waste and hygiene management solutions have transformed our service delivery. Their reliable collection schedules and professional team ensure we maintain the highest standards for our clients.",
       rating: 5,
-      avatar: "/assets/partners/pinnacle.hygiene.company.logo.client.jpg"
+      avatar: `${process.env.PUBLIC_URL}/assets/partners/pinnacle.hygiene.company.logo.client.jpg`
     }
   ];
 

@@ -13,7 +13,7 @@ const SEO = ({
   structuredData
 }) => {
   const siteName = 'Switch Waste Management Solutions';
-  const siteUrl = 'https://www.switchwaste.co.za';
+  const siteUrl = 'https://boi1duh.github.io/switch-waste-pro-git';
   const defaultImage = '/assets/logo/switch_Pro_logo.png';
   const defaultDescription = 'Professional waste management services for healthcare and general waste in Johannesburg. SANS compliant, environmentally responsible waste disposal solutions.';
 

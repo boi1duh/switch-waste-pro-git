@@ -53,7 +53,7 @@ const Home = ({ services, industries }) => {
     "@type": "Organization",
     "name": "Switch Waste Management Solutions",
     "url": "https://www.switchwaste.co.za",
-    "logo": "https://www.switchwaste.co.za/assets/logo/switch_Pro_logo.png",
+    "logo": "https://boi1duh.github.io/switch-waste-pro-git/assets/logo/switch_Pro_logo.png",
     "description": "Professional waste management services for healthcare and general waste in Johannesburg. SANS compliant, environmentally responsible waste disposal solutions.",
     "address": {
       "@type": "PostalAddress",
@@ -129,13 +129,13 @@ const Home = ({ services, industries }) => {
         description="Switch Waste Management Solutions provides professional healthcare risk waste, pharmaceutical disposal, and general waste management services in Johannesburg. SANS compliant, environmentally responsible waste disposal."
         keywords="waste management Johannesburg, healthcare waste disposal, medical waste services, pharmaceutical waste, environmental services, SANS compliant, Gauteng waste management"
         canonical="/"
-        ogImage="/assets/logo/switch_Pro_logo.png"
+        ogImage={`${process.env.PUBLIC_URL}/assets/logo/switch_Pro_logo.png`}
         structuredData={structuredData}
       />
 
       {/* Preload critical resources */}
       <link rel="preload" href="/assets/backgrounds/index.herobanner.png" as="image" />
-      <link rel="preload" href="/assets/logo/switch_Pro_logo.png" as="image" />
+      <link rel="preload" href={`${process.env.PUBLIC_URL}/assets/logo/switch_Pro_logo.png`} as="image" />
       <link rel="dns-prefetch" href="//fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
 
