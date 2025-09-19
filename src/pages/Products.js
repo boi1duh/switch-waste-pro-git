@@ -8,7 +8,6 @@ const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [showOrderForm, setShowOrderForm] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [orderSuccess, setOrderSuccess] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -58,27 +57,8 @@ const Products = () => {
   };
 
   const categories = ["all", "bins", "safety", "disposal", "recycling", "collection"];
-
-  const filteredProducts = products.filter(product => {
-    const matchesCategory = selectedCategory === "all" || product.category === selectedCategory;
-    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         product.description.toLowerCase().includes(searchTerm.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
-
-  const openProductPopup = (product) => {
-    setSelectedProduct(product);
-    setIsPopupOpen(true);
-  };
-
-  const closePopup = () => {
-    setIsPopupOpen(false);
-    setSelectedProduct(null);
-  };
-
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-
   const products = [
+
     // Waste Bins & Containers
     {
       id: 1,
@@ -279,6 +259,24 @@ const Products = () => {
       alt: "Hydraulic bin lifting equipment for waste collection"
     }
   ];
+ const filteredProducts = products.filter(product => {
+    const matchesCategory = selectedCategory === "all" || product.category === selectedCategory;
+    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         product.description.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  const openProductPopup = (product) => {
+    setSelectedProduct(product);
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+    setSelectedProduct(null);
+  };
+
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
@@ -413,4 +411,5 @@ const Products = () => {
   );
 
 };
+
 export default Products;
