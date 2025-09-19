@@ -5,6 +5,7 @@ import SEO from "../components/SEO";
 
 const Contact = () => {
   const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   // Form validation function
   const validate = (values) => {
@@ -47,6 +48,7 @@ const Contact = () => {
 
   // Form submission handler
   const onSubmit = async (formValues) => {
+    setErrorMessage(''); // Clear previous errors
     try {
       const formDataToSend = new FormData();
 
@@ -68,13 +70,14 @@ const Contact = () => {
 
       if (result.success) {
         setSuccessMessage(result.message);
+        setErrorMessage(''); // Clear any errors on success
         setTimeout(() => setSuccessMessage(''), 5000);
       } else {
         throw new Error(result.message);
       }
     } catch (error) {
-      console.error('Form submission error:', error);
-      throw new Error('Failed to send message. Please try again.');
+      setErrorMessage('Failed to send message. Please try again.');
+      throw error; // Re-throw to let form handler manage state
     }
   };
 
@@ -364,6 +367,13 @@ const Contact = () => {
                 <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
                   <span className="mr-2">✅</span>
                   {successMessage}
+                </div>
+              )}
+  
+              {errorMessage && (
+                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+                  <span className="mr-2">❌</span>
+                  {errorMessage}
                 </div>
               )}
 

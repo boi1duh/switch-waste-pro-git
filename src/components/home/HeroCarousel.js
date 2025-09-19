@@ -123,11 +123,11 @@ const HeroCarousel = ({ slides }) => {
       <picture className="hidden">
         <source
           media="(min-width: 1024px)"
-          srcSet={`${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner-large.png 1x, ${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner-large@2x.png 2x`
+          srcSet={`${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner-large.png 1x, ${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner-large@2x.png 2x`}
         />
         <source
           media="(min-width: 768px)"
-          srcSet={`${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner-medium.png 1x, ${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner-medium@2x.png 2x`
+          srcSet={`${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner-medium.png 1x, ${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner-medium@2x.png 2x`}
         />
         <img
           src={`${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner.png`}
