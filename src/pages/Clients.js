@@ -228,7 +228,7 @@ const Clients = () => {
                 </div>
               </div>
               <blockquote className="text-gray-700 mb-4 italic">
-                "Their professional approach to laboratory waste management and commitment to safety protocols aligns perfectly with our quality standards."
+                &quot;Their professional approach to laboratory waste management and commitment to safety protocols aligns perfectly with our quality standards.&quot;
               </blockquote>
               <cite className="text-gray-600 font-medium">
                 — Hersol Laboratories Quality Manager

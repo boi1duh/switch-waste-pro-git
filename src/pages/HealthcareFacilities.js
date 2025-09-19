@@ -160,7 +160,7 @@ const HealthcareFacilities = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Healthcare Waste Management Services</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Specialized solutions designed specifically for healthcare facilities' unique waste management needs
+              Specialized solutions designed specifically for healthcare facilities&apos; unique waste management needs
             </p>
           </div>
 

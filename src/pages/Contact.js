@@ -370,7 +370,7 @@ const Contact = () => {
               <form onSubmit={(e) => handleSubmit(onSubmit)(e)} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-gray-700 font-medium mb-2">Full Name *</label>
+                    <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Full Name *</label>
                     <input
                       type="text"
                       name="name"
@@ -385,7 +385,7 @@ const Contact = () => {
                     {errors.name && touched.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                   </div>
                   <div>
-                    <label className="block text-gray-700 font-medium mb-2">Email Address *</label>
+                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email Address *</label>
                     <input
                       type="email"
                       name="email"
@@ -403,7 +403,7 @@ const Contact = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-gray-700 font-medium mb-2">Phone Number</label>
+                    <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">Phone Number</label>
                     <input
                       type="tel"
                       name="phone"
@@ -415,7 +415,7 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-700 font-medium mb-2">Company/Organization</label>
+                    <label htmlFor="company" className="block text-gray-700 font-medium mb-2">Company/Organization</label>
                     <input
                       type="text"
                       name="company"
@@ -429,7 +429,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-medium mb-2">Primary Service Required *</label>
+                  <label htmlFor="service" className="block text-gray-700 font-medium mb-2">Primary Service Required *</label>
                   <select
                     name="service"
                     value={values.service}
@@ -456,7 +456,7 @@ const Contact = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-gray-700 font-medium mb-2">Estimated Waste Volume</label>
+                    <label htmlFor="waste_volume" className="block text-gray-700 font-medium mb-2">Estimated Waste Volume</label>
                     <select
                       name="waste_volume"
                       value={values.waste_volume}
@@ -473,7 +473,7 @@ const Contact = () => {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-gray-700 font-medium mb-2">Collection Frequency</label>
+                    <label htmlFor="collection_frequency" className="block text-gray-700 font-medium mb-2">Collection Frequency</label>
                     <select
                       name="collection_frequency"
                       value={values.collection_frequency}
@@ -493,7 +493,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-medium mb-2">Message & Special Requirements *</label>
+                  <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Message & Special Requirements *</label>
                   <textarea
                     name="message"
                     value={values.message}

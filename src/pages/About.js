@@ -263,7 +263,7 @@ const About = () => {
                 With over 20 years of experience in the waste management industry, Switch Waste Solutions has developed extensive knowledge of the stringent regulations, legislation, by-laws, and SANS guidelines governing the healthcare risk waste sector.
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Our expert team provides comprehensive support throughout the entire 'cradle to grave' process of healthcare risk waste treatment and disposal. We understand the critical importance of compliance and work diligently to ensure your organization meets all regulatory requirements.
+                Our expert team provides comprehensive support throughout the entire &apos;cradle to grave&apos; process of healthcare risk waste treatment and disposal. We understand the critical importance of compliance and work diligently to ensure your organization meets all regulatory requirements.
               </p>
             </div>
             <div>
