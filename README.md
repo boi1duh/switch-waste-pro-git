@@ -54,7 +54,7 @@ switch-waste-pro/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/switch-waste-pro.git
+   git clone https://github.com/boi1duh/switch-waste-pro-git.git
    cd switch-waste-pro
    ```
 
@@ -115,6 +115,7 @@ You can also deploy manually by:
 - **PostCSS** - CSS processing tool
 - **Autoprefixer** - CSS vendor prefixing
 - **ESLint** - JavaScript linting
+- **Note on Dependencies**: Some dev dependencies have known vulnerabilities (e.g., in webpack-dev-server). For production, consider updating react-scripts or using a security scanner like Snyk.
 - **GitHub Pages** - Free web hosting for static sites
 
 ## 🎨 Customization
@@ -201,3 +202,5 @@ For support or questions:
 ---
 
 ## Built with ❤️ for Switch Waste Management Solutions
+
+**Ready for GitHub Launch: Repository structured with clean root, ignored builds, optimized public/, and CI-ready.**
