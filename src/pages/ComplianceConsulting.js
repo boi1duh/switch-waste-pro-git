@@ -191,7 +191,7 @@ const ComplianceConsulting = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ensure Regulatory Compliance</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Don't risk penalties and legal issues. Contact our compliance experts for a comprehensive assessment and customized compliance program that meets all South African regulatory requirements.
+            Don&apos;t risk penalties and legal issues. Contact our compliance experts for a comprehensive assessment and customized compliance program that meets all South African regulatory requirements.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link to="/contact" className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">

@@ -79,7 +79,7 @@ const DocumentShredding = () => {
             <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
               <h3 className="text-xl font-bold text-blue-800 mb-4">🔒 POPIA & GDPR Compliance</h3>
               <p className="text-blue-700 mb-4">
-                Document shredding services must comply with South Africa's Protection of Personal Information Act (POPIA) and international data protection standards. We ensure complete data destruction and regulatory compliance.
+                Document shredding services must comply with South Africa&apos;s Protection of Personal Information Act (POPIA) and international data protection standards. We ensure complete data destruction and regulatory compliance.
               </p>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white p-6 rounded-lg shadow-sm">

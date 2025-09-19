@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from "react";
+import { memo, useMemo } from "react";
 import PropTypes from "prop-types";
 
 // Configuration for transition delays
@@ -36,6 +36,8 @@ const StatItem = memo(({
     </article>
   );
 });
+
+StatItem.displayName = 'StatItem';
 
 StatItem.propTypes = {
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,

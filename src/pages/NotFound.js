@@ -8,7 +8,7 @@ const NotFound = () => {
     <>
       <SEO
         title="Page Not Found"
-        description="The page you're looking for doesn't exist. Return to Switch Waste Management Solutions homepage."
+        description="The page you&apos;re looking for doesn&apos;t exist. Return to Switch Waste Management Solutions homepage."
         canonical="/404"
       />
       <Helmet>
@@ -31,7 +31,7 @@ const NotFound = () => {
           </div>
           <h1 className="text-4xl font-bold text-gray-800 mb-4">404 - Page Not Found</h1>
           <p className="text-gray-600 mb-8">
-            Sorry, the page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL.
+            Sorry, the page you&apos;re looking for doesn&apos;t exist. It might have been moved, deleted, or you entered the wrong URL.
           </p>
 
           <div className="space-y-4">

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Button = ({
   children,
@@ -25,6 +26,17 @@ const Button = ({
     small: 'px-3 py-2 text-sm',
     medium: 'px-4 py-3 text-base',
     large: 'px-6 py-4 text-lg',
+  };
+  
+  Button.propTypes = {
+    children: PropTypes.node.isRequired,
+    variant: PropTypes.oneOf(['primary', 'secondary', 'danger', 'success', 'outline']),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    disabled: PropTypes.bool,
+    loading: PropTypes.bool,
+    onClick: PropTypes.func,
+    className: PropTypes.string,
+    type: PropTypes.oneOf(['button', 'submit', 'reset']),
   };
 
   const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`;

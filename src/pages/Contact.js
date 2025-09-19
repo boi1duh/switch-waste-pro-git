@@ -357,7 +357,7 @@ const Contact = () => {
             <div className="bg-white p-8 rounded-xl shadow-lg">
               <h2 className="text-2xl font-bold text-blue-600 mb-6">Request Your Free Quote</h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form below and we'll get back to you within 24 hours with a customized solution for your waste management needs.
+                Fill out the form below and We&apos;ll get back to you within 24 hours with a customized solution for your waste management needs.
               </p>
 
               {successMessage && (

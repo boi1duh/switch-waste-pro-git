@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef, memo } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useSwipe, useCarousel } from "../../hooks";
 
@@ -251,6 +252,18 @@ const HeroCarousel = ({ slides }) => {
       </div>
     </section>
   );
+};
+
+HeroCarousel.propTypes = {
+  slides: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      ctaText: PropTypes.string.isRequired,
+      ctaLink: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default memo(HeroCarousel);

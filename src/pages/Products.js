@@ -757,7 +757,7 @@ const Products = () => {
             </div>
             <h2 className="text-2xl font-bold text-blue-600 mb-4">Quote Request Submitted!</h2>
             <p className="text-gray-600 mb-6">
-              Thank you for your quote request. We'll send a detailed quotation to your email within 24 hours with pricing and delivery information.
+              Thank you for your quote request. We&apos;ll send a detailed quotation to your email within 24 hours with pricing and delivery information.
             </p>
             <button
               onClick={() => setOrderSuccess(false)}

@@ -56,7 +56,7 @@ const TestimonialsSection = () => {
             What Our Clients Say
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4">
-            Don't just take our word for it. Here's what our satisfied clients have to say about our waste management services.
+            Don&apos;t just take our word for it. Here&apos;s what our satisfied clients have to say about our waste management services.
           </p>
         </div>
 
@@ -73,7 +73,7 @@ const TestimonialsSection = () => {
               </div>
 
               <blockquote className="text-gray-700 mb-6 leading-relaxed italic">
-                "{testimonial.content}"
+                &quot;{testimonial.content}&quot;
               </blockquote>
 
               <div className="flex items-center">
@@ -107,5 +107,7 @@ const TestimonialsSection = () => {
     </section>
   );
 };
+
+TestimonialsSection.displayName = 'TestimonialsSection';
 
 export default memo(TestimonialsSection);
