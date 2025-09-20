@@ -1,5 +1,6 @@
 import React, { useEffect, lazy, Suspense } from "react";
 import { useIntersectionObserver, useAnimatedCounter } from "../hooks";
+import { FaClinicMedical, FaPills, FaRecycle } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import SEO from "../components/SEO";
 import ErrorBoundary from "../components/ErrorBoundary";
@@ -111,8 +112,29 @@ const Home = ({ services, industries }) => {
           }
         }
       ]
-    }
+    },
+    "potentialAction": [
+      {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${process.env.PUBLIC_URL || "https://www.switchwaste.co.za"}/search?q={search_term_string}`
+        },
+        "query-input": "required name=search_term_string"
+      }
+    ]
   };
+
+  const professionalIcons = {
+    "Healthcare Risk Waste": <FaClinicMedical className="w-12 h-12 text-primary-600" />,
+    "Pharmaceutical Waste": <FaPills className="w-12 h-12 text-primary-600" />,
+    "General Waste & Recycling": <FaRecycle className="w-12 h-12 text-primary-600" />,
+  };
+
+  const updatedServices = services.map(service => ({
+    ...service,
+    icon: professionalIcons[service.title] || service.icon
+  }));
 
   return (
     <>
@@ -134,7 +156,7 @@ const Home = ({ services, industries }) => {
       />
 
       {/* Preload critical resources */}
-      <link rel="preload" href="/assets/backgrounds/index.herobanner.png" as="image" />
+      <link rel="preload" href={`${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner.png`} as="image" />
       <link rel="preload" href={`${process.env.PUBLIC_URL}/assets/logo/switch_Pro_logo.png`} as="image" />
       <link rel="dns-prefetch" href="//fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -151,7 +173,7 @@ const Home = ({ services, industries }) => {
         <section ref={servicesRef}>
           <ErrorBoundary>
             <Suspense fallback={<div className="py-16 bg-white flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary-600"></div></div>}>
-              <ServicesGrid services={services} servicesVisible={servicesVisible} />
+              <ServicesGrid services={updatedServices} servicesVisible={servicesVisible} />
             </Suspense>
           </ErrorBoundary>
         </section>

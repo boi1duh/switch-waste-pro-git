@@ -141,7 +141,7 @@ const App = () => {
   return (
     <ErrorBoundary>
       <HelmetProvider>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <div className="min-h-screen bg-white">
             <Header
               isMenuOpen={isMenuOpen}

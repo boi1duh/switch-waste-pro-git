@@ -110,7 +110,7 @@ const Header = ({
               <div className="absolute -left-8 mt-2 w-screen max-w-xs bg-white rounded-lg shadow-lg z-50">
                 <div className="p-4">
                   {industries.map((industry) => (
-                    <Link key={industry.name} to={`/${industry.name.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} onClick={handleMenuClose} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">{industry.name}</Link>
+                    <Link key={industry.name} to={`/${industry.name.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-').replace(/\//g, '-')}`} onClick={handleMenuClose} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">{industry.name}</Link>
                   ))}
                 </div>
               </div>
@@ -207,7 +207,7 @@ const Header = ({
               {activeMegaMenu === 'sectors' && (
                 <div className="pl-4 mt-2 space-y-1">
                   {industries.map((industry) => (
-                    <Link key={industry.name} to={`/${industry.name.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} onClick={handleMenuClose} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-gray-50">{industry.name}</Link>
+                    <Link key={industry.name} to={`/${industry.name.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-').replace(/\//g, '-')}`} onClick={handleMenuClose} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-gray-50">{industry.name}</Link>
                   ))}
                 </div>
               )}
@@ -230,8 +230,8 @@ Header.propTypes = {
   setActiveMegaMenu: PropTypes.func.isRequired,
   serviceMenuItems: PropTypes.arrayOf(PropTypes.string).isRequired,
   industries: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    items: PropTypes.arrayOf(PropTypes.string),
+    name: PropTypes.string.isRequired,
+    items: PropTypes.arrayOf(PropTypes.string).isRequired,
   })).isRequired,
 };
 

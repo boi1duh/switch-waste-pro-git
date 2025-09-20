@@ -29,7 +29,7 @@ const Search = ({ services, industries, serviceMenuItems }) => {
       // Search Industries
       const industryResults = industries
         .filter(i => i.name.toLowerCase().includes(lowerCaseQuery) || i.items.some(item => item.toLowerCase().includes(lowerCaseQuery)))
-        .map(i => ({ type: 'Industry', name: i.name, link: '/#industries-heading', description: `Solutions for ${i.name}` }));
+        .map(i => ({ type: 'Industry', name: i.name, link: `/${i.name.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-').replace(/\//g, '-')}`, description: `Solutions for ${i.name}` }));
       foundResults = [...foundResults, ...industryResults];
 
       // Search Pages

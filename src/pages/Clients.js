@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaHandshake, FaClipboardList, FaClock, FaBullseye, FaTrophy, FaCertificate, FaLightbulb } from 'react-icons/fa';
 
 const Clients = () => {
   const clients = [
@@ -84,19 +85,19 @@ const Clients = () => {
                 <h3 className="font-bold text-white mb-6 text-2xl drop-shadow-lg">Partnership Benefits</h3>
                 <div className="grid grid-cols-1 gap-4">
                   <div className="flex items-center gap-4 bg-white bg-opacity-10 rounded-lg p-4 backdrop-blur-sm">
-                    <span className="text-green-400 text-2xl">🤝</span>
+                    <FaHandshake className="text-green-400 text-2xl" />
                     <span className="text-white text-lg font-medium drop-shadow-md">Reliable Service Delivery</span>
                   </div>
                   <div className="flex items-center gap-4 bg-white bg-opacity-10 rounded-lg p-4 backdrop-blur-sm">
-                    <span className="text-green-400 text-2xl">📋</span>
+                    <FaClipboardList className="text-green-400 text-2xl" />
                     <span className="text-white text-lg font-medium drop-shadow-md">Regulatory Compliance</span>
                   </div>
                   <div className="flex items-center gap-4 bg-white bg-opacity-10 rounded-lg p-4 backdrop-blur-sm">
-                    <span className="text-green-400 text-2xl">⏰</span>
+                    <FaClock className="text-green-400 text-2xl" />
                     <span className="text-white text-lg font-medium drop-shadow-md">24/7 Support</span>
                   </div>
                   <div className="flex items-center gap-4 bg-white bg-opacity-10 rounded-lg p-4 backdrop-blur-sm">
-                    <span className="text-green-400 text-2xl">🎯</span>
+                    <FaBullseye className="text-green-400 text-2xl" />
                     <span className="text-white text-lg font-medium drop-shadow-md">Tailored Solutions</span>
                   </div>
                 </div>
@@ -178,17 +179,17 @@ const Clients = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-4xl mb-4">🏆</div>
+              <FaTrophy className="text-4xl mb-4 mx-auto text-yellow-400" />
               <h3 className="text-xl font-bold mb-2">Proven Track Record</h3>
               <p className="text-blue-100">Over 20 years of reliable service delivery to healthcare and commercial clients across South Africa.</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl mb-4">📜</div>
+              <FaCertificate className="text-4xl mb-4 mx-auto text-yellow-400" />
               <h3 className="text-xl font-bold mb-2">Full Compliance</h3>
               <p className="text-blue-100">Complete adherence to NEMWA, HPCSA guidelines, and all relevant South African environmental regulations.</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl mb-4">🚀</div>
+              <FaLightbulb className="text-4xl mb-4 mx-auto text-yellow-400" />
               <h3 className="text-xl font-bold mb-2">Innovation Focus</h3>
               <p className="text-blue-100">Continuous investment in new technologies and processes to improve service quality and environmental outcomes.</p>
             </div>
