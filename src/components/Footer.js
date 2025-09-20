@@ -33,8 +33,8 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link></li>
               <li><Link to="/services" className="text-gray-400 hover:text-white transition-colors">Services</Link></li>
-              <li><Link to="/policies" className="text-gray-400 hover:text-white transition-colors">Policies & Compliance</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors">Contact Us</Link></li>
+              <li><Link to="/clients" className="text-gray-400 hover:text-white transition-colors">Our Clients</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -76,6 +76,7 @@ const Footer = () => {
             Committed to environmental responsibility and regulatory compliance
           </p>
           <div className="flex space-x-6 text-sm">
+            <Link to="/policies" className="text-gray-400 hover:text-white transition-colors">Policies</Link>
             <Link to="/terms" className="text-gray-400 hover:text-white transition-colors">Terms & Conditions</Link>
             <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>
             <Link to="/sitemap" className="text-gray-400 hover:text-white transition-colors">Sitemap</Link>

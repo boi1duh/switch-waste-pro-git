@@ -32,6 +32,7 @@ const Products = lazy(() => import("./pages/Products"));
 const Policies = lazy(() => import("./pages/Policies"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Privacy = lazy(() => import("./pages/Privacy"));
+const Search = lazy(() => import("./pages/Search"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => {
@@ -70,15 +71,16 @@ const App = () => {
   ], []);
 
   const serviceMenuItems = [
-    "Regulated Medical Waste",
+    "View All Services",
+    "Medical Waste",
     "Pharmaceutical Waste",
     "Hazardous Waste",
     "Universal Waste",
     "Controlled Substance Waste",
-    "Pathological & Chemotherapeutic Waste",
-    "Incineration & Treatment",
+    "Pathological Waste",
+    "Incineration Treatment",
     "Document Shredding",
-    "Compliance & Training",
+    "Compliance Training",
   ];
 
   // Loading component for Suspense fallback
@@ -148,6 +150,7 @@ const App = () => {
               toggleMegaMenu={toggleMegaMenu}
               setActiveMegaMenu={setActiveMegaMenu}
               serviceMenuItems={serviceMenuItems}
+              industries={industries}
             />
 
             <Suspense fallback={<PageLoader />}>
@@ -176,6 +179,7 @@ const App = () => {
                 <Route path="/policies" element={<Policies />} />
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/privacy" element={<Privacy />} />
+                <Route path="/search" element={<Search services={services} industries={industries} serviceMenuItems={serviceMenuItems} />} />
                 <Route path="/404" element={<NotFound />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

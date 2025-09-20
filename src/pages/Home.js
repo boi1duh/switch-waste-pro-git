@@ -1,6 +1,6 @@
-import React, { useState, useEffect, lazy, Suspense } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, lazy, Suspense } from "react";
 import { useIntersectionObserver, useAnimatedCounter } from "../hooks";
+import PropTypes from 'prop-types';
 import SEO from "../components/SEO";
 import ErrorBoundary from "../components/ErrorBoundary";
 import { HERO_SLIDES } from "../constants/HomeData";
@@ -52,8 +52,8 @@ const Home = ({ services, industries }) => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Switch Waste Management Solutions",
-    "url": "https://www.switchwaste.co.za",
-    "logo": "https://boi1duh.github.io/switch-waste-pro-git/assets/logo/switch_Pro_logo.png",
+    "url": process.env.PUBLIC_URL || "https://www.switchwaste.co.za",
+    "logo": `${process.env.PUBLIC_URL}/assets/logo/switch_Pro_logo.png`,
     "description": "Professional waste management services for healthcare and general waste in Johannesburg. SANS compliant, environmentally responsible waste disposal solutions.",
     "address": {
       "@type": "PostalAddress",
@@ -194,7 +194,7 @@ const Home = ({ services, industries }) => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8" role="list">
+            <div className="grid md:grid-cols-3 gap-8">
               {industries.map((industry, index) => (
                 <div
                   key={index}
@@ -202,12 +202,10 @@ const Home = ({ services, industries }) => {
                     industriesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                   }`}
                   style={{ transitionDelay: `${index * 200}ms` }}
-                  role="listitem"
                 >
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">{industry.name}</h3>
-                  <ul className="space-y-2" role="list">
+                  <ul className="space-y-2">
                     {industry.items.map((item, i) => (
-                      <li key={i} className="flex items-center text-gray-600" role="listitem">
+                      <li key={i} className="flex items-center text-gray-600">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-5 w-5 text-primary-600 mr-2"
@@ -251,6 +249,18 @@ const Home = ({ services, industries }) => {
       </main>
     </>
   );
+};
+
+Home.propTypes = {
+  services: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+  })).isRequired,
+  industries: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    items: PropTypes.arrayOf(PropTypes.string).isRequired,
+  })).isRequired,
 };
 
 export default Home;
