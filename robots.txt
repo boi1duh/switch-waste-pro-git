@@ -1,0 +1,62 @@
+# Switch Waste Management Solutions - Robots.txt
+# Optimized for search engine crawling
+
+User-agent: *
+Allow: /
+
+# High priority pages
+Allow: /index.html
+Allow: /services.html
+Allow: /about.html
+Allow: /contact.html
+
+# Allow assets
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /Assets/
+
+# Block sensitive areas
+Disallow: /php/
+Disallow: /database/
+Disallow: /vendor/
+Disallow: /logs/
+Disallow: /.git/
+Disallow: /admin/
+Disallow: /config/
+Disallow: /temp/
+Disallow: /cache/
+
+# Block file types
+Disallow: /*.sql$
+Disallow: /*.log$
+Disallow: /*.bak$
+Disallow: /*.config$
+
+# Performance optimization
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://www.switchwaste.co.za/sitemap.xml
+
+# Additional crawlers
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+# Block unwanted crawlers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
