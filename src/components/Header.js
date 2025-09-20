@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -38,6 +38,7 @@ const Header = ({
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const scrollDirection = useScrollDirection();
+  const searchInputRef = useRef(null);
   const navigate = useNavigate();
 
   const handleMenuClose = () => {
@@ -54,6 +55,13 @@ const Header = ({
       setIsSearchOpen(false);
     }
   };
+
+  useEffect(() => {
+    if (isSearchOpen && searchInputRef.current) {
+      // Focus the input field when the search bar is opened
+      searchInputRef.current.focus();
+    }
+  }, [isSearchOpen]);
   
   return (
     <header className={`bg-white shadow-md sticky top-0 z-40 transition-transform duration-300 ${scrollDirection === "down" ? "-translate-y-full" : "translate-y-0"}`}>
@@ -154,6 +162,7 @@ const Header = ({
                 className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                ref={searchInputRef}
               />
               <div className="absolute top-0 left-0 mt-2 ml-3"><svg className="h-6 w-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></div>
             </div>
