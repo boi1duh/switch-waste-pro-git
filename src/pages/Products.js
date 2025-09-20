@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Button, Card } from "../../components/ui";
-import logger from "../../utils/logger";
-import Modal from "../../components/ui/Modal"; // Assuming Modal component exists
+import { Button, Card } from "../components/ui";
+import logger from "../utils/logger";
+import Modal from "../components/ui/Modal"; // Assuming Modal component exists
 
 const Products = () => {
   const [cart, setCart] = useState([]);
