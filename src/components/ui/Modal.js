@@ -44,16 +44,19 @@ const Modal = ({
     full: 'max-w-7xl',
   };
 
-  return (
-    <div className="fixed inset-0 z-50 overflow-y-auto">
-      {/* Backdrop */}
-      <div
-        className="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
-        onClick={handleOverlayClick}
-      />
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      handleOverlayClick(e);
+    }
+  };
 
-      {/* Modal */}
-      <div className="flex min-h-full items-center justify-center p-4">
+  return (
+    <div
+      className="fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-50 transition-opacity flex items-center justify-center p-4"
+      onClick={handleOverlayClick}
+      onKeyDown={handleKeyDown}
+      role="presentation" // Use presentation to indicate it's a container for the dialog
+    >
         <div
           className={`relative w-full ${sizes[size]} bg-white rounded-xl shadow-2xl transform transition-all ${className}`}
           role="dialog"
@@ -87,7 +90,6 @@ const Modal = ({
             {children}
           </div>
         </div>
-      </div>
     </div>
   );
 };
