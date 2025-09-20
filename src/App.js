@@ -148,7 +148,6 @@ const App = () => {
               toggleMegaMenu={toggleMegaMenu}
               setActiveMegaMenu={setActiveMegaMenu}
               serviceMenuItems={serviceMenuItems}
-              industries={industries}
             />
 
             <Suspense fallback={<PageLoader />}>
