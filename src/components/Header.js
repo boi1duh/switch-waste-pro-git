@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import logo from '../assets/logo.svg'; // Make sure this path to your logo is correct
+
 
 const Header = ({
   isMenuOpen,
@@ -22,7 +22,7 @@ const Header = ({
     <header className="bg-white shadow-md sticky top-0 z-40">
       <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
         <Link to="/" onClick={handleMenuClose}>
-          <img src={logo} alt="Switch Waste Pro Logo" className="h-10" />
+          <img src="/assets/logo/switch_Pro_logo.png" alt="Switch Waste Pro Logo" className="h-10" />
         </Link>
 
         {/* Desktop Navigation */}
