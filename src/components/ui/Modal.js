@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
+import PropTypes from 'prop-types';
 
 const Modal = ({
   isOpen,
@@ -10,10 +11,12 @@ const Modal = ({
   showCloseButton = true,
   className = '',
 }) => {
+  const stableOnClose = useCallback(onClose, [onClose]);
+
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape') {
-        onClose();
+        stableOnClose();
       }
     };
 
@@ -26,7 +29,7 @@ const Modal = ({
       document.removeEventListener('keydown', handleEscape);
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, stableOnClose]);
 
   if (!isOpen) return null;
 
@@ -92,6 +95,17 @@ const Modal = ({
         </div>
     </div>
   );
+};
+
+Modal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string,
+  size: PropTypes.oneOf(['small', 'medium', 'large', 'extraLarge', 'full']),
+  closeOnOverlayClick: PropTypes.bool,
+  showCloseButton: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default Modal;
