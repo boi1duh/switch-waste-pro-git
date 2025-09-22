@@ -1,10 +1,10 @@
 # Security Policy
 
-## 🔒 Security Overview
+## Security Overview
 
 At Switch Waste Pro, we take security seriously. This document outlines our security policy and procedures for reporting security vulnerabilities.
 
-## 🚨 Reporting Security Vulnerabilities
+## Reporting Security Vulnerabilities
 
 If you discover a security vulnerability in our project, please help us by reporting it responsibly.
 
@@ -35,7 +35,7 @@ When reporting a security vulnerability, please include:
 4. **Resolution**: We will work to resolve the issue as quickly as possible
 5. **Disclosure**: Once resolved, we will coordinate disclosure with you
 
-## 🛡️ Security Measures
+## Security Measures
 
 ### Application Security
 
@@ -54,12 +54,13 @@ When reporting a security vulnerability, please include:
 
 ### Infrastructure Security
 
+- **Hosting Platform**: The project is hosted on Netlify, which provides a secure global CDN, DDoS protection, and automated SSL certificate management.
 - **GitHub Security**: Repository security features enabled
 - **Access Control**: Least privilege access principles
 - **Monitoring**: Security monitoring and alerting
 - **Backup Security**: Encrypted backups with secure storage
 
-## 🔧 Security Best Practices
+## Security Best Practices
 
 ### For Contributors
 
@@ -75,7 +76,7 @@ When reporting a security vulnerability, please include:
 - **Be Cautious**: Avoid clicking suspicious links or downloading unknown files
 - **Report Issues**: Report any suspicious activity
 
-## 📊 Vulnerability Classification
+## Vulnerability Classification
 
 We use the following severity levels:
 
@@ -102,28 +103,28 @@ We use the following severity levels:
 - Best practice violations
 - Performance issues with security impact
 
-## ⏰ Response Timeframes
+## Response Timeframes
 
 - **Critical**: Response within 24 hours, fix within 7 days
 - **High**: Response within 48 hours, fix within 14 days
 - **Medium**: Response within 1 week, fix within 30 days
 - **Low**: Response within 2 weeks, fix within 60 days
 
-## 🎯 Security Hall of Fame
+## Security Hall of Fame
 
 We appreciate security researchers who help make our project safer. With your permission, we'll acknowledge your contribution in our security hall of fame.
 
-## 📞 Contact Information
+## Contact Information
 
 For security-related questions or concerns:
 - **Email**: admin@switchwaste.co.za
 - **Phone**: +27 10 006 9158
 - **Address**: 48 16th Avenue, Edenvale, Johannesburg 1609
 
-## 📜 Legal
+## Legal
 
 This security policy is subject to change without notice. Please check this document regularly for updates.
 
 ---
 
-**Thank you for helping keep Switch Waste Pro secure! 🔒**
+**Thank you for helping keep Switch Waste Pro secure.**

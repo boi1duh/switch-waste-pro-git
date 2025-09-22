@@ -1,10 +1,11 @@
-import React, { useEffect, lazy, Suspense } from "react";
+import React, { useEffect, lazy, Suspense, useMemo } from "react";
 import { useIntersectionObserver, useAnimatedCounter } from "../hooks";
 import { FaClinicMedical, FaPills, FaRecycle } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import SEO from "../components/SEO";
 import ErrorBoundary from "../components/ErrorBoundary";
-import { HERO_SLIDES } from "../constants/HomeData";
+import { SERVICES_DATA, INDUSTRIES_DATA } from "../constants/appData";
+import { HERO_SLIDES, HOME_PAGE_STRUCTURED_DATA } from "../constants/HomeData";
 
 // Lazy load components for better performance
 const HeroCarousel = lazy(() => import("../components/home/HeroCarousel"));
@@ -14,7 +15,7 @@ const TrustBadges = lazy(() => import("../components/home/TrustBadges"));
 const TestimonialsSection = lazy(() => import("../components/home/TestimonialsSection"));
 const CTASection = lazy(() => import("../components/home/CTASection"));
 
-const Home = ({ services, industries }) => {
+const Home = () => {
   // Intersection Observer hooks for scroll-triggered animations
   const { ref: servicesRef, isIntersecting: servicesVisible } = useIntersectionObserver({
     threshold: 0.1,
@@ -47,94 +48,16 @@ const Home = ({ services, industries }) => {
     }
   }, [statsVisible, yearsCounter, complianceCounter, supportCounter, clientsCounter]);
 
-
-  // Structured data for the organization
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Switch Waste Management Solutions",
-    "url": process.env.PUBLIC_URL || "https://www.switchwaste.co.za",
-    "logo": `${process.env.PUBLIC_URL}/assets/logo/switch_Pro_logo.png`,
-    "description": "Professional waste management services for healthcare and general waste in Johannesburg. SANS compliant, environmentally responsible waste disposal solutions.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "48 16th Avenue",
-      "addressLocality": "Edenvale",
-      "addressRegion": "Johannesburg",
-      "postalCode": "1609",
-      "addressCountry": "ZA"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+27-10-006-9158",
-      "contactType": "customer service",
-      "availableLanguage": "English"
-    },
-    "sameAs": [
-      "https://www.facebook.com/switchwaste",
-      "https://www.linkedin.com/company/switch-waste"
-    ],
-    "serviceArea": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": -26.2041,
-        "longitude": 28.0473
-      },
-      "geoRadius": 50000
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Waste Management Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Healthcare Risk Waste Management",
-            "description": "Complete regulated medical waste solutions for healthcare facilities"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Pharmaceutical Waste Disposal",
-            "description": "Safe disposal of expired, unused, and contaminated medications"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "General Waste & Recycling",
-            "description": "Comprehensive recycling solutions for paper, glass, plastic & cans"
-          }
-        }
-      ]
-    },
-    "potentialAction": [
-      {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": `${process.env.PUBLIC_URL || "https://www.switchwaste.co.za"}/search?q={search_term_string}`
-        },
-        "query-input": "required name=search_term_string"
-      }
-    ]
-  };
-
   const professionalIcons = {
     "Healthcare Risk Waste": <FaClinicMedical className="w-12 h-12 text-primary-600" />,
     "Pharmaceutical Waste": <FaPills className="w-12 h-12 text-primary-600" />,
     "General Waste & Recycling": <FaRecycle className="w-12 h-12 text-primary-600" />,
   };
 
-  const updatedServices = services.map(service => ({
+  const updatedServices = useMemo(() => SERVICES_DATA.map(service => ({
     ...service,
     icon: professionalIcons[service.title] || service.icon
-  }));
+  })), []);
 
   return (
     <>
@@ -151,15 +74,14 @@ const Home = ({ services, industries }) => {
         description="Switch Waste Management Solutions provides professional healthcare risk waste, pharmaceutical disposal, and general waste management services in Johannesburg. SANS compliant, environmentally responsible waste disposal."
         keywords="waste management Johannesburg, healthcare waste disposal, medical waste services, pharmaceutical waste, environmental services, SANS compliant, Gauteng waste management"
         canonical="/"
-        ogImage={`${process.env.PUBLIC_URL}/assets/logo/switch_Pro_logo.png`}
-        structuredData={structuredData}
-      />
-
-      {/* Preload critical resources */}
-      <link rel="preload" href={`${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner.png`} as="image" />
-      <link rel="preload" href={`${process.env.PUBLIC_URL}/assets/logo/switch_Pro_logo.png`} as="image" />
-      <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        ogImage="/assets/logo/switch_Pro_logo.png"
+        structuredData={HOME_PAGE_STRUCTURED_DATA}
+      >
+        {/* Preload critical resources */}
+        <link rel="preload" href="/assets/backgrounds/index.herobanner.png" as="image" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+      </SEO>
 
       <main id="main-content" role="main">
         {/* Hero Section - Dynamic Carousel */}
@@ -179,7 +101,11 @@ const Home = ({ services, industries }) => {
         </section>
 
         {/* Stats Section */}
-        <section ref={statsRef} className="relative">
+        <section
+          ref={statsRef}
+          className="relative"
+          aria-live="polite"
+        >
           {/* Grey overlay matching services section */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent pointer-events-none"></div>
 
@@ -217,7 +143,7 @@ const Home = ({ services, industries }) => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {industries.map((industry, index) => (
+              {INDUSTRIES_DATA.map((industry, index) => (
                 <div
                   key={index}
                   className={`bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-1000 ${
@@ -273,16 +199,6 @@ const Home = ({ services, industries }) => {
   );
 };
 
-Home.propTypes = {
-  services: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired,
-  })).isRequired,
-  industries: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    items: PropTypes.arrayOf(PropTypes.string).isRequired,
-  })).isRequired,
-};
+Home.propTypes = {}; // No longer receives props from App.js
 
 export default Home;

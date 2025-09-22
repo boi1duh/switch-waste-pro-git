@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useForm, useCarousel } from "../hooks";
+import { useForm } from "../hooks";
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaUser, FaExclamationTriangle, FaSpinner, FaPaperPlane } from "react-icons/fa";
+import Hero from "../components/ui/Hero";
 import SEO from "../components/SEO";
+import Carousel from "../components/ui/Carousel";
+import { CONTACT_SLIDES, CONTACT_STRUCTURED_DATA } from "../constants/ContactData";
 
 const Contact = () => {
   const [successMessage, setSuccessMessage] = useState('');
@@ -48,103 +51,31 @@ const Contact = () => {
 
   // Form submission handler
   const onSubmit = async (formValues) => {
-    setErrorMessage(''); // Clear previous errors
+    const encode = (data) => {
+      return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+    }
+
     try {
-      const formDataToSend = new FormData();
-
-      // Add all form fields to FormData
-      Object.keys(formValues).forEach(key => {
-        if (key === 'consent' || key === 'newsletter') {
-          formDataToSend.append(key, formValues[key] ? 'on' : '');
-        } else {
-          formDataToSend.append(key, formValues[key]);
-        }
-      });
-
-      const response = await fetch('/php/contact-handler.php', {
+      await fetch("/", {
         method: 'POST',
-        body: formDataToSend,
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...formValues }),
       });
 
-      const result = await response.json();
+      setSuccessMessage('Thank you for your message! We will get back to you shortly.');
+      setErrorMessage('');
+      // Optionally reset the form here if useForm hook supports it
+      setTimeout(() => {
+        setSuccessMessage('');
+      }, 5000);
 
-      if (result.success) {
-        setSuccessMessage(result.message);
-        setErrorMessage(''); // Clear any errors on success
-        setTimeout(() => setSuccessMessage(''), 5000);
-      } else {
-        throw new Error(result.message);
-      }
     } catch (error) {
       setErrorMessage('Failed to send message. Please try again.');
       throw error; // Re-throw to let form handler manage state
     }
   };
-
-  // Structured data for contact page
-  const contactStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": "Contact Switch Waste Management Solutions",
-    "description": "Get in touch with Switch Waste Solutions for professional waste management services in Johannesburg. Free quotes and emergency services available.",
-    "url": "https://boi1duh.github.io/switch-waste-pro-git/contact",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "Switch Waste Management Solutions",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "48 16th Avenue",
-        "addressLocality": "Edenvale",
-        "addressRegion": "Johannesburg",
-        "postalCode": "1609",
-        "addressCountry": "ZA"
-      },
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "telephone": "+27-10-006-9158",
-          "contactType": "customer service",
-          "availableLanguage": "English"
-        },
-        {
-          "@type": "ContactPoint",
-          "telephone": "+27-61-600-4720",
-          "contactType": "emergency",
-          "availableLanguage": "English",
-          "description": "Emergency waste management services"
-        }
-      ],
-      "email": "info@switchwaste.co.za"
-    }
-  };
-
-  // Carousel slides for Contact page
-  const contactSlides = [
-    {
-      title: "Get Your Free Quote Today",
-      subtitle: "Professional Consultation",
-      description: "Contact our experts for a comprehensive waste management assessment and customized solution.",
-      ctaText: "Call Now",
-      ctaLink: "tel:0100069158"
-    },
-    {
-      title: "Emergency Waste Services",
-      subtitle: "24/7 Support Available",
-      description: "Urgent waste management situations? Our emergency response team is ready to help.",
-      ctaText: "Emergency Contact",
-      ctaLink: "tel:0616004720"
-    },
-    {
-      title: "Site Assessment & Planning",
-      subtitle: "Expert Evaluation",
-      description: "Our team conducts thorough site assessments to design the perfect waste management solution.",
-      ctaText: "Schedule Assessment",
-      ctaLink: "/contact"
-    }
-  ];
-
-  // Initialize carousel
-  const { currentSlide, goToSlide, nextSlide, prevSlide, isPaused } = useCarousel(contactSlides);
 
   return (
     <>
@@ -154,82 +85,16 @@ const Contact = () => {
         keywords="contact switch waste, waste management quote, emergency waste services, Johannesburg contact, medical waste disposal contact, Gauteng waste services"
         canonical="/contact"
         ogImage={`${process.env.PUBLIC_URL}/assets/logo/switch_Pro_logo.png`}
-        structuredData={contactStructuredData}
+        structuredData={CONTACT_STRUCTURED_DATA}
       />
 
-      {/* Page Hero */}
-      <section className="relative bg-gradient-to-r from-blue-50 to-white py-16 md:py-24">
-        <div className="container mx-auto px-4 text-center">
-          <div className="hero-badge inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <span>📞</span>
-            <span>Johannesburg, Gauteng</span>
-          </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-600 mb-6">
-            <span className="text-blue-600">📞</span> Contact Switch Waste Solutions
-          </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Get your free consultation and quote for professional waste management services with complete regulatory compliance.
-          </p>
-          <div className="flex justify-center gap-4 mt-8">
-            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
-              <span>✓</span>
-              <span className="text-sm">SANS Compliant</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
-              <span>✓</span>
-              <span className="text-sm">Emergency Services</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
-              <span>✓</span>
-              <span className="text-sm">24/7 Support</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero
+        title="Contact Switch Waste"
+        subtitle="Get your free consultation and quote for professional waste management services."
+        backgroundImage={`${process.env.PUBLIC_URL}/assets/backgrounds/back.webp`}
+      />
 
-      {/* Contact Carousel */}
-      <section className="relative py-16 bg-gradient-to-r from-blue-600 to-blue-700 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="relative">
-            {/* Carousel Content */}
-            <div className="text-center text-white max-w-4xl mx-auto">
-              <div className="mb-8">
-                <span className="inline-block px-4 py-2 bg-white/20 text-white text-sm font-semibold rounded-full mb-6 backdrop-blur-sm border border-white/30">
-                  {contactSlides[currentSlide]?.subtitle}
-                </span>
-              </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-white drop-shadow-2xl">
-                {contactSlides[currentSlide]?.title}
-              </h2>
-              <p className="text-xl md:text-2xl text-white/90 mb-12 drop-shadow-lg leading-relaxed max-w-3xl mx-auto">
-                {contactSlides[currentSlide]?.description}
-              </p>
-              <div className="flex justify-center gap-6">
-                <Link
-                  to={contactSlides[currentSlide]?.ctaLink}
-                  className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 inline-flex items-center justify-center text-lg"
-                >
-                  {contactSlides[currentSlide]?.ctaText}
-                </Link>
-              </div>
-            </div>
-
-            {/* Carousel Indicators */}
-            <div className="flex justify-center mt-12 space-x-3">
-              {contactSlides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <Carousel slides={CONTACT_SLIDES} />
 
       {/* Contact Content */}
       <section className="relative py-16 bg-gray-50">
@@ -265,9 +130,9 @@ const Contact = () => {
               {/* Contact Details */}
               <div className="space-y-6">
                 <div className="bg-white p-6 rounded-xl shadow-sm">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-blue-600 text-xl">📍</span>
+                  <div className="flex items-start gap-4 text-blue-600">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 text-xl">
+                      <FaMapMarkerAlt />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800 mb-2">Our Location</h3>
@@ -277,9 +142,9 @@ const Contact = () => {
                 </div>
 
                 <div className="bg-white p-6 rounded-xl shadow-sm">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-green-600 text-xl">📞</span>
+                  <div className="flex items-start gap-4 text-green-600">
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 text-xl">
+                      <FaPhone />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800 mb-2">Phone Numbers</h3>
@@ -292,9 +157,9 @@ const Contact = () => {
                 </div>
 
                 <div className="bg-white p-6 rounded-xl shadow-sm">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-purple-600 text-xl">✉️</span>
+                  <div className="flex items-start gap-4 text-purple-600">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 text-xl">
+                      <FaEnvelope />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800 mb-2">Email Address</h3>
@@ -306,9 +171,9 @@ const Contact = () => {
                 </div>
 
                 <div className="bg-white p-6 rounded-xl shadow-sm">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-orange-600 text-xl">🕒</span>
+                  <div className="flex items-start gap-4 text-orange-600">
+                    <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0 text-xl">
+                      <FaClock />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800 mb-2">Business Hours</h3>
@@ -323,14 +188,14 @@ const Contact = () => {
                 </div>
 
                 <div className="bg-white p-6 rounded-xl shadow-sm">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-indigo-600 text-xl">👤</span>
+                  <div className="flex items-start gap-4 text-indigo-600">
+                    <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center flex-shrink-0 text-xl">
+                      <FaUser />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800 mb-2">Operations Manager</h3>
                       <p className="text-gray-600">
-                        Nicholas<br />
+                        Stephanie Moses<br />
                         <span className="text-sm">Available for consultations and site assessments</span>
                       </p>
                     </div>
@@ -340,8 +205,8 @@ const Contact = () => {
 
               {/* Emergency Contact */}
               <div className="bg-gradient-to-r from-red-500 to-red-600 text-white p-8 rounded-xl">
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <span className="text-red-600">⚠️</span>
+                <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-white">
+                  <FaExclamationTriangle />
                   Emergency Services
                 </h3>
                 <p className="mb-6">For urgent waste management situations, spill response, or emergency collections:</p>
@@ -377,7 +242,12 @@ const Contact = () => {
                 </div>
               )}
 
-              <form onSubmit={(e) => handleSubmit(onSubmit)(e)} className="space-y-6">
+              <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                onSubmit={(e) => handleSubmit(onSubmit)(e)} className="space-y-6">
+                <input type="hidden" name="form-name" value="contact" />
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Full Name *</label>
@@ -556,14 +426,14 @@ const Contact = () => {
                   disabled={isSubmitting}
                   className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  {isSubmitting ? (
+                  {isSubmitting ? ( // eslint-disable-line no-nested-ternary
                     <>
-                      <span className="animate-spin mr-2">🔄</span>
+                      <FaSpinner className="animate-spin" />
                       Sending...
                     </>
                   ) : (
                     <>
-                      <span className="mr-2">📤</span>
+                      <FaPaperPlane />
                       Send My Request
                     </>
                   )}

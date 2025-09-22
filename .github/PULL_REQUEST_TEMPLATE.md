@@ -1,17 +1,17 @@
-## 📝 Pull Request Description
+## Pull Request Description
 
 ### Description
 Please provide a clear and concise description of the changes in this pull request.
 
 ### Type of Change
-- [ ] 🐛 Bug fix (non-breaking change which fixes an issue)
-- [ ] ✨ New feature (non-breaking change which adds functionality)
-- [ ] 💥 Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] 📚 Documentation update
-- [ ] 🎨 Code style update (formatting, renaming)
-- [ ] ♻️ Refactor (no functional changes)
-- [ ] 🧪 Tests (adding or updating tests)
-- [ ] 🔧 Maintenance (dependencies, build tools, etc.)
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Documentation update
+- [ ] Code style update (formatting, renaming)
+- [ ] Refactor (no functional changes)
+- [ ] Tests (adding or updating tests)
+- [ ] Maintenance (dependencies, build tools, etc.)
 
 ### Changes Made
 List the specific changes you made:
@@ -59,5 +59,4 @@ If this PR requires special testing instructions, please provide them:
 3. Step 3
 
 ---
-
-**Thank you for contributing to Switch Waste Pro! 🎉**
+**Thank you for contributing to Switch Waste Pro.**

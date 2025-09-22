@@ -35,3 +35,58 @@ export const HERO_SLIDES = [
     ]
   }
 ];
+
+// Structured data for the Home page SEO
+export const HOME_PAGE_STRUCTURED_DATA = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Switch Waste Management Solutions",
+  "url": "https://www.switchwaste.co.za",
+  "logo": "https://www.switchwaste.co.za/assets/logo/switch_Pro_logo.png",
+  "description": "Professional waste management services for healthcare and general waste in Johannesburg. SANS compliant, environmentally responsible waste disposal solutions.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "48 16th Avenue",
+    "addressLocality": "Edenvale",
+    "addressRegion": "Johannesburg",
+    "postalCode": "1609",
+    "addressCountry": "ZA"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+27-10-006-9158",
+    "contactType": "customer service",
+    "availableLanguage": "English"
+  },
+  "sameAs": [
+    "https://www.facebook.com/switchwaste",
+    "https://www.linkedin.com/company/switch-waste"
+  ],
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": -26.2041,
+      "longitude": 28.0473
+    },
+    "geoRadius": 50000
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Waste Management Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Healthcare Risk Waste Management" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Pharmaceutical Waste Disposal" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "General Waste & Recycling" }
+      }
+    ]
+  }
+};

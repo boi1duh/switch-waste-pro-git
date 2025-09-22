@@ -1,12 +1,12 @@
 ---
-name: 🐛 Bug Report
+name: Bug Report
 description: Report a bug or issue
 title: "[BUG] "
 labels: ["bug", "triage"]
 assignees: []
 ---
 
-## 🐛 Bug Report
+## Bug Report
 
 ### Describe the Bug
 

@@ -1,12 +1,12 @@
 ---
-name: ✨ Feature Request
+name: Feature Request
 description: Suggest a new feature or enhancement
 title: "[FEATURE] "
 labels: ["enhancement", "feature-request"]
 assignees: []
 ---
 
-## ✨ Feature Request
+## Feature Request
 
 ### Problem Statement
 What problem are you trying to solve? What is the current limitation?

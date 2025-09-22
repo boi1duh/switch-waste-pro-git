@@ -3,57 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CSS Custom Properties for better browser support */
-:root {
-  --primary-color: #2563eb;
-  --secondary-color: #7c3aed;
-  --text-color: #1f2937;
-  --bg-color: #ffffff;
-}
-
 /* Box-sizing reset for all elements */
 *, *::before, *::after {
   box-sizing: border-box;
-}
-
-/* CSS Grid and Flexbox fallbacks - Simplified to avoid conflicts with Tailwind */
-@supports not (display: grid) {
-  .grid {
-    display: flex;
-    flex-wrap: wrap;
-  }
-}
-
-/* Smooth scrolling fallback */
-@supports not (scroll-behavior: smooth) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
-/* CSS Transforms and animations fallbacks */
-@supports not (transform: translateY(0)) {
-  .translate-y-0 { margin-top: 0; }
-  .translate-y-8 { margin-top: 2rem; }
-  .-translate-x-full { margin-left: -100%; }
-  .translate-x-full { margin-left: 100%; }
-}
-
-/* Backdrop-filter fallback */
-@supports not (backdrop-filter: blur(10px)) {
-  .backdrop-blur-md {
-    background-color: rgba(255, 255, 255, 0.9);
-  }
-  .backdrop-blur-xl {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-}
-
-/* CSS Variables fallback for older browsers - Removed !important to prevent conflicts */
-@supports not (--custom: property) {
-  .bg-blue-600 { background-color: #2563eb; }
-  .text-blue-600 { color: #2563eb; }
-  .border-blue-600 { border-color: #2563eb; }
 }
 
 /* Focus visible for better accessibility */

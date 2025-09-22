@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Button, Card } from "../components/ui";
 import logger from "../utils/logger";
-import Modal from "../components/ui/Modal"; // Assuming Modal component exists
+import Modal from "../components/ui/Modal";
 import { products } from "../constants/ProductData";
 import Hero from "../components/ui/Hero";
+import { useForm } from "../hooks";
 
 const Products = () => {
   const [cart, setCart] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [showOrderForm, setShowOrderForm] = useState(false);
-  const [orderSuccess, setOrderSuccess] = useState(false);
+  const [orderSuccess, setOrderSuccess] = useState('');
+  const [orderError, setOrderError] = useState('');
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -79,6 +81,63 @@ const Products = () => {
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
+  const cartTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+  // Form validation for the order form
+  const validateOrder = (values) => {
+    const errors = {};
+    if (!values.name?.trim()) errors.name = 'Name is required';
+    if (!values.email?.trim()) errors.email = 'Email is required';
+    else if (!/\S+@\S+\.\S+/.test(values.email)) errors.email = 'Email is invalid';
+    if (!values.address?.trim()) errors.address = 'Delivery address is required';
+    return errors;
+  };
+
+  // Initialize order form with useForm hook
+  const {
+    values: orderValues,
+    errors: orderErrors,
+    touched: orderTouched,
+    isSubmitting: isOrderSubmitting,
+    handleChange: handleOrderChange,
+    handleBlur: handleOrderBlur,
+    handleSubmit: handleOrderSubmit,
+  } = useForm(
+    { name: '', email: '', phone: '', address: '' },
+    validateOrder
+  );
+
+  // Order form submission handler
+  const onOrderSubmit = async (formValues) => {
+    const encode = (data) => {
+      return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+    }
+
+    const orderData = {
+      ...formValues,
+      'form-name': 'product-order',
+      'cart-contents': JSON.stringify(cart),
+      'cart-total': cartTotal.toFixed(2),
+    };
+
+    try {
+      await fetch("/", {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode(orderData),
+      });
+      setOrderSuccess('Order placed successfully! We will contact you shortly to confirm.');
+      setOrderError('');
+      setCart([]); // Clear cart on successful submission
+      setTimeout(() => setShowOrderForm(false), 4000);
+    } catch (error) {
+      setOrderError('Failed to place order. Please try again or contact us directly.');
+      throw error;
+    }
+  };
+
   return (
     <>
       <Hero
@@ -114,10 +173,10 @@ const Products = () => {
             {filteredProducts.map(product => (
               <Card key={product.id} className="p-4">
                 <img
-                  src={product.image}
+                  src={`${process.env.PUBLIC_URL}/${product.image}`}
                   alt={product.alt}
-                  className="w-full h-48 object-cover rounded-md mb-4"
-                  onError={(e) => { e.target.src = '/placeholder-image.png'; }} // Fallback for broken images
+                  className="w-full h-48 object-cover rounded-md mb-4" // Fallback for broken images
+                  onError={(e) => { e.target.onerror = null; e.target.src=`${process.env.PUBLIC_URL}/assets/placeholder.png`; }}
                 />
                 <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
                 <p className="text-gray-600 mb-2">{product.description.substring(0, 100)}...</p>
@@ -163,8 +222,9 @@ const Products = () => {
               <div>
                 <h2 className="text-2xl font-bold mb-4">{selectedProduct.name}</h2>
                 <img
-                  src={selectedProduct.image}
+                  src={`${process.env.PUBLIC_URL}/${selectedProduct.image}`}
                   alt={selectedProduct.alt}
+                  onError={(e) => { e.target.onerror = null; e.target.src=`${process.env.PUBLIC_URL}/assets/placeholder.png`; }}
                   className="w-full h-64 object-cover rounded-md mb-4"
                 />
                 <p className="text-gray-600 mb-4">{selectedProduct.description}</p>
@@ -191,23 +251,81 @@ const Products = () => {
 
           {/* Order Form Placeholder - Expand as needed */}
           {showOrderForm && (
-            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-              <div className="bg-white p-6 rounded-lg max-w-md w-full mx-4">
-                <h2 className="text-xl font-semibold mb-4">Order Cart</h2>
-                <ul>
-                  {cart.map(item => (
-                    <li key={item.id} className="flex justify-between mb-2">
-                      <span>{item.name} x {item.quantity}</span>
-                      <span>R {(item.price * item.quantity).toLocaleString()}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="font-bold mt-4">Total: R {cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toLocaleString()}</p>
-                <div className="flex gap-2 mt-4">
-                  <Button onClick={() => { setOrderSuccess(true); setShowOrderForm(false); }}>Place Order</Button>
-                  <Button onClick={() => setShowOrderForm(false)} variant="outline">Cancel</Button>
-                </div>
-                {orderSuccess && <p className="text-green-600 mt-2">Order placed successfully!</p>}
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+              <div className="bg-white p-6 rounded-lg max-w-lg w-full mx-4 max-h-[90vh] overflow-y-auto">
+                <h2 className="text-2xl font-semibold mb-4">Complete Your Order</h2>
+                {orderSuccess && (
+                  <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                    {orderSuccess}
+                  </div>
+                )}
+                {orderError && (
+                  <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                    {orderError}
+                  </div>
+                )}
+
+                {!orderSuccess && (
+                  <>
+                    <div className="mb-4 border-b pb-4">
+                      <h3 className="text-lg font-medium mb-2">Order Summary</h3>
+                      {cart.map(item => (
+                        <div key={item.id} className="flex justify-between text-sm mb-1">
+                          <span>{item.name} x {item.quantity}</span>
+                          <span>R {(item.price * item.quantity).toLocaleString()}</span>
+                        </div>
+                      ))}
+                      <p className="font-bold text-right mt-2 text-lg">Total: R {cartTotal.toLocaleString()}</p>
+                    </div>
+
+                    <form name="product-order" method="POST" data-netlify="true" onSubmit={handleOrderSubmit(onOrderSubmit)} className="space-y-4">
+                      <input type="hidden" name="form-name" value="product-order" />
+                      <input type="hidden" name="cart-contents" value={JSON.stringify(cart)} />
+                      <input type="hidden" name="cart-total" value={cartTotal.toFixed(2)} />
+
+                      <div>
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name *</label>
+                        <input type="text" name="name" value={orderValues.name} onChange={handleOrderChange} onBlur={() => handleOrderBlur('name')}
+                          className={`mt-1 block w-full border rounded-md shadow-sm p-2 ${orderErrors.name && orderTouched.name ? 'border-red-500' : 'border-gray-300'}`} />
+                        {orderErrors.name && orderTouched.name && <p className="text-red-500 text-xs mt-1">{orderErrors.name}</p>}
+                      </div>
+
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address *</label>
+                        <input type="email" name="email" value={orderValues.email} onChange={handleOrderChange} onBlur={() => handleOrderBlur('email')}
+                          className={`mt-1 block w-full border rounded-md shadow-sm p-2 ${orderErrors.email && orderTouched.email ? 'border-red-500' : 'border-gray-300'}`} />
+                        {orderErrors.email && orderTouched.email && <p className="text-red-500 text-xs mt-1">{orderErrors.email}</p>}
+                      </div>
+
+                      <div>
+                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <input type="tel" name="phone" value={orderValues.phone} onChange={handleOrderChange} onBlur={() => handleOrderBlur('phone')}
+                          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2" />
+                      </div>
+
+                      <div>
+                        <label htmlFor="address" className="block text-sm font-medium text-gray-700">Delivery Address *</label>
+                        <textarea name="address" rows="3" value={orderValues.address} onChange={handleOrderChange} onBlur={() => handleOrderBlur('address')}
+                          className={`mt-1 block w-full border rounded-md shadow-sm p-2 ${orderErrors.address && orderTouched.address ? 'border-red-500' : 'border-gray-300'}`}></textarea>
+                        {orderErrors.address && orderTouched.address && <p className="text-red-500 text-xs mt-1">{orderErrors.address}</p>}
+                      </div>
+
+                      <div className="flex gap-2 mt-4">
+                        <Button type="submit" disabled={isOrderSubmitting}>
+                          {isOrderSubmitting ? 'Placing Order...' : 'Place Order'}
+                        </Button>
+                        <Button onClick={() => setShowOrderForm(false)} variant="outline">
+                          Cancel
+                        </Button>
+                      </div>
+                    </form>
+                  </>
+                )}
+                {orderSuccess && (
+                   <Button onClick={() => { setShowOrderForm(false); setOrderSuccess(''); }} className="mt-4">
+                     Close
+                   </Button>
+                )}
               </div>
             </div>
           )}
@@ -217,5 +335,4 @@ const Products = () => {
   );
 
 };
-
 export default Products;

@@ -1,12 +1,12 @@
 ---
-name: ❓ General Issue
+name: General Issue
 description: General questions, discussions, or other issues
 title: "[GENERAL] "
 labels: ["question", "discussion"]
 assignees: []
 ---
 
-## ❓ General Issue
+## General Issue
 
 ### Issue Type
 - [ ] Question

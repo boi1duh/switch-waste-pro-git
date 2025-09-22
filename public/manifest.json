@@ -65,18 +65,23 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/logo/switch_Pro_logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
     }
   ],
   "screenshots": [
     {
-      "src": "assets/screenshot-desktop.png",
+      "src": "/assets/screenshot-desktop.png",
       "sizes": "1920x1080",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Switch Waste Management Solutions Desktop View"
     },
     {
-      "src": "assets/screenshot-mobile.png",
+      "src": "/assets/screenshot-mobile.png",
       "sizes": "750x1334",
       "type": "image/png",
       "form_factor": "narrow",
@@ -88,10 +93,10 @@
       "name": "Contact Us",
       "short_name": "Contact",
       "description": "Get in touch for waste management services",
-      "url": "/contact.html?utm_source=pwa_shortcut",
+      "url": "/contact?utm_source=pwa_shortcut",
       "icons": [
         {
-          "src": "assets/logo.png",
+          "src": "/assets/logo/switch_Pro_logo.png",
           "sizes": "96x96",
           "type": "image/png"
         }
@@ -101,10 +106,10 @@
       "name": "Our Services",
       "short_name": "Services",
       "description": "View our waste management services",
-      "url": "/services.html?utm_source=pwa_shortcut",
+      "url": "/services?utm_source=pwa_shortcut",
       "icons": [
         {
-          "src": "assets/logo.png",
+          "src": "/assets/logo/switch_Pro_logo.png",
           "sizes": "96x96",
           "type": "image/png"
         }
@@ -114,10 +119,10 @@
       "name": "Emergency Pickup",
       "short_name": "Emergency",
       "description": "Request emergency waste collection",
-      "url": "/contact.html?service=emergency&utm_source=pwa_shortcut",
+      "url": "/contact?service=emergency&utm_source=pwa_shortcut",
       "icons": [
         {
-          "src": "assets/logo.png",
+          "src": "/assets/logo/switch_Pro_logo.png",
           "sizes": "96x96",
           "type": "image/png"
         }
@@ -127,30 +132,24 @@
       "name": "About Us",
       "short_name": "About",
       "description": "Learn about our company and services",
-      "url": "/about.html?utm_source=pwa_shortcut",
+      "url": "/about?utm_source=pwa_shortcut",
       "icons": [
         {
-          "src": "assets/logo.png",
+          "src": "/assets/logo/switch_Pro_logo.png",
           "sizes": "96x96",
           "type": "image/png"
         }
       ]
     }
   ],
-  "related_applications": [
-    {
-      "platform": "webapp",
-      "url": "https://www.switchwaste.co.za/manifest.json"
-    }
-  ],
   "protocol_handlers": [
     {
       "protocol": "mailto",
-      "url": "/contact.html?email=%s"
+      "url": "/contact?email=%s"
     },
     {
       "protocol": "tel",
-      "url": "/contact.html?phone=%s"
+      "url": "/contact?phone=%s"
     }
   ],
   "handle_links": "preferred",

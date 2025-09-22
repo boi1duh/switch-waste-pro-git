@@ -1,16 +1,17 @@
 module.exports = {
   plugins: {
     tailwindcss: {},
-    autoprefixer: {
-      grid: true,
-      flexbox: true,
+    // Use postcss-preset-env to handle vendor prefixes automatically
+    'postcss-preset-env': {
+      stage: 1, // Use modern CSS features
     },
     // Add CSS optimization for production
     ...(process.env.NODE_ENV === 'production' ? {
       cssnano: {
         preset: ['default', {
           discardComments: { removeAll: true },
-          normalizeWhitespace: false,
+          // Enable whitespace normalization for better minification
+          normalizeWhitespace: true,
         }],
       },
     } : {}),

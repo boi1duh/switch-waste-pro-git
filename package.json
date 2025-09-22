@@ -1,7 +1,6 @@
 {
   "name": "switch-waste-pro",
   "version": "1.0.0",
-  "homepage": "https://boi1duh.github.io/switch-waste-pro-git",
   "description": "Switch Waste Management Solutions - Professional waste management services in Johannesburg",
   "main": "src/index.js",
   "scripts": {
@@ -9,12 +8,9 @@
     "build": "react-scripts build",
     "build:analyze": "npm run build -- --stats && npx webpack-bundle-analyzer build/static/js/*.js",
     "test": "react-scripts test",
-    "test:coverage": "npm run test -- --coverage --watchAll=false",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.3",
@@ -40,8 +36,7 @@
     "eslint": "^8.57.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "gh-pages": "^6.3.0"
+    "eslint-plugin-react-hooks": "^5.2.0"
   },
   "browserslist": {
     "production": [

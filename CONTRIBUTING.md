@@ -1,6 +1,6 @@
 # Contributing to Switch Waste Pro
 
-Thank you for your interest in contributing to Switch Waste Pro! We welcome contributions from the community and are grateful for your help in making this project better.
+Thank you for your interest in contributing to Switch Waste Pro. We welcome contributions from the community and are grateful for your help in making this project better.
 
 ## 📋 Table of Contents
 
@@ -13,7 +13,7 @@ Thank you for your interest in contributing to Switch Waste Pro! We welcome cont
 - [Submitting Changes](#submitting-changes)
 - [Reporting Issues](#reporting-issues)
 
-## 🤝 Code of Conduct {#code-of-conduct}
+## Code of Conduct {#code-of-conduct}
 
 This project follows our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you agree to uphold this code.
 
@@ -31,8 +31,8 @@ This project follows our [Code of Conduct](CODE_OF_CONDUCT.md). By participating
 2. **Clone your fork** locally:
 
    ```bash
-   git clone https://github.com/your-username/switch-waste-pro.git
-   cd switch-waste-pro
+   git clone https://github.com/your-username/switch-waste-pro-git.git
+   cd switch-waste-pro-git
    ```
 
 3. **Install dependencies**:
@@ -51,20 +51,20 @@ This project follows our [Code of Conduct](CODE_OF_CONDUCT.md). By participating
 
 ### Types of Contributions
 
-- 🐛 **Bug fixes** - Fix existing issues
-- ✨ **Features** - Add new functionality
-- 📚 **Documentation** - Improve documentation
-- 🎨 **UI/UX** - Improve user interface and experience
-- 🧪 **Tests** - Add or improve tests
-- 🔧 **Maintenance** - Code refactoring, performance improvements
+- **Bug fixes**: Fix existing issues
+- **Features**: Add new functionality
+- **Documentation**: Improve documentation
+- **UI/UX**: Improve user interface and experience
+- **Tests**: Add or improve tests
+- **Maintenance**: Code refactoring, performance improvements
 
 ### Finding Issues to Work On
 
-1. Check the [Issues](https://github.com/your-username/switch-waste-pro/issues) page
+1. Check the project's **Issues** page on GitHub.
 2. Look for issues labeled `good first issue` or `help wanted`
 3. Comment on the issue to indicate you're working on it
 
-## 🔄 Development Workflow {#development-workflow}
+## Development Workflow {#development-workflow}
 
 ### 1. Create a Branch
 
@@ -155,7 +155,6 @@ Types:
 - `chore`: Maintenance
 
 Examples:
-
 ```text
 feat: add contact form validation
 fix: resolve mobile menu toggle issue
@@ -211,7 +210,7 @@ npm test -- --coverage
 ### Pull Request Template
 
 Please use our [Pull Request Template](.github/PULL_REQUEST_TEMPLATE.md) when creating PRs.
-## 🐛 Reporting Issues {#reporting-issues}
+## Reporting Issues {#reporting-issues}
 
 
 ### Bug Reports
@@ -236,11 +235,11 @@ For feature requests, please include:
 ## 📞 Getting Help
 
 - 📧 **Email**: [admin@switchwaste.co.za](mailto:admin@switchwaste.co.za)
-- 💬 **Issues**: [GitHub Issues](https://github.com/your-username/switch-waste-pro/issues)
+- 💬 **Issues**: Open an issue on the project's GitHub repository.
 - 📖 **Documentation**: Check our [README](README.md) first
 
 ## 🎉 Recognition
 
 Contributors will be recognized in our README and may be featured in our website's contributor section.
 
-Thank you for contributing to Switch Waste Pro! 🚀
+Thank you for contributing to Switch Waste Pro.
