@@ -38,16 +38,14 @@ const HeroCarousel = ({ slides }) => {
   const swipeHandlers = useSwipe(
     () => {
       // Add haptic feedback for mobile devices
-      // eslint-disable-next-line @typescript-eslint/no-in-operator
-      if ('vibrate' in navigator) {
+      if (typeof navigator.vibrate !== 'undefined') {
         navigator.vibrate(50);
       }
       nextSlide();
     },
     () => {
       // Add haptic feedback for mobile devices
-      // eslint-disable-next-line @typescript-eslint/no-in-operator
-      if ('vibrate' in navigator) {
+      if (typeof navigator.vibrate !== 'undefined') {
         navigator.vibrate(50);
       }
       prevSlide();

@@ -5,7 +5,7 @@ import Modal from "../components/ui/Modal";
 import { products } from "../constants/ProductData";
 import Hero from "../components/ui/Hero";
 import SEO from "../components/SEO";
-import { useForm } from "../hooks/useForm";
+import useForm from "../hooks/useForm";
 
 const Products = () => {
   const [cart, setCart] = useState([]);
