@@ -10,6 +10,7 @@ const Button = ({
   onClick,
   className = '',
   type = 'button',
+  ariaLabel,
   ...props
 }) => {
   const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
@@ -37,6 +38,7 @@ const Button = ({
     onClick: PropTypes.func,
     className: PropTypes.string,
     type: PropTypes.oneOf(['button', 'submit', 'reset']),
+    ariaLabel: PropTypes.string,
   };
 
   const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`;
@@ -47,6 +49,8 @@ const Button = ({
       className={classes}
       disabled={disabled || loading}
       onClick={onClick}
+      role="button"
+      aria-label={ariaLabel}
       {...props}
     >
       {loading && (

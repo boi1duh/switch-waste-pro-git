@@ -11,6 +11,12 @@ const Modal = ({
   showCloseButton = true,
   className = '',
 }) => {
+  const modalContentRef = useRef(null);
+  const firstFocusableRef = useRef(null);
+  const lastFocusableRef = useRef(null);
+  const modalContentRef = useRef(null);
+  const firstFocusableRef = useRef(null);
+  const lastFocusableRef = useRef(null);
   const stableOnClose = useCallback(onClose, [onClose]);
 
   useEffect(() => {
@@ -30,6 +36,46 @@ const Modal = ({
       document.body.style.overflow = 'unset';
     };
   }, [isOpen, stableOnClose]);
+
+  // Focus trap setup
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const modal = modalContentRef.current;
+    if (!modal) return;
+
+    const focusableElements = modal.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+
+    firstFocusableRef.current = firstFocusable;
+    lastFocusableRef.current = lastFocusable;
+
+    // Focus first element
+    firstFocusable?.focus();
+
+    const handleTab = (e) => {
+      if (e.key === 'Tab') {
+        if (e.shiftKey) {
+          if (document.activeElement === firstFocusable) {
+            e.preventDefault();
+            lastFocusable?.focus();
+          }
+        } else {
+          if (document.activeElement === lastFocusable) {
+            e.preventDefault();
+            firstFocusable?.focus();
+          }
+        }
+      }
+    };
+
+    modal.addEventListener('keydown', handleTab);
+
+    return () => modal.removeEventListener('keydown', handleTab);
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -61,10 +107,12 @@ const Modal = ({
       role="presentation" // Use presentation to indicate it's a container for the dialog
     >
         <div
+          ref={modalContentRef}
           className={`relative w-full ${sizes[size]} bg-white rounded-xl shadow-2xl transform transition-all ${className}`}
           role="dialog"
           aria-modal="true"
           aria-labelledby={title ? "modal-title" : undefined}
+          aria-describedby="modal-content"
         >
           {/* Header */}
           {(title || showCloseButton) && (
@@ -89,7 +137,7 @@ const Modal = ({
           )}
 
           {/* Content */}
-          <div className="p-6">
+          <div id="modal-content" className="p-6">
             {children}
           </div>
         </div>

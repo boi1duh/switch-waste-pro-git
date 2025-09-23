@@ -2,10 +2,10 @@
   "name": "Switch Waste Management Solutions",
   "short_name": "Switch Waste",
   "description": "Professional waste management services in Johannesburg. Healthcare risk waste, pharmaceutical disposal, and general waste solutions.",
-  "start_url": "/?utm_source=pwa",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#2563eb",
+  "theme_color": "#3b82f6",
   "orientation": "any",
   "scope": "/",
   "lang": "en-ZA",
@@ -72,22 +72,7 @@
       "sizes": "any"
     }
   ],
-  "screenshots": [
-    {
-      "src": "/assets/screenshot-desktop.png",
-      "sizes": "1920x1080",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Switch Waste Management Solutions Desktop View"
-    },
-    {
-      "src": "/assets/screenshot-mobile.png",
-      "sizes": "750x1334",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Switch Waste Management Solutions Mobile View"
-    }
-  ],
+  "apple_touch_icon": "/assets/logo/switch_Pro_logo.png",
   "shortcuts": [
     {
       "name": "Contact Us",

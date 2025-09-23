@@ -131,7 +131,7 @@ const HeroCarousel = ({ slides }) => {
         />
         <img
           src={`${process.env.PUBLIC_URL}/assets/backgrounds/index.herobanner.png`}
-          alt=""
+          alt="Hero background showcasing professional waste management services"
           onLoad={() => setImageLoaded(true)}
           onError={() => setImageLoaded(true)} // Still show content even if image fails
           loading="eager"

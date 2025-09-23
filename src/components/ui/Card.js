@@ -55,6 +55,31 @@ Card.propTypes = {
   padding: PropTypes.oneOf(['none', 'small', 'normal', 'large']),
 };
 
+Card.Header.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+};
+
+Card.Title.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+};
+
+Card.Description.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+};
+
+Card.Content.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+};
+
+Card.Footer.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+};
+
 CardHeader.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,

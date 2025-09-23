@@ -12,32 +12,14 @@ const CTASection = () => {
         <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-2xl mx-auto px-4">
           <Link
             to="/contact"
-            className="bg-white text-primary-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 active:scale-95 active:translate-y-0 relative overflow-hidden group text-center"
-            onMouseDown={(e) => {
-              e.currentTarget.style.transform = 'scale(0.98) translateY(2px)';
-            }}
-            onMouseUp={(e) => {
-              e.currentTarget.style.transform = 'scale(1.05) translateY(-1px)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'scale(1) translateY(0)';
-            }}
+            className="bg-white text-primary-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl group-hover:scale-105 group-hover:-translate-y-1 active:scale-95 active:translate-y-0 relative overflow-hidden group text-center focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
           >
             <span className="relative z-10">Get a Free Quote</span>
             <div className="absolute inset-0 bg-primary-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </Link>
           <Link
             to="/contact"
-            className="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 active:scale-95 active:translate-y-0 relative overflow-hidden group text-center"
-            onMouseDown={(e) => {
-              e.currentTarget.style.transform = 'scale(0.98) translateY(2px)';
-            }}
-            onMouseUp={(e) => {
-              e.currentTarget.style.transform = 'scale(1.05) translateY(-1px)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'scale(1) translateY(0)';
-            }}
+            className="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-all duration-300 hover:shadow-xl group-hover:-translate-y-1 active:scale-95 active:translate-y-0 relative overflow-hidden group text-center focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
           >
             <span className="relative z-10">Speak to an Expert</span>
             <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>

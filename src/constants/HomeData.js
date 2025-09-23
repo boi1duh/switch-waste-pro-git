@@ -1,4 +1,8 @@
 // Home page data constants
+/**
+ * Hero slides data for Home page carousel
+ * @type {Array<{title: string, subtitle: string, description: string, ctaText: string, ctaLink: string}>}
+ */
 export const HERO_SLIDES = [
   {
     title: "We Solve Compliance Problems With Sustainable Solutions",
@@ -37,6 +41,10 @@ export const HERO_SLIDES = [
 ];
 
 // Structured data for the Home page SEO
+/**
+ * Structured data for the Home page SEO
+ * @type {Object}
+ */
 export const HOME_PAGE_STRUCTURED_DATA = {
   "@context": "https://schema.org",
   "@type": "Organization",

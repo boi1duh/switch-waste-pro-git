@@ -4,10 +4,8 @@
 const CACHE_NAME = 'switch-waste-v2.0.0';
 const CACHE_ASSETS = [
     '/',
-    '/static/js/bundle.js',
-    '/static/js/main.chunk.js',
-    '/static/js/0.chunk.js',
-    '/static/css/main.chunk.css',
+    '/static/js/*.js',
+    '/static/css/*.css',
     '/manifest.json',
     '/assets/logo/switch_Pro_logo.png',
     '/assets/backgrounds/index.herobanner.png',
@@ -25,11 +23,11 @@ self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(cache => {
-                console.log('Service Worker: Caching Files');
+                if ('production' !== process.env.NODE_ENV) console.log('Service Worker: Caching Files');
                 return cache.addAll(CACHE_ASSETS);
             })
             .then(() => self.skipWaiting())
-            .catch(err => console.log('Service Worker: Error Caching Files', err))
+            .catch(err => { if ('production' !== process.env.NODE_ENV) console.log('Service Worker: Error Caching Files', err); })
     );
 });
 
@@ -40,7 +38,7 @@ self.addEventListener('activate', event => {
             return Promise.all(
                 cacheNames.map(cacheName => {
                     if (cacheName !== CACHE_NAME && cacheName !== RUNTIME_CACHE) {
-                        console.log('Service Worker: Clearing Old Cache');
+                        if ('production' !== process.env.NODE_ENV) console.log('Service Worker: Clearing Old Cache');
                         return caches.delete(cacheName);
                     }
                 })
@@ -60,7 +58,7 @@ self.addEventListener('fetch', event => {
     // Handle different types of requests with different strategies
     if (event.request.destination === 'image') {
         event.respondWith(cacheFirstWithFallback(event.request));
-    } else if (event.request.url.includes('/api/') || event.request.url.includes('/php/')) {
+    } else if (event.request.url.includes('/api/') || event.request.url.includes('/.netlify/functions/')) {
         event.respondWith(networkFirstWithFallback(event.request));
     } else {
         event.respondWith(cacheFirstWithFallback(event.request));
@@ -135,7 +133,7 @@ async function syncContactForm() {
         
         if (formData) {
             const data = await formData.json();
-            const response = await fetch('/php/contact-handler.php', {
+            const response = await fetch('/.netlify/functions/contact-handler', {
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: {
@@ -189,7 +187,7 @@ self.addEventListener('notificationclick', event => {
     
     if (event.action === 'explore') {
         event.waitUntil(
-            clients.openWindow('/')
+            self.clients.openWindow('/')
         );
     }
 });
@@ -202,3 +200,11 @@ self.addEventListener('message', event => {
 });
 
 console.log('Service Worker: Switch Waste Solutions SW Loaded');
+if ('production' !== process.env.NODE_ENV) console.log('Service Worker: Switch Waste Solutions SW Loaded');
+
+// Message listener for precache manifest from main thread
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});

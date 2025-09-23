@@ -188,3 +188,12 @@ For support or questions:
 ---
 
 This project was built for **Switch Waste Management Solutions**.
+
+## Netlify Deployment
+
+- **Build Command**: `npm run build`
+- **Publish Directory**: `build`
+- **Forms**: Netlify Forms enabled for contact and order forms
+- **Plugins**: sitemap generation via netlify-plugin-sitemap (configured in netlify.toml)
+- **Environment Variables**: Set `PUBLIC_URL=/` in Netlify dashboard if using subpath
+- **Custom Domain**: Configure your domain (e.g., switchwaste.co.za) in Netlify for HTTPS and redirects

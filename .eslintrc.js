@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
     node: true,
+    'jest/globals': true,
   },
   extends: [
     'eslint:recommended',
@@ -20,7 +21,7 @@ module.exports = {
   plugins: ['react', 'react-hooks', 'jsx-a11y'],
   rules: {
     // General code quality
-    'no-console': 'warn',
+    'no-console': ['error', { allow: ['warn', 'error'] }],
     'no-unused-vars': 'warn',
     'prefer-const': 'error',
     'no-var': 'error',

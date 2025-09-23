@@ -21,16 +21,10 @@ const ServicesGrid = ({ services, servicesVisible }) => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`bg-gray-50 rounded-xl p-6 md:p-8 hover:shadow-xl hover:shadow-primary-100/50 transition-all duration-300 cursor-pointer group ${
+                className={`bg-gray-50 rounded-xl p-6 md:p-8 hover:shadow-xl hover:shadow-primary-100/50 transition-all duration-300 cursor-pointer group hover:-translate-y-2 hover:scale-105 ${
                   servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{ transitionDelay: `${index * 200}ms` }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                }}
               >
                 <div className="text-3xl md:text-4xl mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 text-primary-600">
                   {service.Icon && (

@@ -27,6 +27,7 @@ const StatItem = memo(({
       className={transitionClass}
       style={{ transitionDelay: delay }}
       aria-label={`${value}${suffix} ${label}`}
+      aria-hidden={!isVisible}
       data-testid={`stat-${label.toLowerCase().replace(/\s+/g, '-')}`}
     >
       <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">

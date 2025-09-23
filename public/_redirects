@@ -1,1 +1,10 @@
 /*    /index.html    200
+
+# Legacy redirects
+/services.html /services 301
+/about.html /about 301
+/contact.html /contact 301
+/products.html /products 301
+
+# Force HTTPS (Netlify handles, but explicit)
+# /* https://switchwaste.co.za/:splat 301!
