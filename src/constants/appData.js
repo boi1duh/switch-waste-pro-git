@@ -5,17 +5,17 @@ export const SERVICES_DATA = [
   {
     title: "Healthcare Risk Waste",
     description: "Complete regulated medical waste solutions for healthcare facilities",
-    icon: <FaClinicMedical className="text-blue-500" />,
+    Icon: FaClinicMedical,
   },
   {
     title: "Pharmaceutical Waste",
     description: "Safe disposal of expired, unused, and contaminated medications",
-    icon: <FaPills className="text-green-500" />,
+    Icon: FaPills,
   },
   {
     title: "General Waste & Recycling",
     description: "Comprehensive recycling solutions for paper, glass, plastic & cans",
-    icon: <FaRecycle className="text-gray-500" />,
+    Icon: FaRecycle,
   },
 ];
 

@@ -13,7 +13,8 @@ If you discover a security vulnerability in our project, please help us by repor
 **Please DO NOT report security vulnerabilities through public GitHub issues.**
 
 Instead, please report security vulnerabilities by emailing:
-- **Email**: admin@switchwaste.co.za
+
+- **Email**: <admin@switchwaste.co.za>
 - **Subject**: `[SECURITY] Vulnerability Report - Switch Waste Pro`
 
 ### What to Include
@@ -81,24 +82,28 @@ When reporting a security vulnerability, please include:
 We use the following severity levels:
 
 ### Critical
+
 - Remote code execution
 - Authentication bypass
 - Data breaches
 - System compromise
 
 ### High
+
 - SQL injection
 - Cross-site scripting (XSS)
 - Cross-site request forgery (CSRF)
 - Privilege escalation
 
 ### Medium
+
 - Information disclosure
 - Session fixation
 - Clickjacking
 - Insecure direct object references
 
 ### Low
+
 - Minor information disclosure
 - Best practice violations
 - Performance issues with security impact
@@ -117,7 +122,8 @@ We appreciate security researchers who help make our project safer. With your pe
 ## Contact Information
 
 For security-related questions or concerns:
-- **Email**: admin@switchwaste.co.za
+
+- **Email**: <admin@switchwaste.co.za>
 - **Phone**: +27 10 006 9158
 - **Address**: 48 16th Avenue, Edenvale, Johannesburg 1609
 

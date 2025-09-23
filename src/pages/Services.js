@@ -44,9 +44,9 @@ const Services = () => {
                     <div
                       className="text-5xl mb-4 inline-block"
                       role="img"
-                      aria-label={service.alt}
+                      aria-label={service.title}
                     >
-                      {typeof service.icon === 'string' ? service.icon : service.icon}
+                      {service.Icon && <service.Icon className="h-8 w-8" />}
                     </div>
                     <h3
                       id={`service-title-${index}`}

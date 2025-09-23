@@ -1,10 +1,7 @@
 import React, { lazy, Suspense } from "react";
-import { Link } from "react-router-dom";
-import { useCarousel } from "../hooks";
 import Hero from "../components/ui/Hero";
 import SEO from "../components/SEO";
 import ErrorBoundary from "../components/ErrorBoundary";
-import { FaLeaf, FaHandshake, FaShieldAlt, FaHospital, FaBuilding, FaSchool, FaHome, FaMapMarkerAlt } from 'react-icons/fa';
 import { MISSION_POINTS, EXPERTISE_AREAS, SERVICE_AREAS, FAQS, ABOUT_SLIDES } from "../constants/AboutData";
 
 // Lazy load section components for performance

@@ -18,23 +18,29 @@ Switch Waste Management Solutions provides professional waste management service
 ## 3. User Responsibilities
 
 ### 3.1 Accurate Information
+
 You agree to provide accurate, current, and complete information about yourself and your organization when using our contact forms or requesting services.
 
 ### 3.2 Compliance with Laws
+
 You agree to comply with all applicable laws, regulations, and industry standards when using our services, particularly those related to healthcare waste management.
 
 ### 3.3 Authorized Use
+
 You agree to use our website and services only for lawful purposes and in accordance with these Terms of Service.
 
 ## 4. Service Terms
 
 ### 4.1 Service Quotes
+
 All service quotes are estimates based on information provided. Final pricing may vary based on actual waste volumes, collection frequency, and specific requirements.
 
 ### 4.2 Service Availability
+
 Services are provided subject to operational feasibility, regulatory compliance, and geographic coverage within Johannesburg and surrounding areas.
 
 ### 4.3 Service Modifications
+
 We reserve the right to modify or discontinue services with reasonable notice to maintain compliance with regulations or operational requirements.
 
 ## 5. Intellectual Property
@@ -44,12 +50,15 @@ All content, trademarks, and materials on this website are owned by Switch Waste
 ## 6. Limitation of Liability
 
 ### 6.1 Service Limitations
+
 Our liability is limited to the value of services provided. We are not liable for consequential damages, lost profits, or indirect losses.
 
 ### 6.2 Regulatory Compliance
+
 While we maintain high standards of regulatory compliance, we cannot guarantee outcomes in all circumstances beyond our reasonable control.
 
 ### 6.3 Force Majeure
+
 We are not liable for delays or failures caused by circumstances beyond our reasonable control, including natural disasters, regulatory changes, or pandemics.
 
 ## 7. Confidentiality

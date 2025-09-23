@@ -1,21 +1,21 @@
 import React from 'react';
-import { FaLeaf, FaHandshake, FaShieldAlt, FaHospital, FaBuilding, FaSchool, FaHome, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaLeaf, FaHandshake, FaShieldAlt, FaHospital, FaBuilding, FaSchool, FaHome } from 'react-icons/fa';
 
 export const MISSION_POINTS = [
   {
     title: 'Environmental Protection',
     description: 'Prioritizing eco-friendly solutions that reduce environmental impact',
-    icon: <FaLeaf />
+    Icon: FaLeaf
   },
   {
     title: 'Safety First',
     description: 'Ensuring the highest safety standards for communities and healthcare workers',
-    icon: <FaShieldAlt />
+    Icon: FaShieldAlt
   },
   {
     title: 'Partnership Approach',
     description: 'Building long-term relationships based on trust and transparency',
-    icon: <FaHandshake />
+    Icon: FaHandshake
   }
 ];
 
@@ -23,22 +23,22 @@ export const EXPERTISE_AREAS = [
   {
     title: 'Healthcare Facilities',
     description: 'Hospitals, clinics, medical practices, and laboratories',
-    icon: <FaHospital />
+    Icon: FaHospital
   },
   {
     title: 'Corporate Clients',
     description: 'Office buildings, retail centers, and industrial facilities',
-    icon: <FaBuilding />
+    Icon: FaBuilding
   },
   {
     title: 'Educational Institutions',
     description: 'Schools, universities, and research facilities',
-    icon: <FaSchool />
+    Icon: FaSchool
   },
   {
     title: 'Residential Services',
     description: 'Apartment complexes, gated communities, and housing estates',
-    icon: <FaHome />
+    Icon: FaHome
   }
 ];
 

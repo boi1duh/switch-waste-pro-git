@@ -73,7 +73,7 @@ Create a descriptive branch for your work:
 ```bash
 git checkout -b feature/your-feature-name
 # or
-git checkout -b fix/issue-number-description
+git checkout -b fix/issue-number
 ```
 
 ### 2. Make Changes
@@ -82,6 +82,12 @@ git checkout -b fix/issue-number-description
 - Test your changes thoroughly
 - Follow the coding standards below
 
+### 3. Lint Your Code
+Before committing, run the linter to catch and fix any style issues.
+
+```bash
+npm run lint:fix
+```
 ### 3. Test Your Changes
 
 ```bash
@@ -145,6 +151,8 @@ type(scope): description
 
 Types:
 
+- `build`: Changes that affect the build system or external dependencies
+- `ci`: Changes to our CI configuration files and scripts
 - `feat`: New feature
 - `fix`: Bug fix
 
@@ -155,6 +163,7 @@ Types:
 - `chore`: Maintenance
 
 Examples:
+
 ```text
 feat: add contact form validation
 fix: resolve mobile menu toggle issue
@@ -190,7 +199,7 @@ npm test -- --coverage
 1. **Ensure your branch is up to date**:
 
    ```bash
-   git fetch origin
+   git fetch origin main
    git rebase origin/main
    ```
 
@@ -210,8 +219,8 @@ npm test -- --coverage
 ### Pull Request Template
 
 Please use our [Pull Request Template](.github/PULL_REQUEST_TEMPLATE.md) when creating PRs.
-## Reporting Issues {#reporting-issues}
 
+## Reporting Issues {#reporting-issues}
 
 ### Bug Reports
 

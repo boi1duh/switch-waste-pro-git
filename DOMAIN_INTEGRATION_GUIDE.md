@@ -20,49 +20,53 @@ The recommended method for this React project is to use Netlify, which provides 
 
 1. Click **"Add new site"** → **"Import an existing project"**.
 2. **Connect to GitHub** and authorize Netlify.
-4. **Select your repository** (`switch-waste-pro-git`).
-5. Netlify will auto-detect the build settings. Verify they are correct:
+3. **Select your repository** (`switch-waste-pro-git`).
+4. Netlify will auto-detect the build settings. Verify they are correct:
    - **Build Command:** `npm run build`
    - **Publish Directory:** `build`
-6. Click **"Deploy site"**. Your site will be live at a random Netlify URL (e.g., `random-name.netlify.app`).
+5. Click **"Deploy site"**. Your site will be live at a random Netlify URL (e.g., `random-name.netlify.app`).
 
 ### **Step 3: Custom Domain Setup**
 
 1. Go to **Site settings** → **Domain management**
-2. Click **"Add custom domain"**
+2. Click **"Add custom domain"**.
 3. Enter your domain: `www.switchwaste.co.za`
-4. Click **"Verify"**
+4. Click **"Verify"**.
 
 ### **Step 4: DNS Configuration**
+
 1. **Login to your domain registrar** (e.g., Domains.co.za, Afrihost)
 2. **Go to DNS settings** for `switchwaste.co.za`
 3. **Add these DNS records:**
 
    - **If you want `www.switchwaste.co.za` to be primary:**
-     ```
+
+     ```dns
      Type: CNAME
      Name: www
      Value: your-netlify-site-name.netlify.app
      ```
 
    - **If you want `switchwaste.co.za` (root domain) to be primary:**
-     ```
+
+     ```dns
      Type: A
      Name: @
      Value: 75.2.60.5 (Netlify's load balancer IP)
      ```
 
-4. **Save changes** (DNS propagation takes 24-48 hours)
+4. **Save changes**. (DNS propagation can take up to 48 hours).
 
 ### **Step 5: SSL Certificate**
 
+-
 - Netlify provides **free SSL certificates**
 - HTTPS will be automatically enabled
 - No additional configuration is needed.
 
 ---
 
-## 🧪 **TESTING YOUR DOMAIN SETUP**
+## TESTING YOUR DOMAIN SETUP
 
 ### **DNS Propagation Test**
 
@@ -78,6 +82,7 @@ openssl s_client -connect www.switchwaste.co.za:443
 ```
 
 ### **Website Testing**
+
 - [ ] HTTP to HTTPS redirect
 - [ ] www to non-www redirect (or vice versa)
 - [ ] All pages load correctly
@@ -86,6 +91,7 @@ openssl s_client -connect www.switchwaste.co.za:443
 - [ ] Page speed (Google PageSpeed Insights)
 
 ### **Email Testing**
+
 - [ ] Contact form emails arrive
 - [ ] Admin notifications work
 - [ ] Customer confirmations sent
@@ -95,16 +101,19 @@ openssl s_client -connect www.switchwaste.co.za:443
 ## 🚨 **TROUBLESHOOTING COMMON ISSUES**
 
 ### **DNS Not Propagating**
+
 - Wait 24-48 hours
 - Clear DNS cache: `ipconfig /flushdns` (Windows)
 - Check with different DNS servers (8.8.8.8, 1.1.1.1)
 
 ### **SSL Certificate Issues**
+
 - Ensure domain is fully propagated
 - Check certificate validity
 - Verify certificate chain
 
 ### **Website Not Loading or Form Issues**
+
 - Check the deploy logs in Netlify for any build errors.
 - Ensure the `_redirects` file is present in the `public` directory.
 - For form issues, verify the `data-netlify="true"` attribute and the hidden form name input are on your `<form>` tag.
@@ -114,11 +123,13 @@ openssl s_client -connect www.switchwaste.co.za:443
 ## 📞 **SUPPORT RESOURCES**
 
 ### **Domain Registrars**
+
 - **Domains.co.za:** +27 21 689 9533
 - **Afrihost:** +27 21 689 9533
 - **Hetzner:** +27 21 970 4500
 
 ### **DNS Tools**
+
 - **DNS Checker:** [dnschecker.org](https://dnschecker.org)
 - **MX Toolbox:** [mxtoolbox.com](https://mxtoolbox.com)
 - **Google Admin Toolbox:** [toolbox.googleapps.com](https://toolbox.googleapps.com)

@@ -53,17 +53,20 @@ switch-waste-pro/
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/boi1duh/switch-waste-pro-git.git
    cd switch-waste-pro-git
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start development server**
+
    ```bash
    npm start
    ```
@@ -90,7 +93,6 @@ This project is configured for continuous deployment from GitHub to Netlify.
    - **Build command**: `npm run build`
    - **Publish directory**: `build`
 3. **Deploy**: Click "Deploy site". Netlify will build and deploy your project. Any future pushes to your main branch will trigger a new deployment automatically.
-
 
 ### Manual Deployment
 
@@ -164,7 +166,6 @@ npm test
 npm run lint
 npm run lint:fix  # Auto-fix issues
 ```
-
 
 ## 🤝 Contributing
 

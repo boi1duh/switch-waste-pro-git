@@ -1,7 +1,6 @@
 import React, { useEffect, lazy, Suspense, useMemo } from "react";
 import { useIntersectionObserver, useAnimatedCounter } from "../hooks";
 import { FaClinicMedical, FaPills, FaRecycle } from 'react-icons/fa';
-import PropTypes from 'prop-types';
 import SEO from "../components/SEO";
 import ErrorBoundary from "../components/ErrorBoundary";
 import { SERVICES_DATA, INDUSTRIES_DATA } from "../constants/appData";
@@ -14,6 +13,14 @@ const StatsCounter = lazy(() => import("../components/home/StatsCounter"));
 const TrustBadges = lazy(() => import("../components/home/TrustBadges"));
 const TestimonialsSection = lazy(() => import("../components/home/TestimonialsSection"));
 const CTASection = lazy(() => import("../components/home/CTASection"));
+
+// This object is static and does not need to be recreated on every render.
+// Moving it outside the component improves performance.
+const professionalIcons = {
+  "Healthcare Risk Waste": <FaClinicMedical className="w-12 h-12 text-primary-600" />,
+  "Pharmaceutical Waste": <FaPills className="w-12 h-12 text-primary-600" />,
+  "General Waste & Recycling": <FaRecycle className="w-12 h-12 text-primary-600" />,
+};
 
 const Home = () => {
   // Intersection Observer hooks for scroll-triggered animations
@@ -48,15 +55,9 @@ const Home = () => {
     }
   }, [statsVisible, yearsCounter, complianceCounter, supportCounter, clientsCounter]);
 
-  const professionalIcons = {
-    "Healthcare Risk Waste": <FaClinicMedical className="w-12 h-12 text-primary-600" />,
-    "Pharmaceutical Waste": <FaPills className="w-12 h-12 text-primary-600" />,
-    "General Waste & Recycling": <FaRecycle className="w-12 h-12 text-primary-600" />,
-  };
-
   const updatedServices = useMemo(() => SERVICES_DATA.map(service => ({
     ...service,
-    icon: professionalIcons[service.title] || service.icon
+    Icon: professionalIcons[service.title] ? () => professionalIcons[service.title] : service.Icon
   })), []);
 
   return (
