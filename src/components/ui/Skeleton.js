@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Skeleton = ({
   className = '',
@@ -29,8 +30,15 @@ const Skeleton = ({
   return <div className={classes} style={style} {...props} />;
 };
 
+Skeleton.propTypes = {
+  className: PropTypes.string,
+  variant: PropTypes.oneOf(['rectangle', 'circle', 'text', 'title', 'avatar', 'card', 'button']),
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+};
+
 // Specific skeleton components
-const SkeletonText = ({ lines = 3, className = '', ...props }) => (
+const SkeletonText = ({ lines = 3, className = '', ...props }) => {
   <div className={`space-y-2 ${className}`} {...props}>
     {Array.from({ length: lines }, (_, i) => (
       <Skeleton
@@ -40,9 +48,14 @@ const SkeletonText = ({ lines = 3, className = '', ...props }) => (
       />
     ))}
   </div>
-);
+};
 
-const SkeletonCard = ({ className = '', showAvatar = false, ...props }) => (
+SkeletonText.propTypes = {
+  lines: PropTypes.number,
+  className: PropTypes.string,
+};
+
+const SkeletonCard = ({ className = '', showAvatar = false, ...props }) => {
   <div className={`p-4 border border-gray-200 rounded-lg ${className}`} {...props}>
     {showAvatar && (
       <div className="flex items-center space-x-3 mb-3">
@@ -59,9 +72,14 @@ const SkeletonCard = ({ className = '', showAvatar = false, ...props }) => (
       <Skeleton variant="button" width="60px" />
     </div>
   </div>
-);
+};
 
-const SkeletonTable = ({ rows = 5, columns = 4, className = '', ...props }) => (
+SkeletonCard.propTypes = {
+  className: PropTypes.string,
+  showAvatar: PropTypes.bool,
+};
+
+const SkeletonTable = ({ rows = 5, columns = 4, className = '', ...props }) => {
   <div className={`space-y-3 ${className}`} {...props}>
     {/* Table header */}
     <div className="flex space-x-4">
@@ -83,9 +101,15 @@ const SkeletonTable = ({ rows = 5, columns = 4, className = '', ...props }) => (
       </div>
     ))}
   </div>
-);
+};
 
-const SkeletonProduct = ({ className = '', ...props }) => (
+SkeletonTable.propTypes = {
+  rows: PropTypes.number,
+  columns: PropTypes.number,
+  className: PropTypes.string,
+};
+
+const SkeletonProduct = ({ className = '', ...props }) => {
   <div className={`space-y-3 ${className}`} {...props}>
     <Skeleton variant="rectangle" height="200px" />
     <Skeleton variant="title" />
@@ -95,9 +119,13 @@ const SkeletonProduct = ({ className = '', ...props }) => (
       <Skeleton variant="button" width="100px" />
     </div>
   </div>
-);
+};
 
-const SkeletonProfile = ({ className = '', ...props }) => (
+SkeletonProduct.propTypes = {
+  className: PropTypes.string,
+};
+
+const SkeletonProfile = ({ className = '', ...props }) => {
   <div className={`space-y-4 ${className}`} {...props}>
     <div className="flex items-center space-x-4">
       <Skeleton variant="avatar" width="80px" height="80px" />
@@ -108,7 +136,11 @@ const SkeletonProfile = ({ className = '', ...props }) => (
     </div>
     <SkeletonText lines={4} />
   </div>
-);
+};
+
+SkeletonProfile.propTypes = {
+  className: PropTypes.string,
+};
 
 // Attach sub-components to Skeleton
 Skeleton.Text = SkeletonText;

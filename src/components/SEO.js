@@ -72,9 +72,5 @@ SEO.propTypes = {
   structuredData: PropTypes.object
 };
 
-SEO.defaultProps = {
-  ogType: 'website',
-  twitterCard: 'summary_large_image'
-};
 
 export default SEO;

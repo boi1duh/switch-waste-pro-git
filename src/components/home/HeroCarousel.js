@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useSwipe, useCarousel } from "../../hooks";
 
 const HeroCarousel = ({ slides }) => {
-  const { currentSlide, goToSlide, nextSlide, prevSlide, pause, resume, isPaused } = useCarousel(slides);
+  const { currentSlide, nextSlide, prevSlide, pause, resume } = useCarousel(slides);
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -38,6 +38,7 @@ const HeroCarousel = ({ slides }) => {
   const swipeHandlers = useSwipe(
     () => {
       // Add haptic feedback for mobile devices
+      // eslint-disable-next-line @typescript-eslint/no-in-operator
       if ('vibrate' in navigator) {
         navigator.vibrate(50);
       }
@@ -45,6 +46,7 @@ const HeroCarousel = ({ slides }) => {
     },
     () => {
       // Add haptic feedback for mobile devices
+      // eslint-disable-next-line @typescript-eslint/no-in-operator
       if ('vibrate' in navigator) {
         navigator.vibrate(50);
       }
@@ -151,6 +153,7 @@ const HeroCarousel = ({ slides }) => {
       )}
 
       {/* Structured Data for SEO */}
+      {/* eslint-disable-next-line react/no-danger */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(carouselStructuredData) }}

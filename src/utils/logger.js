@@ -1,14 +1,8 @@
+/* eslint-disable no-console */
 /**
  * Logger utility for consistent logging across the application
  * Replaces console statements with proper logging levels
  */
-
-const LOG_LEVELS = {
-  ERROR: 'error',
-  WARN: 'warn',
-  INFO: 'info',
-  DEBUG: 'debug'
-};
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 

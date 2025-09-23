@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaClinicMedical, FaPills, FaRecycle } from 'react-icons/fa';
 
 export const SERVICES_DATA = [

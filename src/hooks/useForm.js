@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useState, useCallback } from 'react';
 
 const useForm = (initialValues = {}, validate = () => ({})) => {

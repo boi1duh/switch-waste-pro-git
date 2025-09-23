@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const useScrollDirection = () => {
@@ -40,6 +40,7 @@ const Header = ({
   const scrollDirection = useScrollDirection();
   const searchInputRef = useRef(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleMenuClose = () => {
     setActiveMegaMenu(null);
@@ -47,6 +48,25 @@ const Header = ({
       toggleMenu();
     }
   };
+
+  useEffect(() => {
+    setActiveMegaMenu(null);
+  }, [location.pathname]);
+
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (headerRef.current && !headerRef.current.contains(event.target) && activeMegaMenu) {
+        setActiveMegaMenu(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [activeMegaMenu]);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -64,7 +84,7 @@ const Header = ({
   }, [isSearchOpen]);
   
   return (
-    <header className={`bg-white shadow-md sticky top-0 z-40 transition-transform duration-300 ${scrollDirection === "down" ? "-translate-y-full" : "translate-y-0"}`}>
+    <header ref={headerRef} className={`bg-transparent/80 backdrop-blur-md shadow-lg sticky top-0 z-40 transition-all duration-300 ${scrollDirection === "down" ? "-translate-y-full" : "translate-y-0"} border-b border-white/20`}>
       <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
         <Link to="/" onClick={handleMenuClose} className="flex-shrink-0">
           <img src={`${process.env.PUBLIC_URL}/assets/logo/switch_Pro_logo.png`} alt="Switch Waste Pro Logo" className="h-10 w-auto" />

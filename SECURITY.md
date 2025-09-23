@@ -26,7 +26,7 @@ When reporting a security vulnerability, please include:
 - **Impact**: Potential impact and severity of the vulnerability
 - **Environment**: Browser, OS, and any other relevant environment details
 - **Proof of Concept**: If available, include a proof of concept
-- **Contact Information**: How we can reach you for follow-up questions
+- **Your Contact Information**: How we can reach you for follow-up questions
 
 ### Our Response Process
 
@@ -44,14 +44,14 @@ When reporting a security vulnerability, please include:
 - **XSS Protection**: HTML escaping and Content Security Policy
 - **CSRF Protection**: Cross-site request forgery protection
 - **Secure Headers**: Security headers for additional protection
-- **HTTPS Only**: All communications use HTTPS encryption
+- **HTTPS Only**: All communications are encrypted using HTTPS
 
 ### Code Security
 
 - **Dependency Scanning**: Regular security audits of dependencies
 - **Code Reviews**: All code changes undergo security review
 - **Static Analysis**: Automated security testing in CI/CD pipeline
-- **Vulnerability Management**: Regular updates of dependencies
+- **Vulnerability Management**: Regular updates of dependencies to address known vulnerabilities
 
 ### Infrastructure Security
 

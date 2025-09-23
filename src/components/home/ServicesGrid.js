@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const ServicesGrid = ({ services, servicesVisible }) => {
@@ -62,6 +63,17 @@ const ServicesGrid = ({ services, servicesVisible }) => {
       </div>
     </>
   );
+};
+
+ServicesGrid.propTypes = {
+  services: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      Icon: PropTypes.elementType,
+    })
+  ).isRequired,
+  servicesVisible: PropTypes.bool,
 };
 
 export default memo(ServicesGrid);

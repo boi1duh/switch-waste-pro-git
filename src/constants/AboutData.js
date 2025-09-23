@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaLeaf, FaHandshake, FaShieldAlt, FaHospital, FaBuilding, FaSchool, FaHome } from 'react-icons/fa';
 
 export const MISSION_POINTS = [

@@ -6,16 +6,27 @@ A modern, responsive React application for Switch Waste Management Solutions, pr
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.2.4-38B2AC.svg)
 ![Netlify](https://img.shields.io/badge/Netlify-Deployed-00C7B7.svg)
 
-## Features
+## ✨ Features
 
-- **Modern React Architecture**: Built with Create React App, React 18, and modern JavaScript
-- **Responsive Design**: Fully responsive with Tailwind CSS
-- **Professional UI**: Clean, modern design with consistent branding
-- **SEO Optimized**: Meta tags, structured data, and semantic HTML
-- **Performance Focused**: Optimized bundle size and loading times
-- **Accessibility**: WCAG compliant components and navigation
-- **PWA Ready**: Service worker and manifest for offline functionality
-- **Continuous Deployment**: Automated deployment from GitHub to Netlify
+### Project Highlights
+
+- **Modern React Architecture**: Built with React 18, functional components, and hooks.
+- **Responsive Design**: Fully responsive, mobile-first UI using Tailwind CSS.
+- **Performance Focused**: Optimized for fast loading times with code splitting.
+- **SEO Optimized**: Enhanced for search engines with `react-helmet-async`, semantic HTML, and a sitemap.
+- **PWA Ready**: Includes a service worker and manifest for offline capabilities.
+- **Accessible**: Designed with WCAG standards in mind.
+- **Continuous Deployment**: CI/CD pipeline configured for Netlify.
+
+### Application Features
+
+- **Interactive Components**: Features a carousel, interactive forms, and smooth animations.
+- **Hero Section**: Engaging homepage banner to capture user attention.
+- **Services Grid**: Clear and concise display of waste management services.
+- **Testimonials**: Section for customer feedback and social proof.
+- **Contact Forms**: User-friendly forms for lead generation.
+- **Responsive Navigation**: A collapsible menu that works seamlessly on all devices.
+- **Comprehensive Footer**: Site-wide footer with important links and contact information.
 
 ## Project Structure
 
@@ -55,7 +66,7 @@ switch-waste-pro/
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/boi1duh/switch-waste-pro-git.git
+   git clone https://github.com/your-username/switch-waste-pro-git.git
    cd switch-waste-pro-git
    ```
 
@@ -133,25 +144,6 @@ You can also deploy manually by:
 - Modify global styles in `src/styles/`
 - Update component-specific styles
 
-## Features Overview
-
-### Frontend Features
-
-- **Responsive Design**: Optimized for all devices and screen sizes
-- **Interactive Components**: Carousel, forms, animations
-- **Professional UI**: Consistent design system
-- **SEO Optimized**: Meta tags and structured data
-- **Fast Loading**: Code splitting and optimization
-
-### Components
-
-- **Hero Section**: Engaging homepage banner with carousel
-- **Services Grid**: Display of waste management services
-- **Testimonials**: Customer feedback section
-- **Contact Forms**: Lead generation forms
-- **Navigation**: Responsive mobile menu
-- **Footer**: Site-wide footer with links
-
 ## Testing
 
 ### Running Tests
@@ -196,5 +188,3 @@ For support or questions:
 ---
 
 This project was built for **Switch Waste Management Solutions**.
-
-**Ready for GitHub Launch: Repository structured with clean root, ignored builds, optimized public/, and CI-ready.**

@@ -1,11 +1,4 @@
-import React from 'react';
 import { FaHospital, FaPills, FaExclamationTriangle, FaRecycle, FaBook, FaTruck, FaFileAlt } from 'react-icons/fa';
-
-const IconWrapper = ({ path }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={path} />
-  </svg>
-);
 
 export const SERVICES_LIST = [
   {
