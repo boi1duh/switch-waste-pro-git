@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 const Modal = ({
@@ -11,9 +11,6 @@ const Modal = ({
   showCloseButton = true,
   className = '',
 }) => {
-  const modalContentRef = useRef(null);
-  const firstFocusableRef = useRef(null);
-  const lastFocusableRef = useRef(null);
   const modalContentRef = useRef(null);
   const firstFocusableRef = useRef(null);
   const lastFocusableRef = useRef(null);
@@ -81,7 +78,7 @@ const Modal = ({
 
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget && closeOnOverlayClick) {
-      onClose();
+      stableOnClose();
     }
   };
 

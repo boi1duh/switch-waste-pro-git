@@ -105,6 +105,13 @@ This project is configured for continuous deployment from GitHub to Netlify.
    - **Publish directory**: `build`
 3. **Deploy**: Click "Deploy site". Netlify will build and deploy your project. Any future pushes to your main branch will trigger a new deployment automatically.
 
+#### Additional Netlify Configuration
+
+- **Forms**: Netlify Forms enabled for contact and order forms
+- **Plugins**: sitemap generation via netlify-plugin-sitemap (configured in netlify.toml)
+- **Environment Variables**: Set `PUBLIC_URL=/` in Netlify dashboard if using subpath
+- **Custom Domain**: Configure your domain (e.g., switchwaste.co.za) in Netlify for HTTPS and redirects
+
 ### Manual Deployment
 
 You can also deploy manually by:
@@ -188,12 +195,3 @@ For support or questions:
 ---
 
 This project was built for **Switch Waste Management Solutions**.
-
-## Netlify Deployment
-
-- **Build Command**: `npm run build`
-- **Publish Directory**: `build`
-- **Forms**: Netlify Forms enabled for contact and order forms
-- **Plugins**: sitemap generation via netlify-plugin-sitemap (configured in netlify.toml)
-- **Environment Variables**: Set `PUBLIC_URL=/` in Netlify dashboard if using subpath
-- **Custom Domain**: Configure your domain (e.g., switchwaste.co.za) in Netlify for HTTPS and redirects
