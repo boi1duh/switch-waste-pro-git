@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import logger from "../utils/logger";
 
-/* global process */
-
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
