@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button, Card } from "../components/ui";
 import logger from "../utils/logger";
 import Modal from "../components/ui/Modal";

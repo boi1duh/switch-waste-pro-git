@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, memo } from "react";
+import { useEffect, useState, useRef, memo } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useSwipe, useCarousel } from "../../hooks";

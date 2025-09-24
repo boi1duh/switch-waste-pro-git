@@ -1,4 +1,4 @@
-import React, { useEffect, lazy, Suspense, useMemo } from "react";
+import { useEffect, lazy, Suspense, useMemo } from "react";
 import { useIntersectionObserver, useAnimatedCounter } from "../hooks";
 import { FaClinicMedical, FaPills, FaRecycle } from 'react-icons/fa';
 import SEO from "../components/SEO";
