@@ -7,7 +7,7 @@ const useLocalStorage = (key, initialValue) => {
       const item = window.localStorage.getItem(key);
       return item ? JSON.parse(item) : initialValue;
     } catch (error) {
-      logger.warn(`Error reading localStorage key "${key}":`, error);
+      console.warn(`Error reading localStorage key "${key}":`, error);
       return initialValue;
     }
   });
@@ -24,7 +24,7 @@ const useLocalStorage = (key, initialValue) => {
       // Save to localStorage
       window.localStorage.setItem(key, JSON.stringify(valueToStore));
     } catch (error) {
-      logger.warn(`Error setting localStorage key "${key}":`, error);
+      console.warn(`Error setting localStorage key "${key}":`, error);
     }
   };
 
@@ -35,7 +35,7 @@ const useLocalStorage = (key, initialValue) => {
         try {
           setStoredValue(JSON.parse(e.newValue));
         } catch (error) {
-          logger.warn(`Error parsing localStorage value for key "${key}":`, error);
+          console.warn(`Error parsing localStorage value for key "${key}":`, error);
         }
       }
     };

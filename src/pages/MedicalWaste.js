@@ -1,4 +1,3 @@
-import React from "react";
 import Hero from "../components/ui/Hero";
 import Carousel from "../components/ui/Carousel";
 import ContentSection from "../components/ui/ContentSection";

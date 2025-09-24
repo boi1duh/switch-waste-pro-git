@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { FaHeartbeat, FaVial, FaNotesMedical, FaSyringe, FaHospital, FaUserMd, FaCogs } from 'react-icons/fa';
 import Hero from "../components/ui/Hero";

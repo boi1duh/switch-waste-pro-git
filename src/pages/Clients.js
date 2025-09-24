@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { FaHandshake, FaClipboardList, FaClock, FaBullseye, FaTrophy, FaCertificate, FaLightbulb } from 'react-icons/fa';
 

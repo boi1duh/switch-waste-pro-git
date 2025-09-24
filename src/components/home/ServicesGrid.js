@@ -1,11 +1,10 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const ServicesGrid = ({ services, servicesVisible }) => {
   return (
-    <>
-      <div className="relative py-16 bg-white">
+    <div className="relative py-16 bg-white">
         {/* Continued overlay from hero banner */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent pointer-events-none"></div>
 
@@ -55,7 +54,6 @@ const ServicesGrid = ({ services, servicesVisible }) => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 

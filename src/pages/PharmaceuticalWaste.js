@@ -1,4 +1,3 @@
-import React from "react";
 import { FaPills, FaLock, FaBiohazard, FaTruck } from 'react-icons/fa';
 import Hero from "../components/ui/Hero";
 import Carousel from "../components/ui/Carousel";

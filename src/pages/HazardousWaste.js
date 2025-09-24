@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { FaExclamationTriangle, FaVial, FaTruck, FaFileSignature, FaShieldAlt, FaFire, FaChartBar } from 'react-icons/fa';
 import Hero from "../components/ui/Hero";
